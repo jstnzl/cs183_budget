@@ -1,0 +1,118 @@
+timestamp: 2018-05-02T11:10:14.698000
+CREATE TABLE "auth_user"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "first_name" CHAR(128),
+    "last_name" CHAR(128),
+    "email" CHAR(512),
+    "password" CHAR(512),
+    "registration_key" CHAR(512),
+    "reset_password_key" CHAR(512),
+    "registration_id" CHAR(512)
+);
+success!
+timestamp: 2018-05-02T11:10:15.001000
+CREATE TABLE "auth_group"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "role" CHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2018-05-02T11:10:15.253000
+CREATE TABLE "auth_membership"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-05-02T11:10:15.561000
+CREATE TABLE "auth_permission"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  ,
+    "name" CHAR(512),
+    "table_name" CHAR(512),
+    "record_id" INTEGER
+);
+success!
+timestamp: 2018-05-02T11:10:15.798000
+CREATE TABLE "auth_event"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "time_stamp" TIMESTAMP,
+    "client_ip" CHAR(512),
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "origin" CHAR(512),
+    "description" TEXT
+);
+success!
+timestamp: 2018-05-02T11:10:16.063000
+CREATE TABLE "auth_cas"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "created_on" TIMESTAMP,
+    "service" CHAR(512),
+    "ticket" CHAR(512),
+    "renew" CHAR(1)
+);
+success!
+timestamp: 2018-05-02T11:10:16.331000
+CREATE TABLE "client"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "name" CHAR(512),
+    "company" CHAR(512),
+    "email" CHAR(512),
+    "phone" CHAR(512),
+    "info" TEXT
+);
+success!
+timestamp: 2018-05-02T11:10:16.610000
+CREATE TABLE "department"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "name" CHAR(512),
+    "location" CHAR(512),
+    "phone" CHAR(512)
+);
+success!
+timestamp: 2018-05-02T11:10:16.880000
+CREATE TABLE "employee"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "name" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "department" INTEGER REFERENCES "department" ("id") ON DELETE CASCADE  ,
+    "position" CHAR(512),
+    "email" CHAR(512),
+    "phone" CHAR(512)
+);
+success!
+timestamp: 2018-05-02T11:10:17.141000
+CREATE TABLE "project"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "name" CHAR(512),
+    "client" INTEGER REFERENCES "client" ("id") ON DELETE CASCADE  ,
+    "team" TEXT,
+    "description" TEXT,
+    "due_date" DATE,
+    "completed" CHAR(1),
+    "is_active" CHAR(1),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "modified_on" TIMESTAMP,
+    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-05-02T11:10:17.518000
+CREATE TABLE "post"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "page_id" INTEGER REFERENCES "project" ("id") ON DELETE CASCADE  ,
+    "post" TEXT,
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
+timestamp: 2018-05-02T11:10:18.079000
+CREATE TABLE "assest"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "page_id" INTEGER REFERENCES "project" ("id") ON DELETE CASCADE  ,
+    "name" CHAR(512),
+    "assest" CHAR(512),
+    "created_on" TIMESTAMP,
+    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
+);
+success!
