@@ -5,110 +5,48 @@
 
 <div class="main_content">
 
-  <!-- Here goes your main HTML code. -->
-  {{if auth.user is not None:}}
+  <!DOCTYPE html>
+  <html>
+  <body onload="myFunction()">
 
-  <div class="add_btn">
-    <a class="btn red rounded" href="{{=URL('default', 'add')}}"><i class="fa fa-plus"></i> Add</a>
-  </div>
-  {{if checklists:}}
-    <!-- First print list of memos you currently own !-->
-    <h2>Your Memos (Public and Private)</h2>
-    {{for cl in checklists:}}
-      {{if cl.user_email == auth.user.email:}}
-          <div class="memo">
-            <div class="memo_text">
-              <div class="memo_title"><b>Title:</b> {{=cl.title}}</div>
-              <div class="memo_content"><b>Body:</b> {{=cl.memo}}</div>
-            </div>
-            <div>
-              <div class="button_list">
-                <div class="buttons">
-                  <a class="btn rounded" href="{{=URL('default', 'toggle_public', args=[cl.id], user_signature=True)}}">
-                    {{if cl.is_public:}}
-                    <i class="fa fa-users"></i>
-                    {{else:}}
-                    <i class="fa fa-user"></i>
-                    {{pass}}
-                  </a>
-                  <a class="btn rounded" href="{{=URL('default', 'edit', args=[cl.id])}}">
-                    <i class="fa fa-edit fa-lg"></i>
-                  </a>
-                  <a class="btn rounded" style="background-color:red" href="{{=URL('default', 'delete', args=[cl.id], user_signature=True)}}">
-                    <i class="fa fa-trash fa-lg"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-      {{pass}}
-    {{pass}}
-    <!-- Public list now !-->
-    <h2>Other's Public Memos</h2>
-    {{for cl in checklists:}}
-      {{if cl.user_email != auth.user.email:}}
-        <div class="memo">
-          <div class="memo_text">
-            <div class="memo_title"><b>Title:</b> {{=cl.title}}</div>
-            <div class="memo_content"><b>Body:</b> {{=cl.memo}}</div>
-          </div>
-          <div>
-            <div class="button_list">
-              <div class="buttons">
-                <a class="btn rounded" style="background-color:grey; pointer-events:none;">
-                  <i class="fa fa-users"></i>
-                </a>
-                <a class="btn rounded" style="background-color:grey; pointer-events:none;">
-                  <i class="fa fa-trash fa-lg"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      {{pass}}
-    {{pass}}
-  {{pass}}
+  <input type="file" id="myFile" multiple size="50" onchange="myFunction()">
 
-  {{if not checklists:}}
+  <p id="demo"></p>
 
-    <p>There are no checklists!  Press the Add button above to create one.</p>
+  <script>
+  function myFunction(){ 
+      var x = document.getElementById("myFile");
+      var txt = "";
+      if ('files' in x) {
+          if (x.files.length == 0) {
+              txt = "Select one or more files.";
+          } else {
+              for (var i = 0; i < x.files.length; i++) {
+                  txt += "<br><strong>" + (i+1) + ". file</strong><br>";
+                  var file = x.files[i];
+                  if ('name' in file) {
+                      txt += "name: " + file.name + "<br>";
+                  }
+                  if ('size' in file) {
+                      txt += "size: " + file.size + " bytes <br>";
+                  }
+              }
+          }
+      }
+      else {
+          if (x.value == "") {
+              txt += "Select one or more files.";
+          } else {
+              txt += "The files property is not supported by your browser!";
+              txt  += "<br>The path of the selected file: " + x.value; // If the browser does not support the files property, it will return the path of the selected file instead.
+          }
+      }
+      document.getElementById("demo").innerHTML = txt;
+  }
+  </script>
 
-  {{pass}}
+  <p><strong>Tip:</strong> Use the Control or the Shift key to select multiple files.</p>
 
-  {{else:}}
-
-   <h1 class="main_title">Welcome!</h1>
-
-    <p class="explanation">This site will help you organize your life by storing your checklists.
-        Please log in to use it.</p>
-
-    <div class="login_button">
-        <a href="{{=URL('default', 'user')}}" class="btn">Login</a>
-    </div>
-    <div class="main_content">
-      <p>Here are the public checklists</p>
-      {{for cl in public_list:}}
-          <div class="memo">
-            <div class="memo_text">
-              <div class="memo_title"><b>Title:</b> {{=cl.title}}</div>
-              <div class="memo_content"><b>Body:</b> {{=cl.memo}}</div>
-            </div>
-            <div>
-              <div class="button_list">
-                <div class="buttons">
-                  <a class="btn rounded" style="background-color:grey; pointer-events:none;">
-                    <i class="fa fa-users"></i>
-                  </a>
-                  <a class="btn rounded" style="background-color:grey; pointer-events:none;">
-                    <i class="fa fa-trash fa-lg"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-      {{pass}}
-    </div>
-
-  {{pass}}
-
+  </body>
+  </html>
 </div>

@@ -87,3 +87,14 @@ CREATE TABLE "web2py_session_asg2_start"(
     "session_data" BLOB
 );
 success!
+timestamp: 2018-05-23T16:12:13.328081
+CREATE TABLE "web2py_session_budget"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "locked" CHAR(1),
+    "client_ip" CHAR(64),
+    "created_datetime" TIMESTAMP,
+    "modified_datetime" TIMESTAMP,
+    "unique_key" CHAR(64),
+    "session_data" BLOB
+);
+success!
