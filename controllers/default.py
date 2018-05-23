@@ -20,7 +20,7 @@ def index():
     logger.info('The session is: %r' % session)
     transactions = None
     if auth.user is not None:
-        transactions = db(db.transaction.user_email == auth.user.email).select()
+        transactions = db(db.statement.user_email == auth.user.email).select()
         return dict(transactions=transactions)
 
 def no_swearing(form):
