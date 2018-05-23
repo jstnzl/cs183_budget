@@ -18,8 +18,11 @@ def index():
     return auth.wiki()
     """
     # response.flash = T("Hello World")
-    return dict(message=T('Welcome to web2py!'))
+    # return dict(message=T('Welcome to web2py!'))
+    return dict()
 
+def uploader():
+    return dict()
 
 def user():
     """
@@ -40,21 +43,6 @@ def user():
     return dict(form=auth())
 
 
-def add():
-    """Adds a checklist."""
-    form = SQLFORM(db.checklist)
-    if form.process().accepted:
-        session.flash = T("Checklist added.")
-        redirect(URL('default','index'))
-    elif form.errors:
-        session.flash = T('Please correct the info')
-    return dict(form=form)
-    
-
-@auth.requires_login()
-@auth.requires_signature()
-
-
 @cache.action()
 def download():
     """
@@ -72,5 +60,3 @@ def call():
     supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv
     """
     return service()
-
-

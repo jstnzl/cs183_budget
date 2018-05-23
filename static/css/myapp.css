@@ -41,3 +41,12 @@ div.memo div.button_list div.buttons {
 div.memo div.button_list a.btn {
   padding: 10px;
 }
+
+/* line 18, ../sass/_main.scss */
+button:disabled {
+  background-color: lightgray;
+}
+/* line 20, ../sass/_main.scss */
+button:disabled:hover {
+  box-shadow: none;
+}
