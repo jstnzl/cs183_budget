@@ -21,11 +21,8 @@ def index():
     checklists = None
     public_list = None
     if auth.user is not None:
-        checklists = db((db.checklist.user_email == auth.user.email) | (db.checklist.is_public == True)).select()
+        checklists = db(db.transactions.user_email == auth.user.email).select()
         return dict(checklists=checklists)
-    else:
-        public_list = db(db.checklist.is_public == True).select()
-        return dict(public_list = public_list)
 
 def no_swearing(form):
     if 'fool' in form.vars.memo:

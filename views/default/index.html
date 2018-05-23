@@ -14,7 +14,7 @@
   <p id="demo"></p>
 
   <script>
-  function myFunction(){ 
+  function myFunction(){
       var x = document.getElementById("myFile");
       var txt = "";
       if ('files' in x) {
@@ -23,6 +23,7 @@
           } else {
               for (var i = 0; i < x.files.length; i++) {
                   txt += "<br><strong>" + (i+1) + ". file</strong><br>";
+                  console.log(x.files[i]);
                   var file = x.files[i];
                   if ('name' in file) {
                       txt += "name: " + file.name + "<br>";
