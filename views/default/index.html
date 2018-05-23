@@ -1,169 +1,114 @@
 {{extend 'layout.html'}}
 
 {{block head}}
-<script src="{{=URL('static', 'js/vue.js')}}"></script>
-<script>
-    var memos_url = "{{=URL('api', 'get_memos')}}";
-    var add_memo_url = "{{=URL('api', 'add_memo', user_signature=True)}}";
-    var del_memo_url = "{{=URL('api', 'delete_memo', user_signature=True)}}";
-    var toggle_visibility_url = "{{=URL('api', 'toggle_visibility', user_signature=True)}}";
-    var edit_memo_url = "{{=URL('api', 'edit_memo', user_signature=True)}}";
-</script>
 {{end}}
 
 <div class="main_content">
-    <div id="vue-div" class="display:none">
-        <!-- Your code goes here.  Remember to call $("#vue-div").show() once you get the data for the first time. -->
-        <!-- Form to add tracks -->
-        <div v-if="is_adding_memo" id="add_memo_div">
-          <form action="#" v-on:submit.prevent class="form-horizontal" enctype="multipart/form-data" method="post">
-            <div class="form-group" id="no_table_title__row">
-              <div>
-                <input class="form-control string" id="no_table_title" v-model="form_title" placeholder="Title" type="text" />
-                <span class="help-block"></span>
-              </div>
-            </div>
-            <div class="form-group" id="no_table_body__row">
-              <div>
-                <textarea v-model="form_body" placeholder="Body"></textarea>
-                <span class="help-block"></span>
-              </div>
-            </div>
-          </form>
-        </div>
-        <!-- Add Memo Buttons -->
-        <div class="button_bar">
-          <button v-if="!is_adding_memo" class="btn"
-                  v-on:click="add_memo_button()"
-                  :disabled="!logged_in"
-                  v-bind:class="{'disabled': !logged_in}">
-            <i class="fa fa-plus"></i>
-          </button>
-          <button v-if="is_adding_memo" class="btn red" v-on:click="add_memo()">
-            <i class="fa fa-plus"></i> Add
-          </button>
-          <button v-if="is_adding_memo" class="btn " v-on:click="add_memo_button()">
-            <i class="fa fa-times"></i> Close
-          </button>
-        </div>
 
-      <!-- display the memos !-->
-      <div v-if="logged_in">
-        <div v-for="checklist in checklists">
+  <!-- Here goes your main HTML code. -->
+  {{if auth.user is not None:}}
+
+  <div class="add_btn">
+    <a class="btn red rounded" href="{{=URL('default', 'add')}}"><i class="fa fa-plus"></i> Add</a>
+  </div>
+  {{if checklists:}}
+    <!-- First print list of memos you currently own !-->
+    <h2>Your Memos (Public and Private)</h2>
+    {{for cl in checklists:}}
+      {{if cl.user_email == auth.user.email:}}
           <div class="memo">
-            <!-- display memo !-->
-            <div v-if="!checklist.is_being_edited" class="memo_text">
-              <div class="memo_title"><b>Title:</b> ${checklist.title}</div>
-              <div class="memo_content"><b>Body:</b> ${checklist.memo}</div>
-            </div>
-            <!-- if memo is being edited !-->
-            <div v-if="checklist.is_being_edited" id="edit_memo_div">
-                <input class="form-control string" id="edit_title" v-model="edit_title" placeholder="Title" type="text"/>
-                <textarea v-model="edit_body" placeholder="Body"></textarea>
-            </div>
-            <!-- Submit and Cancel Buttons !-->
-            <div v-if="checklist.is_being_edited" class="memo_text">
-              <button class="btn red" v-on:click="edit_memo(checklist._idx)">
-                <i class="fa fa-check"></i> Save
-              </button>
-              <button class="btn " v-on:click="edit_memo_button(checklist._idx)">
-                <i class="fa fa-times"></i> Cancel
-              </button>
+            <div class="memo_text">
+              <div class="memo_title"><b>Title:</b> {{=cl.title}}</div>
+              <div class="memo_content"><b>Body:</b> {{=cl.memo}}</div>
             </div>
             <div>
-              <!-- Public, Edit, Delete Buttons !-->
-              <div v-if="!checklist.is_being_edited" class="button_list">
+              <div class="button_list">
                 <div class="buttons">
-                  <button class="btn rounded" style="height:32px"
-                      v-on:click="toggle_visibility(checklist._idx)"
-                      :disabled="auth_email!=checklist.user_email"
-                      v-bind:class="{'disabled': auth_email!=checklist.user_email}">
-                      <i v-if="checklist.is_public" class="fa fa-users"></i>
-                      <i v-else class="fa fa-user"></i>
-                  </button>
-                  <button class="btn rounded" style="height:32px"
-                      v-on:click="edit_memo_button(checklist._idx)"
-                      :disabled="auth_email!=checklist.user_email"
-                      v-bind:class="{'disabled': auth_email!=checklist.user_email}">
+                  <a class="btn rounded" href="{{=URL('default', 'toggle_public', args=[cl.id], user_signature=True)}}">
+                    {{if cl.is_public:}}
+                    <i class="fa fa-users"></i>
+                    {{else:}}
+                    <i class="fa fa-user"></i>
+                    {{pass}}
+                  </a>
+                  <a class="btn rounded" href="{{=URL('default', 'edit', args=[cl.id])}}">
                     <i class="fa fa-edit fa-lg"></i>
-                  </button>
-                  <button class="btn rounded" style="height:32px"
-                      v-on:click="delete_memo(checklist._idx)"
-                      :disabled="auth_email!=checklist.user_email"
-                      v-bind:class="{'disabled': auth_email!=checklist.user_email}">
+                  </a>
+                  <a class="btn rounded" style="background-color:red" href="{{=URL('default', 'delete', args=[cl.id], user_signature=True)}}">
                     <i class="fa fa-trash fa-lg"></i>
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div v-if="has_more" class="show_more">
-          <button class="btn btn-default rounded" v-on:click="get_more()">
-            <i class="fa fa-ellipsis-h"></i>
-            Get more
-          </button>
-        </div>
-      </div>
-      <div v-else>
-        <div v-for="checklist in public_checklists">
-          <div class="memo">
-            <!-- display memo !-->
-            <div v-if="!checklist.is_being_edited" class="memo_text">
-              <div class="memo_title"><b>Title:</b> ${checklist.title}</div>
-              <div class="memo_content"><b>Body:</b> ${checklist.memo}</div>
-            </div>
-            <!-- if memo is being edited !-->
-            <div v-if="checklist.is_being_edited" id="edit_memo_div">
-                <input class="form-control string" id="edit_title" v-model="checklist.title" placeholder="Title" type="text"/>
-                <textarea v-model="checklist.memo" placeholder="Body"></textarea>
-            </div>
-            <!-- Submit and Cancel Buttons !-->
-            <div v-if="checklist.is_being_edited" class="memo_text">
-              <button class="btn red" v-on:click="edit_memo(checklist._idx)">
-                <i class="fa fa-check"></i> Submit
-              </button>
-              <button class="btn " v-on:click="edit_memo_button(checklist._idx)">
-                <i class="fa fa-times"></i> Cancel
-              </button>
-            </div>
-            <div>
-              <!-- Public, Edit, Delete Buttons !-->
-              <div v-if="!checklist.is_being_edited" class="button_list">
-                <div class="buttons">
-                  <button class="btn rounded" style="height:32px"
-                      v-on:click="toggle_visibility(checklist._idx)"
-                      :disabled="!logged_in"
-                      v-bind:class="{'disabled': !logged_in}">
-                      <i v-if="checklist.is_public" class="fa fa-users"></i>
-                      <i v-else class="fa fa-user"></i>
-                  </button>
-                  <button class="btn rounded" style="height:32px"
-                      v-on:click="edit_memo_button(checklist._idx)"
-                      :disabled="!logged_in"
-                      v-bind:class="{'disabled': !logged_in}">
-                    <i class="fa fa-edit fa-lg"></i>
-                  </button>
-                  <button class="btn rounded" style="height:32px"
-                      v-on:click="delete_memo(checklist._idx)"
-                      :disabled="!logged_in"
-                      v-bind:class="{'disabled': !logged_in}">
-                    <i class="fa fa-trash fa-lg"></i>
-                  </button>
-                </div>
+      {{pass}}
+    {{pass}}
+    <!-- Public list now !-->
+    <h2>Other's Public Memos</h2>
+    {{for cl in checklists:}}
+      {{if cl.user_email != auth.user.email:}}
+        <div class="memo">
+          <div class="memo_text">
+            <div class="memo_title"><b>Title:</b> {{=cl.title}}</div>
+            <div class="memo_content"><b>Body:</b> {{=cl.memo}}</div>
+          </div>
+          <div>
+            <div class="button_list">
+              <div class="buttons">
+                <a class="btn rounded" style="background-color:grey; pointer-events:none;">
+                  <i class="fa fa-users"></i>
+                </a>
+                <a class="btn rounded" style="background-color:grey; pointer-events:none;">
+                  <i class="fa fa-trash fa-lg"></i>
+                </a>
               </div>
             </div>
           </div>
         </div>
-        <div v-if="pub_has_more" class="show_more">
-          <button class="btn btn-default rounded" v-on:click="get_more_public()">
-            <i class="fa fa-ellipsis-h"></i>
-            Get more
-          </button>
-        </div>
-      </div>
+      {{pass}}
+    {{pass}}
+  {{pass}}
+
+  {{if not checklists:}}
+
+    <p>There are no checklists!  Press the Add button above to create one.</p>
+
+  {{pass}}
+
+  {{else:}}
+
+   <h1 class="main_title">Welcome!</h1>
+
+    <p class="explanation">This site will help you organize your life by storing your checklists.
+        Please log in to use it.</p>
+
+    <div class="login_button">
+        <a href="{{=URL('default', 'user')}}" class="btn">Login</a>
+    </div>
+    <div class="main_content">
+      <p>Here are the public checklists</p>
+      {{for cl in public_list:}}
+          <div class="memo">
+            <div class="memo_text">
+              <div class="memo_title"><b>Title:</b> {{=cl.title}}</div>
+              <div class="memo_content"><b>Body:</b> {{=cl.memo}}</div>
+            </div>
+            <div>
+              <div class="button_list">
+                <div class="buttons">
+                  <a class="btn rounded" style="background-color:grey; pointer-events:none;">
+                    <i class="fa fa-users"></i>
+                  </a>
+                  <a class="btn rounded" style="background-color:grey; pointer-events:none;">
+                    <i class="fa fa-trash fa-lg"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+      {{pass}}
     </div>
 
-</div>
+  {{pass}}
 
-<script src="{{=URL('static', 'js/default_index.js')}}"></script>
+</div>
