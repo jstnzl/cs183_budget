@@ -46,10 +46,11 @@ function parseLines(lines) {
      var cell = lines[i].split(',');
      for(var j=0; j<cell.length; j++){
        var value = cell[j].substring(1, cell[j].length-1)
-       if(j==0){ //date
+       if(j==0){ //date - year, month, day
         var temp = value.split('/');
-        //date = new Date(temp[2],temp[0]-1,temp[1]);
-        date = value;
+        date = (new Date(temp[2],temp[0],temp[1])).toJSON();
+        console.log(date);
+        //date = value;
       }
        else if(j==1) //price
         price = parseFloat(value);

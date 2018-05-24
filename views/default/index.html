@@ -9,15 +9,25 @@
   <html>
   <script>
     var add_transaction_url = "{{=URL('api', 'add_transaction')}}";
+    var get_transactions_url = "{{=URL('api', 'get_transactions')}}";
   </script>
   <script type="text/javascript" src="../static/js/read-csv.js"></script>
     <input type="file" id="csvFileInput" onchange="handleFiles(this.files)"
             accept=".csv">
 
-  <p><strong>Tip:</strong> Use the Control or the Shift key to select multiple files.</p>
-
-  </body>
   </html>
+  <h2>Your Transactions</h2>
+  {{if transactions:}}
+    {{for tn in transactions:}}
+      <div class="table">
+        <div class="table_cells">
+          <div class="taction_date"><b>Date:</b> {{=tn.date.strftime("%Y-%m-%d")}}</div>
+          <div class="taction_price"><b>Price:</b> {{=tn.price}}</div>
+          <div class="taction_desc"><b>Description:</b> {{=tn.description}}</div>
+        </div>
+      </div>
+    {{pass}}
+  {{pass}}
 
 
 </div>

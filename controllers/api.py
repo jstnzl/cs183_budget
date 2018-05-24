@@ -1,11 +1,14 @@
 import json
+import time
+import datetime
 # Here go your api methods.
 def add_transaction():
     data= json.loads(request.vars.data)
     for row in data:
-        print row['date']
+        #print row['date']
+        date = row['date'][:10]
         t_id = db.transactions.insert(
-            date = row['date'],
+            date = datetime.datetime.strptime(date,'%Y-%m-%d'),
             price = row['price'],
             description = row['description']
         )

@@ -1,4 +1,4 @@
-timestamp: 2018-05-23T17:17:09.070000
+timestamp: 2018-05-24T12:50:54.093000
 CREATE TABLE "web2py_session_cs183_budget"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "locked" CHAR(1),
@@ -9,7 +9,7 @@ CREATE TABLE "web2py_session_cs183_budget"(
     "session_data" BLOB
 );
 success!
-timestamp: 2018-05-23T17:17:09.142000
+timestamp: 2018-05-24T12:50:54.412000
 CREATE TABLE "auth_user"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "first_name" CHAR(128),
@@ -21,21 +21,21 @@ CREATE TABLE "auth_user"(
     "registration_id" CHAR(512)
 );
 success!
-timestamp: 2018-05-23T17:17:09.191000
+timestamp: 2018-05-24T12:50:54.722000
 CREATE TABLE "auth_group"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "role" CHAR(512),
     "description" TEXT
 );
 success!
-timestamp: 2018-05-23T17:17:09.242000
+timestamp: 2018-05-24T12:50:55.010000
 CREATE TABLE "auth_membership"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
     "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  
 );
 success!
-timestamp: 2018-05-23T17:17:09.295000
+timestamp: 2018-05-24T12:50:55.245000
 CREATE TABLE "auth_permission"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  ,
@@ -44,7 +44,7 @@ CREATE TABLE "auth_permission"(
     "record_id" INTEGER
 );
 success!
-timestamp: 2018-05-23T17:17:09.352000
+timestamp: 2018-05-24T12:50:55.469000
 CREATE TABLE "auth_event"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "time_stamp" TIMESTAMP,
@@ -54,7 +54,7 @@ CREATE TABLE "auth_event"(
     "description" TEXT
 );
 success!
-timestamp: 2018-05-23T17:17:09.443000
+timestamp: 2018-05-24T12:50:55.821000
 CREATE TABLE "auth_cas"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
@@ -64,57 +64,12 @@ CREATE TABLE "auth_cas"(
     "renew" CHAR(1)
 );
 success!
-timestamp: 2018-05-23T17:17:09.508000
+timestamp: 2018-05-24T12:50:56.097000
 CREATE TABLE "transactions"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_email" CHAR(512),
-    "date_made" DATE,
+    "date_made" TIMESTAMP,
     "price" DOUBLE,
     "description" TEXT
 );
-success!
-timestamp: 2018-05-23T17:17:09.598000
-CREATE TABLE "wiki_page"(
-    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "slug" CHAR(512),
-    "title" CHAR(255) UNIQUE,
-    "body" TEXT NOT NULL,
-    "tags" TEXT,
-    "can_read" TEXT,
-    "can_edit" TEXT,
-    "changelog" CHAR(512),
-    "html" TEXT,
-    "render" CHAR(512),
-    "is_active" CHAR(1),
-    "created_on" TIMESTAMP,
-    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
-    "modified_on" TIMESTAMP,
-    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
-);
-success!
-timestamp: 2018-05-23T17:17:09.673000
-CREATE TABLE "wiki_tag"(
-    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "name" CHAR(512),
-    "wiki_page" INTEGER REFERENCES "wiki_page" ("id") ON DELETE CASCADE  ,
-    "is_active" CHAR(1),
-    "created_on" TIMESTAMP,
-    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
-    "modified_on" TIMESTAMP,
-    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
-);
-success!
-timestamp: 2018-05-23T17:17:09.723000
-CREATE TABLE "wiki_media"(
-    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "wiki_page" INTEGER REFERENCES "wiki_page" ("id") ON DELETE CASCADE  ,
-    "title" CHAR(512),
-    "filename" CHAR(512),
-    "is_active" CHAR(1),
-    "created_on" TIMESTAMP,
-    "created_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
-    "modified_on" TIMESTAMP,
-    "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
-);
-success!
 success!
