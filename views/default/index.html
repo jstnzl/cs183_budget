@@ -7,7 +7,9 @@
 
   <!DOCTYPE html>
   <html>
-
+  <script>
+    var add_transaction_url = "{{=URL('api', 'add_transaction')}}";
+  </script>
   <script type="text/javascript" src="static/js/read-csv.js"></script>
     <input type="file" id="csvFileInput" onchange="handleFiles(this.files)"
             accept=".csv">
@@ -61,10 +63,11 @@
        }
 
        function parseLines(lines) {
+         var table = [[],[3]];
          var date, price, description;
          for(var i=0; i<lines.length; i++) {
            var cell = lines[i].split(',');
-           console.log(cell);
+           //console.log(cell);
            for(var j=0; j<cell.length; j++){
              var value = cell[j].substring(1, cell[j].length-1)
              if(j==0){ //date
@@ -77,6 +80,14 @@
              else if(j==4) //description
               description = value;
             //console.log(cell[j]);
+            $.post(add_transaction_url,
+            {
+                date: date,
+                price: price,
+                description: description,
+            },
+            function () {
+            });
           }
          }
        }
