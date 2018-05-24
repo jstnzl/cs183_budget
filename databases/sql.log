@@ -1,5 +1,5 @@
-timestamp: 2018-05-24T16:22:42.202000
-CREATE TABLE "web2py_session_cs183_budget"(
+timestamp: 2018-05-24T16:29:27.449270
+CREATE TABLE "web2py_session_budget"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "locked" CHAR(1),
     "client_ip" CHAR(64),
@@ -9,7 +9,7 @@ CREATE TABLE "web2py_session_cs183_budget"(
     "session_data" BLOB
 );
 success!
-timestamp: 2018-05-24T16:22:42.247000
+timestamp: 2018-05-24T16:29:27.457390
 CREATE TABLE "auth_user"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "first_name" CHAR(128),
@@ -21,21 +21,21 @@ CREATE TABLE "auth_user"(
     "registration_id" CHAR(512)
 );
 success!
-timestamp: 2018-05-24T16:22:42.285000
+timestamp: 2018-05-24T16:29:27.463599
 CREATE TABLE "auth_group"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "role" CHAR(512),
     "description" TEXT
 );
 success!
-timestamp: 2018-05-24T16:22:42.316000
+timestamp: 2018-05-24T16:29:27.467946
 CREATE TABLE "auth_membership"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
-    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  
+    "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE
 );
 success!
-timestamp: 2018-05-24T16:22:42.348000
+timestamp: 2018-05-24T16:29:27.472800
 CREATE TABLE "auth_permission"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  ,
@@ -44,7 +44,7 @@ CREATE TABLE "auth_permission"(
     "record_id" INTEGER
 );
 success!
-timestamp: 2018-05-24T16:22:42.381000
+timestamp: 2018-05-24T16:29:27.477438
 CREATE TABLE "auth_event"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "time_stamp" TIMESTAMP,
@@ -54,7 +54,7 @@ CREATE TABLE "auth_event"(
     "description" TEXT
 );
 success!
-timestamp: 2018-05-24T16:22:42.413000
+timestamp: 2018-05-24T16:29:27.482589
 CREATE TABLE "auth_cas"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
@@ -64,7 +64,7 @@ CREATE TABLE "auth_cas"(
     "renew" CHAR(1)
 );
 success!
-timestamp: 2018-05-24T16:22:42.447000
+timestamp: 2018-05-24T16:29:27.489880
 CREATE TABLE "transactions"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_email" CHAR(512),
