@@ -117,3 +117,4 @@ CREATE TABLE "wiki_media"(
     "modified_by" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  
 );
 success!
+success!

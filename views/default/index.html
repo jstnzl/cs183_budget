@@ -21,15 +21,6 @@
 
   <script>
 
-  function handleFiles(files) {
-     // Check for the various File API support.
-     if (window.FileReader) {
-         // FileReader are supported.
-     } else {
-         alert('FileReader are not supported in this browser.');
-     }
-   }
-
    function handleFiles(files) {
          // Check for the various File API support.
          if (window.FileReader) {
@@ -70,32 +61,29 @@
        }
 
        function parseLines(lines) {
+         var date, price, description;
          for(var i=0; i<lines.length; i++) {
            var cell = lines[i].split(',');
-           //console.log(cell);
+           console.log(cell);
            for(var j=0; j<cell.length; j++){
              var value = cell[j].substring(1, cell[j].length-1)
+             if(j==0){ //date
+              var temp = value.split('/');
+              date = new Date(temp[2],temp[0]-1,temp[1]);
+              //console.log(date);
+            }
+             else if(j==1) //price
+              price = parseFloat(value);
+             else if(j==4) //description
+              description = value;
             //console.log(cell[j]);
           }
          }
-         //below is test (working only with line 0)
-         console.log(lines[0]);
-         var cell1=lines[0].split(',');
-         for(var j=0; j<cell1.length; j++){
-           var value = cell1[j].substring(1, cell1[j].length-1)
-           if(j=0) //date
-            var date = value;
-           else if(j=1) //price
-            var price = value;
-           else if(j=4) //description
-            var description = value;
-           console.log(value);
-        }
        }
 
        function errorHandler(evt) {
          if(evt.target.error.name == "NotReadableError") {
-             alert("Canno't read file !");
+             alert("Cannot read file !");
          }
        }
 
