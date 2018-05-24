@@ -39,7 +39,7 @@
       {{for tn in transactions:}}
         <tr>
           <div class="table_cells">
-            <td>{{=tn.date_made.strftime("%m/%d/%Y")}}</td>
+            <td>{{=tn.date_made.strftime("%m/%d/%Y")}}</td> 
             <td>${{=tn.price}}</td>
             <td>{{=tn.description}}</td>
           </div>
