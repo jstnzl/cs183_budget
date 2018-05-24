@@ -106,7 +106,9 @@ body {
   border-radius: 50%;
 }
 
-.transactions {
-  color: black;
-  font-color: black;
+.prompt {
+  text-align: center;
+  font-weight: bold;
+  color: navy;
 }
+  

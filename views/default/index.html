@@ -31,6 +31,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </head>
 
+  {{if auth.user is not None:}}
   <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
       <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Budget Tracker</a>
@@ -241,6 +242,18 @@
       </div>
       </div>
     </div>
+    
+{{else:}}
+
+   <br>
+   <h1><center>Welcome to Budget Tracker!</center></h1>
+
+    <p><center>This site will help you keep track of your spending and income!
+        Please log in to use it.</center></p>
+        
+    <br>
+
+  {{pass}}
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -287,5 +300,6 @@
         }
       });
     </script>
+
   </body>
 </html>
