@@ -15,36 +15,46 @@
 <!DOCTYPE html>
 <html>
   <div class="main_content">
-    <body>
+    {{if auth.user is not None:}}
+      <body>
+        <center><label>Upload
+          <input type="file" id="csvFileInput" size="60" onchange="handleFiles(this.files)"
+                  accept=".csv">
+        </label></center>
+        <div>
+          <canvas id="myChart" style="width=25 height=50"></canvas>
+        </div>
 
-      <center><label>Upload
-        <input type="file" id="csvFileInput" size="60" onchange="handleFiles(this.files)"
-                accept=".csv">
-      </label></center>
-      <div>
-        <canvas id="myChart" style="width=25 height=50"></canvas>
-      </div>
+      </body>
 
-    </body>
-
-  <h2>Your Transactions</h2>
-  {{if transactions:}}
-    <table id="list" style="width:100%">
-      <tr>
-        <th>Date</th>
-        <th>Price</th>
-        <th>Description</th>
-      </tr>
-      {{for tn in transactions:}}
+    <h2>Your Transactions</h2>
+    {{if transactions:}}
+      <table id="list" style="width:100%">
         <tr>
-          <div class="table_cells">
-            <td>{{=tn.date_made.strftime("%m/%d/%Y")}}</td>
-            <td>${{=tn.price}}</td>
-            <td>{{=tn.description}}</td>
-          </div>
+          <th>Date</th>
+          <th>Price</th>
+          <th>Description</th>
         </tr>
-      {{pass}}
-    </table>
+        {{for tn in transactions:}}
+          <tr>
+            <div class="table_cells">
+              <td>{{=tn.date_made.strftime("%m/%d/%Y")}}</td>
+              <td>${{=tn.price}}</td>
+              <td>{{=tn.description}}</td>
+            </div>
+          </tr>
+        {{pass}}
+      </table>
+    {{pass}}
+  {{else:}}
+    <br>
+    <h1><center>Welcome to Budget Tracker!</center></h1>
+
+    <p><center>This site will help you keep track of your spending and income!
+        Please log in to use it.</center></p>
+
+        <center><img src="../static/images/logo.png"></center>
+    <br>
   {{pass}}
 
   </div>
