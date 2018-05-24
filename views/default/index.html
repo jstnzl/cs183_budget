@@ -63,33 +63,31 @@
        }
 
        function parseLines(lines) {
-         var table = [[],[3]];
-         var date, price, description;
+         var table = [[],[]];
          for(var i=0; i<lines.length; i++) {
+           table[i]= new Array();
            var cell = lines[i].split(',');
            //console.log(cell);
            for(var j=0; j<cell.length; j++){
              var value = cell[j].substring(1, cell[j].length-1)
              if(j==0){ //date
               var temp = value.split('/');
-              date = new Date(temp[2],temp[0]-1,temp[1]);
-              //console.log(date);
+              table[i][j] = new Date(temp[2],temp[0]-1,temp[1]);
             }
              else if(j==1) //price
-              price = parseFloat(value);
+              table[i][j] = parseFloat(value);
              else if(j==4) //description
-              description = value;
+              table[i][2] = value;
             //console.log(cell[j]);
-            $.post(add_transaction_url,
-            {
-                date: date,
-                price: price,
-                description: description,
-            },
-            function () {
-            });
           }
          }
+         //console.log(table);
+         $.post(add_transaction_url,
+         {
+             table: table,
+         },
+         function () {
+         });
        }
 
        function errorHandler(evt) {
