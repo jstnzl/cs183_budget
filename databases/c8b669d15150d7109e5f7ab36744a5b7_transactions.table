@@ -27,7 +27,7 @@ p11
 I00
 sS'type'
 p12
-S'float'
+S'decimal(8,2)'
 p13
 ssS'description'
 p14

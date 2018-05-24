@@ -5,10 +5,9 @@ import datetime
 def add_transaction():
     data= json.loads(request.vars.data)
     for row in data:
-        #print row['date']
         date = row['date'][:10]
         t_id = db.transactions.insert(
-            date = datetime.datetime.strptime(date,'%Y-%m-%d'),
+            date_made = datetime.datetime.strptime(date,'%Y-%m-%d'),
             price = row['price'],
             description = row['description']
         )

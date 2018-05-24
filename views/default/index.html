@@ -33,8 +33,8 @@
     {{for tn in transactions:}}
       <div class="table">
         <div class="table_cells">
-          <div class="taction_date"><b>Date:</b> {{=tn.date.strftime("%Y-%m-%d")}}</div>
-          <div class="taction_price"><b>Price:</b> {{=tn.price}}</div>
+          <div class="taction_date"><b>Date:</b> {{=tn.date_made.strftime("%m/%d/%Y")}}</div>
+          <div class="taction_price"><b>Price:</b> ${{=tn.price}}</div>
           <div class="taction_desc"><b>Description:</b> {{=tn.description}}</div>
         </div>
       </div>
