@@ -13,19 +13,19 @@ def get_user_email():
     return auth.user.email if auth.user is not None else None
 
 
-db.define_table('checklist',
+db.define_table('transactions',
                 Field('user_email', default=get_user_email()),
-                Field('title'),
-                Field('is_public', 'boolean', default=False),
-                Field('memo', 'text'),
-                Field('updated_on', 'datetime', update=datetime.datetime.utcnow())
+                Field('date_made', 'datetime', requires = IS_DATE(format=('%d-%m-%Y'))),
+                Field('price', 'decimal(8,2)'),
+                Field('description', 'text')
                 )
 
-db.checklist.user_email.writable = False
-db.checklist.user_email.readable = False
-db.checklist.updated_on.writable = db.checklist.updated_on.readable = False
-db.checklist.id.writable = db.checklist.id.readable = False
-db.checklist.is_public.writable = db.checklist.is_public.readable = False
+db.transactions.user_email.writable = False
+db.transactions.user_email.readable = False
+db.transactions.date_made.writable = db.transactions.date_made.readable = False
+db.transactions.id.writable = db.transactions.id.readable = False
+db.transactions.price.writable = db.transactions.price.readable = False
+db.transactions.description.writable = db.transactions.description.readable = False
 
 
 # after defining tables, uncomment below to enable auditing

@@ -18,14 +18,14 @@ def index():
     return auth.wiki()
     """
     logger.info('The session is: %r' % session)
-    checklists = None
-    public_list = None
+    transactions = None
     if auth.user is not None:
-        checklists = db((db.checklist.user_email == auth.user.email) | (db.checklist.is_public == True)).select()
-        return dict(checklists=checklists)
+        transactions = db(db.transactions.user_email == auth.user.email).select()
+        return dict(transactions=transactions)
     else:
-        public_list = db(db.checklist.is_public == True).select()
-        return dict(public_list = public_list)
+        transactions = db().select(db.transactions.ALL, orderby=~db.transactions.date_made)
+        print transactions
+        return dict(transactions=transactions)
 
 def no_swearing(form):
     if 'fool' in form.vars.memo:
