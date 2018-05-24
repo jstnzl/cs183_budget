@@ -23,6 +23,8 @@ def index():
     if auth.user is not None:
         checklists = db(db.transactions.user_email == auth.user.email).select()
         return dict(checklists=checklists)
+    else:
+        return auth.wiki()
 
 def no_swearing(form):
     if 'fool' in form.vars.memo:
