@@ -2,20 +2,32 @@
 
 {{block head}}
 {{end}}
-
-<div class="main_content">
-
-  <!DOCTYPE html>
-  <html>
+<head>
   <script>
     var add_transaction_url = "{{=URL('api', 'add_transaction')}}";
     var get_transactions_url = "{{=URL('api', 'get_transactions')}}";
   </script>
   <script type="text/javascript" src="../static/js/read-csv.js"></script>
-    <input type="file" id="csvFileInput" onchange="handleFiles(this.files)"
-            accept=".csv">
+  <script src="../static/js/charts.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <link href="../static/css/stupid.css" rel="stylesheet">
+</head>
+<!-- <script src="../static/js/charts.js"></script> -->
+<!DOCTYPE html>
+<html>
+  <div class="main_content">
+    <body>
 
-  </html>
+      <label>Upload
+        <input type="file" id="csvFileInput" size="60" onchange="handleFiles(this.files)"
+                accept=".csv">
+      </label>
+      <div>
+        <canvas id="myChart" style="width=25 height=50"></canvas>
+      </div>
+
+    </body>
+
   <h2>Your Transactions</h2>
   {{if transactions:}}
     {{for tn in transactions:}}
@@ -29,5 +41,48 @@
     {{pass}}
   {{pass}}
 
+  </div>
+</html>
 
-</div>
+<script>
+
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    height: 100,
+    width:200,
+    type: 'line',
+    data: {
+        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        datasets: [{
+            label: 'Money Spent',
+            data: [12, 19, 8, 5, 25, 32, 15, 6, 20, 38, 9, 10],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
