@@ -38,38 +38,38 @@ function processData(csv) {
 }
 
 function parseLines(lines) {
- var table = [[],[]];
+ var data = [];
  for(var i=0; i<lines.length-1; i++) {
+   var date,price,description;
    if(lines[i]!=null)
    {
-     table[i]= new Array();
      var cell = lines[i].split(',');
-     //console.log(cell);
      for(var j=0; j<cell.length; j++){
        var value = cell[j].substring(1, cell[j].length-1)
        if(j==0){ //date
         var temp = value.split('/');
-        table[i][j] = new Date(temp[2],temp[0]-1,temp[1]);
+        //date = new Date(temp[2],temp[0]-1,temp[1]);
+        date = value;
       }
        else if(j==1) //price
-        table[i][j] = parseFloat(value);
+        price = parseFloat(value);
        else if(j==4) //description
-        table[i][2] = value;
-      //console.log(cell[j]);
+        description = value;
     }
+    data.push({
+      'date' : date,
+      'price' : price,
+      'description' : description
+    });
   }
  }
- for(row in table)
- {
    $.post(add_transaction_url,
    {
-       date: table[row][0],
-       price: table[row][1],
-       description: table[row][2],
+       data: JSON.stringify(data),
+       dataType: 'json',
    },
    function () {
    });
-}
 }
 
 function errorHandler(evt) {
