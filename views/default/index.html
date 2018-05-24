@@ -7,7 +7,6 @@
 
   <!DOCTYPE html>
   <html>
-  <body onload="myFunction()">
 
   <script type="text/javascript" src="static/js/read-csv.js"></script>
     <input type="file" id="csvFileInput" onchange="handleFiles(this.files)"
@@ -66,7 +65,24 @@
                    }
                    lines.push(tarr);
            }
-         console.log(lines);
+           parseLines(allTextLines);
+         //console.log(lines);
+       }
+
+       function parseLines(lines) {
+         for(var i=0; i<lines.length; i++) {
+           var cell = lines[i].split(',');
+           //console.log(cell);
+           for(var j=0; j<cell.length; j++){
+            //console.log(cell[j]);
+          }
+         }
+         //below is test (working only with line 0)
+         console.log(lines[0]);
+         var cell1=lines[0].split(',');
+         for(var j=0; j<cell1.length; j++){
+          console.log(cell1[j]);
+        }
        }
 
        function errorHandler(evt) {
