@@ -15,8 +15,8 @@ def get_user_email():
 
 db.define_table('transactions',
                 Field('user_email', default=get_user_email()),
-                Field('date_made', 'datetime', requires = IS_DATE(format=('%Y-%m-%d'))),
-                Field('price', 'float'),
+                Field('date_made', 'datetime', requires = IS_DATE(format=('%d-%m-%Y'))),
+                Field('price', 'decimal(8,2)'),
                 Field('description', 'text')
                 )
 

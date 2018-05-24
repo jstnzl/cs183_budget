@@ -23,7 +23,7 @@ def index():
         transactions = db(db.transactions.user_email == auth.user.email).select()
         return dict(transactions=transactions)
     else:
-        transactions = db().select(db.transactions.ALL)
+        transactions = db().select(db.transactions.ALL, orderby=~db.transactions.date_made)
         print transactions
         return dict(transactions=transactions)
 

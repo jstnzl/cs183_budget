@@ -30,15 +30,22 @@
 
   <h2>Your Transactions</h2>
   {{if transactions:}}
-    {{for tn in transactions:}}
-      <div class="table">
-        <div class="table_cells">
-          <div class="taction_date"><b>Date:</b> {{=tn.date.strftime("%Y-%m-%d")}}</div>
-          <div class="taction_price"><b>Price:</b> {{=tn.price}}</div>
-          <div class="taction_desc"><b>Description:</b> {{=tn.description}}</div>
-        </div>
-      </div>
-    {{pass}}
+    <table style="width:100%">
+      <tr>
+        <th>Date</th>
+        <th>Price</th>
+        <th>Description</th>
+      </tr>
+      {{for tn in transactions:}}
+        <tr>
+          <div class="table_cells">
+            <td>{{=tn.date_made.strftime("%m/%d/%Y")}}</td>
+            <td>${{=tn.price}}</td>
+            <td>{{=tn.description}}</td>
+          </div>
+        </tr>
+      {{pass}}
+    </table>
   {{pass}}
 
   </div>
