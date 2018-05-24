@@ -74,6 +74,7 @@
            var cell = lines[i].split(',');
            //console.log(cell);
            for(var j=0; j<cell.length; j++){
+             var value = cell[j].substring(1, cell[j].length-1)
             //console.log(cell[j]);
           }
          }
@@ -81,7 +82,14 @@
          console.log(lines[0]);
          var cell1=lines[0].split(',');
          for(var j=0; j<cell1.length; j++){
-          console.log(cell1[j]);
+           var value = cell1[j].substring(1, cell1[j].length-1)
+           if(j=0) //date
+            var date = value;
+           else if(j=1) //price
+            var price = value;
+           else if(j=4) //description
+            var description = value;
+           console.log(value);
         }
        }
 
