@@ -18,10 +18,10 @@
   <div class="main_content">
     <body>
 
-      <label>Upload
+      <center><label>Upload
         <input type="file" id="csvFileInput" size="60" onchange="handleFiles(this.files)"
                 accept=".csv">
-      </label>
+      </label></center>
       <div>
         <canvas id="myChart" style="width=25 height=50"></canvas>
       </div>
@@ -30,7 +30,7 @@
 
   <h2>Your Transactions</h2>
   {{if transactions:}}
-    <table style="width:100%">
+    <table id="list" style="width:100%">
       <tr>
         <th>Date</th>
         <th>Price</th>
@@ -39,7 +39,7 @@
       {{for tn in transactions:}}
         <tr>
           <div class="table_cells">
-            <td>{{=tn.date_made.strftime("%m/%d/%Y")}}</td> 
+            <td>{{=tn.date_made.strftime("%m/%d/%Y")}}</td>
             <td>${{=tn.price}}</td>
             <td>{{=tn.description}}</td>
           </div>

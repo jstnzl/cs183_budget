@@ -73,3 +73,14 @@ CREATE TABLE "transactions"(
     "description" TEXT
 );
 success!
+timestamp: 2018-05-24T15:13:08.370515
+CREATE TABLE "web2py_session_budget"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "locked" CHAR(1),
+    "client_ip" CHAR(64),
+    "created_datetime" TIMESTAMP,
+    "modified_datetime" TIMESTAMP,
+    "unique_key" CHAR(64),
+    "session_data" BLOB
+);
+success!
