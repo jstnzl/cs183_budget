@@ -10,10 +10,9 @@
   </script>
   <script type="text/javascript" src="../static/js/read-csv.js"></script>
   <script type="text/javascript" src="../static/js/delete-table.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
   <link href="../static/css/stupid.css" rel="stylesheet">
 </head>
-<!-- <script src="../static/js/charts.js"></script> -->
+
 <!DOCTYPE html>
 <html>
   <div class="main_content">
@@ -21,15 +20,15 @@
     <input type="text" id="entry" onkeyup="search()" placeholder="Search for names.." title="Search ">
       <body>
         <center>
-          <label class="label1">Upload
+          <label class="label1">Upload CSV File
             <input type="file" id="csvFileInput" size="60" onchange="handleFiles(this.files)"
                 accept=".csv">
           </label>
         </center>
-        <right>
-          <button onclick="deleteTable()">Clear Transactions Table</button>
-        </right>
-        <h2>Your Transactions</h2>
+        <div class="container-fluid">
+        <h2>Your Transactions <button class="label1" onclick="deleteTable()" style="float: right">Delete Transactions Table</button></h2>
+
+        </div>
           {{if transactions:}}
             <table id="list" style="width:100%">
               <tr>
