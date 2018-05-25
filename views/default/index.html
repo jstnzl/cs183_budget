@@ -11,13 +11,36 @@
   <script type="text/javascript" src="../static/js/read-csv.js"></script>
   <script type="text/javascript" src="../static/js/delete-table.js"></script>
   <link href="../static/css/stupid.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <!DOCTYPE html>
 <html>
   <div class="main_content">
     {{if auth.user is not None:}}
-    <input type="text" id="entry" onkeyup="search()" placeholder="Search for names.." title="Search ">
+
+    <div class="flex-container">
+      <input style="width:50%" type="text" id="entry" onkeyup="search()" placeholder="Search for names.." title="Search">
+
+      <select id="prices" onchange="selectFilter()" style="width:25%">
+        <option>Sort by Prices:</option>
+        <option value="1"> Less than $5</option>
+        <option value="2"> $5 to $10 </option>
+        <option value="3"> $11 to $20</option>
+        <option value="4"> $21 to $50</option>
+        <option value="5"> $51 to $100</option>
+        <option value="6"> $100+</option>
+      </select>
+
+      <select style="width:25%">
+        <option value="0">Sort by date:</option>
+        <option value="1">Days</option>
+        <option value="2">Weeks </option>
+        <option value="3">Months</option>
+        <option value="4">Years</option>
+      </select>
+    </div>
+
       <body>
         <center>
           <label class="label1">Upload CSV File
