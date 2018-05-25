@@ -5,7 +5,7 @@ var myChart = new Chart(ctx, {
     data: {
         labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
         datasets: [{
-            label: '# of Votes',
+            label: 'Amount of money spent per month',
             data: [12, 19, 3, 5, 2, 3, 7, 8, 3, 21, 14, 17],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
