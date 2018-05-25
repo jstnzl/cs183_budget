@@ -16,6 +16,7 @@
 <html>
   <div class="main_content">
     {{if auth.user is not None:}}
+    <input type="text" id="entry" onkeyup="search()" placeholder="Search for names.." title="Search ">
       <body>
         <center>
           <label class="label1">Upload
@@ -23,9 +24,9 @@
                 accept=".csv">
           </label>
         </center>
-        <div>
+        <!-- <div>
           <canvas id="myChart" style="width=25 height=50"></canvas>
-        </div>
+        </div> -->
         <h2>Your Transactions</h2>
           {{if transactions:}}
             <table id="list" style="width:100%">
@@ -57,3 +58,4 @@
   </div>
 </html>
 <script src="../static/js/charts.js"></script>
+<script src="../static/js/search.js"></script>

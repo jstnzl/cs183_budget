@@ -276,6 +276,42 @@ input[type="file"] {
   display: none;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+#entry {
+  
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#list {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#list th, #list td {
+  text-align: left;
+  padding: 12px;
+}
+
+#list tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#list tr.header, #list tr:hover {
+  background-color: #f1f1f1;
+}
+
+
 #list {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
