@@ -18,6 +18,7 @@
 <html>
   <div class="main_content">
     {{if auth.user is not None:}}
+    <input type="text" id="entry" onkeyup="search()" placeholder="Search for names.." title="Search ">
       <body>
         <center>
           <label class="label1">Upload
@@ -51,7 +52,6 @@
             </table>
           {{pass}}
         {{else:}}
-          <br>
             <h1><center>Welcome to Budget Tracker!</center></h1>
             <p><center>This site will help you keep track of your spending and income!
               Please log in to use it.</center></p>
@@ -61,4 +61,4 @@
     </body>
   </div>
 </html>
-<script src="../static/js/charts.js"></script>
+<script src="../static/js/search.js"></script>
