@@ -55,7 +55,7 @@ function parseLines(lines) {
         price = parseFloat(value);
        else if(j==4) //description
         description = value;
-        console.log(price);
+        //console.log(price);
     }
     data.push({
       'date' : date,
@@ -69,7 +69,8 @@ function parseLines(lines) {
        data: JSON.stringify(data),
        dataType: 'json',
    },
-   function () {
+   function (data) {
+     window.location.href = 'index.html';
    });
 }
 
