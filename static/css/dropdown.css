@@ -2,8 +2,9 @@
   background:transparent;
    width: 150px;
    padding: 10px;
+   margin-left: 20px;
    font-family:Arial, Helvetica, sans-serif;
-   font-size:1.1em;
+   font-size:1.3em;
    font-weight:500;
    color:#fff;
    border: 0;
@@ -18,10 +19,11 @@
 
 
 .filterDropdown{
-	width: 150px;
+	width: 200px;
 	overflow: hidden;
-	background: no-repeat right #428bca;
+	background: no-repeat right #056c9f;
 	border-top:#575757 1px solid;
+  height: 75px;
 	-webkit-border-radius: 4px 4px 4px 4px;
 	 -moz-border-radius: 4px 4px 4px 4px;
 		  border-radius: 4px 4px 4px 4px;

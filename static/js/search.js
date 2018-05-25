@@ -52,7 +52,8 @@ function lessThanFive(){
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[1];
     if (td) {
-      if(td.innerHTML.substring(1, td.innerHTML.length) > -5){
+      var value = td.innerHTML.substring(1, td.innerHTML.length);
+      if(value > -5 && value < 0){
         tr[i].style.display = "";
       } else {
         tr[i].style.display = "none";
@@ -67,7 +68,7 @@ function fiveToTen(){
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[1];
     if (td) {
-      var value = td.innerHTML.substring(1, td.innerHTML.length)
+      var value = td.innerHTML.substring(1, td.innerHTML.length);
       if(value < -5 && value > -10){
         tr[i].style.display = "";
       } else {
@@ -83,7 +84,7 @@ function elevenToTwenty(){
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[1];
     if (td) {
-      var value = td.innerHTML.substring(1, td.innerHTML.length)
+      var value = td.innerHTML.substring(1, td.innerHTML.length);
       if(value < -11 && value > -20){
         tr[i].style.display = "";
       } else {
@@ -99,7 +100,7 @@ function twentyOneToFifty(){
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[1];
     if (td) {
-      var value = td.innerHTML.substring(1, td.innerHTML.length)
+      var value = td.innerHTML.substring(1, td.innerHTML.length);
       if(value < -21 && value > -50){
         tr[i].style.display = "";
       } else {
@@ -115,7 +116,7 @@ function fiftyOneToHundred(){
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[1];
     if (td) {
-      var value = td.innerHTML.substring(1, td.innerHTML.length)
+      var value = td.innerHTML.substring(1, td.innerHTML.length);
       if(value < -51 && value > -100){
         tr[i].style.display = "";
       } else {
@@ -131,7 +132,7 @@ function greaterThanHundred(){
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[1];
     if (td) {
-      var value = td.innerHTML.substring(1, td.innerHTML.length)
+      var value = td.innerHTML.substring(1, td.innerHTML.length);
       if(value < -100){
         tr[i].style.display = "";
       } else {
