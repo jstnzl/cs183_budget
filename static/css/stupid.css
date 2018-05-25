@@ -259,7 +259,7 @@ a:not(.btn):not(.noeffect):after {
   transition:width 0.2s;
 }
 
-label1 {
+.label1 {
   background-color: #056c9f;
   border: none;
   color: white;
@@ -270,6 +270,10 @@ label1 {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+}
+
+input[type="file"] {
+  display: none;
 }
 
 #list {
@@ -295,9 +299,7 @@ label1 {
     color: white;
 }
 
-input[type="file"] {
-  display: none;
-}
+
 /**** modal ***/
 .modal {
   position:fixed;
