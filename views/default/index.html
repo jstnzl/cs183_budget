@@ -15,38 +15,45 @@
 <!DOCTYPE html>
 <html>
   <div class="main_content">
-    <body>
-
-      <center><label>Upload
-        <input type="file" id="csvFileInput" size="60" onchange="handleFiles(this.files)"
+    {{if auth.user is not None:}}
+      <body>
+        <center>
+          <label class="label1">Upload
+            <input type="file" id="csvFileInput" size="60" onchange="handleFiles(this.files)"
                 accept=".csv">
-      </label></center>
-      <div>
-        <canvas id="myChart" style="width=25 height=50"></canvas>
-      </div>
-
+          </label>
+        </center>
+        <div>
+          <canvas id="myChart" style="width=25 height=50"></canvas>
+        </div>
+        <h2>Your Transactions</h2>
+          {{if transactions:}}
+            <table id="list" style="width:100%">
+              <tr>
+                <th>Date</th>
+                <th>Price</th>
+                <th>Description</th>
+              </tr>
+              {{for tn in transactions:}}
+                <tr>
+                  <div class="table_cells">
+                    <td>{{=tn.date_made.strftime("%m/%d/%Y")}}</td>
+                    <td>${{=tn.price}}</td>
+                    <td>{{=tn.description}}</td>
+                  </div>
+                </tr>
+              {{pass}}
+            </table>
+          {{pass}}
+        {{else:}}
+          <br>
+            <h1><center>Welcome to Budget Tracker!</center></h1>
+            <p><center>This site will help you keep track of your spending and income!
+              Please log in to use it.</center></p>
+              <center><img src="../static/images/logo.png"></center>
+          <br>
+    {{pass}}
     </body>
-
-  <h2>Your Transactions</h2>
-  {{if transactions:}}
-    <table id="list" style="width:100%">
-      <tr>
-        <th>Date</th>
-        <th>Price</th>
-        <th>Description</th>
-      </tr>
-      {{for tn in transactions:}}
-        <tr>
-          <div class="table_cells">
-            <td>{{=tn.date_made.strftime("%m/%d/%Y")}}</td>
-            <td>${{=tn.price}}</td>
-            <td>{{=tn.description}}</td>
-          </div>
-        </tr>
-      {{pass}}
-    </table>
-  {{pass}}
-
   </div>
 </html>
 <script src="../static/js/charts.js"></script>

@@ -20,7 +20,7 @@ def index():
     logger.info('The session is: %r' % session)
     transactions = None
     if auth.user is not None:
-        transactions = db(db.transactions.user_email == auth.user.email).select()
+        transactions = db(db.transactions.user_email == auth.user.email).select(db.transactions.ALL, orderby=~db.transactions.date_made)
         return dict(transactions=transactions)
     else:
         transactions = db().select(db.transactions.ALL, orderby=~db.transactions.date_made)
