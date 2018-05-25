@@ -6,8 +6,10 @@
   <script>
     var add_transaction_url = "{{=URL('api', 'add_transaction')}}";
     var get_transactions_url = "{{=URL('api', 'get_transactions')}}";
+    var clear_table_url = "{{=URL('api', 'clear_table')}}";
   </script>
   <script type="text/javascript" src="../static/js/read-csv.js"></script>
+  <script type="text/javascript" src="../static/js/delete-table.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
   <link href="../static/css/stupid.css" rel="stylesheet">
 </head>
@@ -26,6 +28,9 @@
         <div>
           <canvas id="myChart" style="width=25 height=50"></canvas>
         </div>
+        <right>
+          <button onclick="deleteTable()">Clear Transactions Table</button>
+        </right>
         <h2>Your Transactions</h2>
           {{if transactions:}}
             <table id="list" style="width:100%">
