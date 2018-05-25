@@ -17,22 +17,44 @@
   <div class="main_content">
     {{if auth.user is not None:}}
       <body>
-        <center><label>Upload
-          <input type="file" id="csvFileInput" size="60" onchange="handleFiles(this.files)"
-                  accept=".csv">
-        </label></center>
+<<<<<<< HEAD
+        <center class="label1">Upload
+          <input type="file" id="csvFileInput" size="60" onchange="handleFiles(this.files)" accept=".csv">
+=======
+        <center>
+          <label class="label1">Upload
+            <input type="file" id="csvFileInput" size="60" onchange="handleFiles(this.files)"
+                accept=".csv">
+          </label>
+>>>>>>> 65960934dc67907672dc319b7f8d4c62aca51c8c
+        </center>
         <div>
           <canvas id="myChart" style="width=25 height=50"></canvas>
         </div>
+        <h2>Your Transactions</h2>
+          {{if transactions:}}
+            <table id="list" style="width:100%">
+              <tr>
+                <th>Date</th>
+                <th>Price</th>
+                <th>Description</th>
+              </tr>
+              {{for tn in transactions:}}
+                <tr>
+                  <div class="table_cells">
+                    <td>{{=tn.date_made.strftime("%m/%d/%Y")}}</td>
+                    <td>${{=tn.price}}</td>
+                    <td>{{=tn.description}}</td>
+                  </div>
+                </tr>
+              {{pass}}
+            </table>
+          {{pass}}
+        {{else:}}
+        <br>
+        <h1><center>Welcome to Budget Tracker!</center></h1>
 
-      <center><label1>Upload
-        <input type="file" id="csvFileInput" size="60" onchange="handleFiles(this.files)"
-                accept=".csv">
-      </label1></center>
-      <div>
-        <canvas id="myChart" style="width=25 height=50"></canvas>
-      </div>
-
+<<<<<<< HEAD
     <h2>Your Transactions</h2>
     {{if transactions:}}
       <table id="list" style="width:100%">
@@ -57,12 +79,21 @@
     <h1><center>Welcome to Budget Tracker!</center></h1>
 
     <p><center>This site will help you keep track of your spending and income!
+=======
+        <p><center>This site will help you keep track of your spending and income!
+>>>>>>> 65960934dc67907672dc319b7f8d4c62aca51c8c
         Please log in to use it.</center></p>
-
         <center><img src="../static/images/logo.png"></center>
+<<<<<<< HEAD
     <br>
   {{pass}}
+</body>
 
+=======
+        <br>
+        {{pass}}
+      </body>
+>>>>>>> 65960934dc67907672dc319b7f8d4c62aca51c8c
   </div>
 </html>
 <script src="../static/js/charts.js"></script>
