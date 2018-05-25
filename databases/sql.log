@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-timestamp: 2018-05-23T15:45:33.565000
-=======
-timestamp: 2018-05-24T14:48:53.811000
->>>>>>> master
+timestamp: 2018-05-24T16:02:33.535000
 CREATE TABLE "web2py_session_cs183_budget"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "locked" CHAR(1),
@@ -13,11 +9,7 @@ CREATE TABLE "web2py_session_cs183_budget"(
     "session_data" BLOB
 );
 success!
-<<<<<<< HEAD
-timestamp: 2018-05-23T15:45:33.649000
-=======
-timestamp: 2018-05-24T14:48:53.956000
->>>>>>> master
+timestamp: 2018-05-24T16:02:33.616000
 CREATE TABLE "auth_user"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "first_name" CHAR(128),
@@ -29,33 +21,21 @@ CREATE TABLE "auth_user"(
     "registration_id" CHAR(512)
 );
 success!
-<<<<<<< HEAD
-timestamp: 2018-05-23T15:45:33.753000
-=======
-timestamp: 2018-05-24T14:48:54.070000
->>>>>>> master
+timestamp: 2018-05-24T16:02:33.698000
 CREATE TABLE "auth_group"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "role" CHAR(512),
     "description" TEXT
 );
 success!
-<<<<<<< HEAD
-timestamp: 2018-05-23T15:45:33.834000
-=======
-timestamp: 2018-05-24T14:48:54.184000
->>>>>>> master
+timestamp: 2018-05-24T16:02:33.779000
 CREATE TABLE "auth_membership"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
     "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  
 );
 success!
-<<<<<<< HEAD
-timestamp: 2018-05-23T15:45:33.876000
-=======
-timestamp: 2018-05-24T14:48:54.311000
->>>>>>> master
+timestamp: 2018-05-24T16:02:33.884000
 CREATE TABLE "auth_permission"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "group_id" INTEGER REFERENCES "auth_group" ("id") ON DELETE CASCADE  ,
@@ -64,11 +44,7 @@ CREATE TABLE "auth_permission"(
     "record_id" INTEGER
 );
 success!
-<<<<<<< HEAD
-timestamp: 2018-05-23T15:45:33.904000
-=======
-timestamp: 2018-05-24T14:48:54.415000
->>>>>>> master
+timestamp: 2018-05-24T16:02:33.957000
 CREATE TABLE "auth_event"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "time_stamp" TIMESTAMP,
@@ -78,11 +54,7 @@ CREATE TABLE "auth_event"(
     "description" TEXT
 );
 success!
-<<<<<<< HEAD
-timestamp: 2018-05-23T15:45:33.936000
-=======
-timestamp: 2018-05-24T14:48:54.528000
->>>>>>> master
+timestamp: 2018-05-24T16:02:34.030000
 CREATE TABLE "auth_cas"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
@@ -92,19 +64,7 @@ CREATE TABLE "auth_cas"(
     "renew" CHAR(1)
 );
 success!
-<<<<<<< HEAD
-timestamp: 2018-05-23T15:45:33.996000
-CREATE TABLE "checklist"(
-    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "user_email" CHAR(512),
-    "title" CHAR(512),
-    "is_public" CHAR(1),
-    "memo" TEXT,
-    "updated_on" TIMESTAMP
-);
-success!
-=======
-timestamp: 2018-05-24T14:48:54.659000
+timestamp: 2018-05-24T16:03:45.412000
 CREATE TABLE "transactions"(
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "user_email" CHAR(512),
@@ -113,15 +73,3 @@ CREATE TABLE "transactions"(
     "description" TEXT
 );
 success!
-timestamp: 2018-05-24T15:13:08.370515
-CREATE TABLE "web2py_session_budget"(
-    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "locked" CHAR(1),
-    "client_ip" CHAR(64),
-    "created_datetime" TIMESTAMP,
-    "modified_datetime" TIMESTAMP,
-    "unique_key" CHAR(64),
-    "session_data" BLOB
-);
-success!
->>>>>>> master
