@@ -22,6 +22,9 @@ function selectFilter(){
   var x = document.getElementById("prices").value;
   console.log(x);
   switch(x){
+    case "0":
+        income();
+          break;
     case "1":
         lessThanFive();
           break;
@@ -43,7 +46,22 @@ function selectFilter(){
     default:
           break;
   }
+}
 
+function income(){
+  table = document.getElementById("list");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      var value = td.innerHTML.substring(1, td.innerHTML.length);
+      if(value > 0){
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
 }
 
 function lessThanFive(){
