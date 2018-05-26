@@ -561,7 +561,6 @@ input[type="file"] {
 
 .headerlogo {
   position: absolute;
-  left: 6%;
-  margin-top: 0.01%;
+  left: 15%;
+  margin-top: 0.1%;
 }
-
