@@ -51,18 +51,36 @@ function monthly () {
   });
 }
 
-function yearly () {
-  var ctx = document.getElementById("myChart").getContext('2d');
-  getAnnual();
-  //getMonths("2017");
 
+function monthly () {
+  var ctx = document.getElementById('myChart1').getContext('2d');
   var myChart = new Chart(ctx, {
-      type: 'line',
+    type: 'line',
+    data: {
+      labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+      datasets: [{
+        label: 'Monthly spending',
+        data: months,
+        backgroundColor: "rgba(0,130,250,0.4)"
+      }]
+    }
+  });
+}
+
+
+function yearly () {
+  var ctx = document.getElementById("myChart2").getContext('2d');
+  getAnnual();
+  console.log(annual);
+  console.log(years);
+  var myChart = new Chart(ctx, {
+      type: 'bar',
       data: {
           labels: years,
           datasets: [{
               label: 'Amount of money spent per month',
               data: annual,
+
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
                   'rgba(54, 162, 235, 0.2)',
@@ -105,6 +123,8 @@ function yearly () {
       }
   });
 }
+
+
 var years = [];
 function getYears() {
   var table = document.getElementById("list");
@@ -125,7 +145,6 @@ function getYears() {
 var annual = [];
 function getAnnual() {
   getYears();
-
   var table = document.getElementById("list");
   var tr = table.getElementsByTagName("tr");
   for(j = 0; j < years.length; j++) {
@@ -149,7 +168,7 @@ function getAnnual() {
         }
       }
     }
-    annual.push(num);
+    annual.push(parseFloat(num).toFixed(2));
   }
 }
 
@@ -216,19 +235,18 @@ function getMonths(year) {
        }
      }
    }
-   months.push(jan);
-   months.push(feb);
-   months.push(mar);
-   months.push(apr);
-   months.push(may);
-   months.push(jun);
-   months.push(jul);
-   months.push(aug);
-   months.push(sep);
-   months.push(oct);
-   months.push(nov);
-   months.push(dec);
-   //console.log(months);
+   months.push(parseFloat(jan).toFixed(2));
+   months.push(parseFloat(feb).toFixed(2));
+   months.push(parseFloat(mar).toFixed(2));
+   months.push(parseFloat(apr).toFixed(2));
+   months.push(parseFloat(may).toFixed(2));
+   months.push(parseFloat(jun).toFixed(2));
+   months.push(parseFloat(jul).toFixed(2));
+   months.push(parseFloat(aug).toFixed(2));
+   months.push(parseFloat(sep).toFixed(2));
+   months.push(parseFloat(oct).toFixed(2));
+   months.push(parseFloat(nov).toFixed(2));
+   months.push(parseFloat(dec).toFixed(2));
  }
 
 

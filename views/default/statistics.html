@@ -55,13 +55,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" onclick="yearly()">
+                <a class="nav-link" onclick="yearly();">
                   <span data-feather="calendar"></span>
                   Yearly
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" onclick="monthly()">
+                <a class="nav-link" onclick=" getMonths(2017); monthly();">
                   <span data-feather="calendar"></span>
                   Monthly
                 </a>
@@ -97,7 +97,8 @@
             {{pass}}
           </table>
 
-          <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+          <canvas class="my-4 w-100" id="myChart1" width="900" height="380"></canvas>
+          <canvas class="my-4 w-100" id="myChart2" width="900" height="380"></canvas>
           <canvas class="my-4 w-100" id="pie-chart" width="900" height="380"></canvas>
         </main>
       </div>
