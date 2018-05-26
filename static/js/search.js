@@ -17,7 +17,6 @@ function search() {
   }
 }
 
-
 function selectFilter(){
   var x = document.getElementById("prices").value;
   table = document.getElementById("list");
