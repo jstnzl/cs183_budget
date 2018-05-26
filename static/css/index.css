@@ -106,13 +106,13 @@ body {
   border-radius: 50%;
 }
 
-.prompt {
-  text-align: center;
-  font-weight: bold;
-  color: navy;
-}
 
 .budget_logo {
 margin-left: auto;
 margin-right: auto;
+}
+
+.landingtitle {
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
 }

@@ -1,3 +1,4 @@
+
 {{extend 'layout.html'}}
 
 {{block head}}
@@ -23,19 +24,18 @@
 
     <div class="flex-container">
       <input style="width:50%;" type="text" id="entry" onkeyup="search()" placeholder="Search for names.." title="Search">
-
       <div class="dropdiv">
         <h4 style="float:left">Filter by Price:</h4>
         <div class="filterDropdown">
-          <select id="prices" onchange="selectPrices(value)">
+          <select id="prices" onchange="selectFilter()">
             <option>Select a range</option>
+            <option value="0"> Income</option>
             <option value="1"> Less than $5</option>
             <option value="2"> $5 to $10 </option>
-            <option value="3"> $11 to $20</option>
-            <option value="4"> $21 to $50</option>
-            <option value="5"> $51 to $100</option>
+            <option value="3"> $10 to $20</option>
+            <option value="4"> $20 to $50</option>
+            <option value="5"> $50 to $100</option>
             <option value="6"> $100+</option>
-            <option value="7"> Income</option>
           </select>
         </div>
       </div>
@@ -43,13 +43,12 @@
       <div class="dropdiv">
         <h4 style="float:left">Filter by Date:</h4>
         <div class="filterDropdown">
-          <select id="dates" onchange="selectDates(value)">
+          <select id="prices" onchange="selectFilter()">
             <option>Select a range</option>
-            <option value="1">Today</option>
-            <option value="2">This Week </option>
-            <option value="3">This Month</option>
-            <option value="4">This Quarter</option>
-            <option value="5">This Year</option>
+            <option value="1">Days</option>
+            <option value="2">Weeks </option>
+            <option value="3">Months</option>
+            <option value="4">Years</option>
           </select>
         </div>
       </div>
@@ -89,10 +88,32 @@
             </p>
           {{pass}}
         {{else:}}
-            <h1><center>Welcome to Budget Tracker!</center></h1>
-            <p><center>This site will help you keep track of your spending and income!
-              Please log in to use it.</center></p>
-              <center><img src="../static/images/logo.png"></center>
+          <div class = "landingtitle">
+            <!--Budget Tracker-->
+          </div>
+          <div class="budgetpic">
+              <img src="../static/images/budget_image.jpg" align="right" width="700" height="500">
+            </div>
+          <div class="motto">
+              <i>Be Your Own Accountant</i>
+          </div>
+          <!--<div class="landinginfo"
+            <ul style="list-style-type: none">
+              <li>Breakdown your spending habits</li>              
+              <li>Keep track of your expenses and income</li>
+              <li>Create a spending plan</li>
+           </ul>
+          </div>-->
+
+           <div class="landingquote">
+                <br>
+                <i><b>"A budget</b> <br>is telling your money <br><b>where to go</b><br> instead of wondering<br> <b>where it went.</b>"
+                <div class="author">
+                    <br>-Dave Ramsey</i>
+                 </div>
+          </div>
+
+
           <br>
     {{pass}}
     </body>
