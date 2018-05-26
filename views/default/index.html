@@ -23,10 +23,11 @@
 
     <div class="flex-container">
       <input style="width:50%;" type="text" id="entry" onkeyup="search()" placeholder="Search for names.." title="Search">
+
       <div class="dropdiv">
         <h4 style="float:left">Filter by Price:</h4>
         <div class="filterDropdown">
-          <select id="prices" onchange="selectFilter()">
+          <select id="prices" onchange="selectPrices(value)">
             <option>Select a range</option>
             <option value="1"> Less than $5</option>
             <option value="2"> $5 to $10 </option>
@@ -34,6 +35,7 @@
             <option value="4"> $21 to $50</option>
             <option value="5"> $51 to $100</option>
             <option value="6"> $100+</option>
+            <option value="7"> Income</option>
           </select>
         </div>
       </div>
@@ -41,12 +43,13 @@
       <div class="dropdiv">
         <h4 style="float:left">Filter by Date:</h4>
         <div class="filterDropdown">
-          <select id="prices" onchange="selectFilter()">
+          <select id="dates" onchange="selectDates(value)">
             <option>Select a range</option>
-            <option value="1">Days</option>
-            <option value="2">Weeks </option>
-            <option value="3">Months</option>
-            <option value="4">Years</option>
+            <option value="1">Today</option>
+            <option value="2">This Week </option>
+            <option value="3">This Month</option>
+            <option value="4">This Quarter</option>
+            <option value="5">This Year</option>
           </select>
         </div>
       </div>
