@@ -1,58 +1,4 @@
 function monthly () {
-  var ctx = document.getElementById("myChart").getContext('2d');
-  getMonths("2017");
-  var myChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-          labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-          datasets: [{
-              label: 'Amount of money spent per month',
-              data: months,
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(255, 159, 64, 0.2)',
-                  'rgba(255, 99, 132, 0.2)',
-                  'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
-                  'rgba(75, 192, 192, 0.2)',
-                  'rgba(153, 102, 255, 0.2)',
-                  'rgba(255, 159, 64, 0.2)'
-              ],
-              borderColor: [
-                  'rgba(255,99,132,1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 64, 1)',
-                  'rgba(255,99,132,1)',
-                  'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
-                  'rgba(75, 192, 192, 1)',
-                  'rgba(153, 102, 255, 1)',
-                  'rgba(255, 159, 64, 1)'
-              ],
-              borderWidth: 1
-          }]
-      },
-      options: {
-          scales: {
-              yAxes: [{
-                  ticks: {
-                      beginAtZero:true
-                  }
-              }]
-          }
-      }
-  });
-}
-
-
-function monthly () {
   var ctx = document.getElementById('myChart1').getContext('2d');
   var myChart = new Chart(ctx, {
     type: 'line',
@@ -67,12 +13,60 @@ function monthly () {
   });
 }
 
+function compare (year1, year2) {
+  var ctx = document.getElementById('myChart3').getContext('2d');
+    var y1 = getMonths(year1);
+    var y2 = getMonths(year2);
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        datasets: [{
+          label: year1,
+          data: y1,
+          backgroundColor: "rgba(0,130,250,0.4)"
+        }, {
+          label: year2,
+          data: y2,
+          backgroundColor: "rgba(250,0,100,0.4)"
+        }]
+      }
+    });
+}
+
+
+var descriptions = [];
+var prices = [];
+var dates = [];
+
+function getData() {
+  descriptions = [];
+  prices = [];
+  dates = [];
+  var table = document.getElementById("list");
+  var tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    pr = tr[i].getElementsByTagName("td")[1];
+    de = tr[i].getElementsByTagName("td")[2];
+    if(td){
+      date = td.innerHTML;
+      dates.push(date);
+    }
+    if(pr) {
+      price = pr.innerHTML.substring(1, pr.innerHTML.length);
+      prices.push(price);
+    }
+    if(de) {
+      descript = de.innerHTML;
+      descriptions.push(descript);
+    }
+  }
+}
 
 function yearly () {
   var ctx = document.getElementById("myChart2").getContext('2d');
   getAnnual();
-  console.log(annual);
-  console.log(years);
   var myChart = new Chart(ctx, {
       type: 'bar',
       data: {
@@ -124,6 +118,23 @@ function yearly () {
   });
 }
 
+function selectYear() {
+  var x = document.getElementById("selectYear").value;
+  if(x == "2018"){
+    getMonths("2018");
+    monthly();
+  }
+  else if(x == "2017"){
+    getMonths("2017");
+    monthly();
+  }
+  else if(x == "2016"){
+    getMonths("2016");
+    monthly();
+  }
+}
+
+
 
 var years = [];
 function getYears() {
@@ -141,30 +152,20 @@ function getYears() {
   }
 }
 
-
 var annual = [];
 function getAnnual() {
+  annual = [];
+  var num = 0;
   getYears();
-  var table = document.getElementById("list");
-  var tr = table.getElementsByTagName("tr");
-  for(j = 0; j < years.length; j++) {
-    var num = 0;
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[0];
-      price = tr[i].getElementsByTagName("td")[1];
-      if (price){
-        var floating = price.innerHTML.substring(1,price.innerHTML.length);
-        if (floating < 0) {
-          value = Math.abs(parseFloat(floating));
-        }
-      }
-      if(td){
-        parse = td.innerHTML;
-        date = parse.split("/");
-        if(years[j] == date[2]) {
-          console.log(years[j]);
+  getData();
+  for(var i = 0; i < years.length; i++) {
+    num = 0;
+    for(var j = 0; j < prices.length; j++) {
+      if(prices[j] < 0) {
+        value = Math.abs(parseFloat(prices[j]));
+        dYear = dates[j].split("/");
+        if(years[i] == dYear[2]) {
           num = num + value;
-          //console.log(num +", date: " +date[2]);
         }
       }
     }
@@ -172,9 +173,8 @@ function getAnnual() {
   }
 }
 
-
-var months = [];
 function getMonths(year) {
+  months = [];
   var jan = 0, feb = 0, mar = 0, apr = 0, may = 0, jun = 0,
       jul = 0, aug = 0, sep = 0, oct = 0, nov = 0, dec = 0;
   var price, value, date, parse;
@@ -196,7 +196,6 @@ function getMonths(year) {
         switch(date[0]) {
           case "01":
             jan = jan + value;
-            console.log(jan);
             break;
           case "02":
             feb = feb + value;
@@ -247,28 +246,8 @@ function getMonths(year) {
    months.push(parseFloat(oct).toFixed(2));
    months.push(parseFloat(nov).toFixed(2));
    months.push(parseFloat(dec).toFixed(2));
+   return months;
  }
-
-
-
-
-
-// function fiftyOneToHundred(){
-//   table = document.getElementById("list");
-//   tr = table.getElementsByTagName("tr");
-//   for (i = 0; i < tr.length; i++) {
-//     td = tr[i].getElementsByTagName("td")[1];
-//     if (td) {
-//       var value = td.innerHTML.substring(1, td.innerHTML.length);
-//       if(value < -51 && value > -100){
-//         tr[i].style.display = "";
-//       } else {
-//         tr[i].style.display = "none";
-//       }
-//     }
-//   }
-// }
-
 
 
 new Chart(document.getElementById("pie-chart"), {
