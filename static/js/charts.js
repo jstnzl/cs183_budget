@@ -13,59 +13,8 @@ function monthly () {
   });
 }
 
-function compare (year1, year2) {
-  var ctx = document.getElementById('myChart3').getContext('2d');
-    var y1 = getMonths(year1);
-    var y2 = getMonths(year2);
-    var myChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-        datasets: [{
-          label: year1,
-          data: y1,
-          backgroundColor: "rgba(0,130,250,0.4)"
-        }, {
-          label: year2,
-          data: y2,
-          backgroundColor: "rgba(250,0,100,0.4)"
-        }]
-      }
-    });
-}
-
-
-var descriptions = [];
-var prices = [];
-var dates = [];
-
-function getData() {
-  descriptions = [];
-  prices = [];
-  dates = [];
-  var table = document.getElementById("list");
-  var tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    pr = tr[i].getElementsByTagName("td")[1];
-    de = tr[i].getElementsByTagName("td")[2];
-    if(td){
-      date = td.innerHTML;
-      dates.push(date);
-    }
-    if(pr) {
-      price = pr.innerHTML.substring(1, pr.innerHTML.length);
-      prices.push(price);
-    }
-    if(de) {
-      descript = de.innerHTML;
-      descriptions.push(descript);
-    }
-  }
-}
-
 function yearly () {
-  var ctx = document.getElementById("myChart2").getContext('2d');
+  var ctx = document.getElementById("myChart1").getContext('2d');
   getAnnual();
   var myChart = new Chart(ctx, {
       type: 'bar',
@@ -118,6 +67,102 @@ function yearly () {
   });
 }
 
+
+function compare (year1, year2) {
+  var ctx = document.getElementById('myChart1').getContext('2d');
+    var y1 = getMonths(year1);
+    var y2 = getMonths(year2);
+    var myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        datasets: [{
+          label: year1,
+          data: y1,
+          backgroundColor: "rgba(0,130,250,0.4)"
+        }, {
+          label: year2,
+          data: y2,
+          backgroundColor: "rgba(250,0,100,0.4)"
+        }]
+      }
+    });
+}
+
+var x = "";
+
+function return1() {
+  return x = "1";
+}
+
+function return2() {
+  return x = "2";
+}
+
+function return3() {
+  return x = "3";
+}
+
+function return4() {
+  return x = "4";
+}
+
+function clearCanvas () {
+  canvas = document.getElementById("myChart1");
+  ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+function toggler () {
+  if(x == "1"){
+    console.log("year was pressed");
+    clearCanvas();
+    yearly();
+    clearCanvas();
+  }
+  else if (x == "2") {
+    console.log("monthly was pressed");
+    clearCanvas();
+    getMonths("2018");
+    monthly();
+  }
+  else if (x == "4") {
+    console.log("compare was pressed");
+    clearCanvas();
+    compare("2018", "2017");
+  }
+}
+
+
+var descriptions = [];
+var prices = [];
+var dates = [];
+
+function getData() {
+  descriptions = [];
+  prices = [];
+  dates = [];
+  var table = document.getElementById("list");
+  var tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    pr = tr[i].getElementsByTagName("td")[1];
+    de = tr[i].getElementsByTagName("td")[2];
+    if(td){
+      date = td.innerHTML;
+      dates.push(date);
+    }
+    if(pr) {
+      price = pr.innerHTML.substring(1, pr.innerHTML.length);
+      prices.push(price);
+    }
+    if(de) {
+      descript = de.innerHTML;
+      descriptions.push(descript);
+    }
+  }
+}
+
 function selectYear() {
   var x = document.getElementById("selectYear").value;
   if(x == "2018"){
@@ -133,8 +178,6 @@ function selectYear() {
     monthly();
   }
 }
-
-
 
 var years = [];
 function getYears() {

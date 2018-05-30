@@ -20,81 +20,90 @@
 <html>
   <div class="main_content">
     {{if auth.user is not None:}}
-
-    <div class="flex-container">
-      <input style="width:50%;" type="text" id="entry" onkeyup="search()" placeholder="Search for names.." title="Search">
-      <div class="dropdiv">
-        <h4 style="float:left">Filter by Price:</h4>
-        <div class="filterDropdown">
-          <select id="prices" onchange="selectFilter()">
-            <option>Select a range</option>
-            <option value="0"> Income</option>
-            <option value="1"> Less than $5</option>
-            <option value="2"> $5 to $10 </option>
-            <option value="3"> $10 to $20</option>
-            <option value="4"> $20 to $50</option>
-            <option value="5"> $50 to $100</option>
-            <option value="6"> $100+</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="dropdiv">
-        <h4 style="float:left">Filter by Date:</h4>
-        <div class="filterDropdown">
-          <select id="prices" onchange="selectFilter()">
-            <option>Select a range</option>
-            <option value="1">Days</option>
-            <option value="2">Weeks </option>
-            <option value="3">Months</option>
-            <option value="4">Years</option>
-          </select>
-        </div>
-      </div>
-    </div>
-
       <body>
-        <center>
-          <label class="label1">Upload CSV File
-            <input type="file" id="csvFileInput" size="60" onchange="handleFiles(this.files)"
-                accept=".csv">
-          </label>
-        </center>
-        <div class="container-fluid">
-        <h2>Your Transactions <button class="label1" onclick="deleteTable()" style="float: right">Delete Transactions Table</button></h2>
-
+        <center><h2 style="margin: 0.0em 0 0.25em 0;">Your Transactions</h2></center>
+        <div class="flex-container">
+          <input type="text" id="entry" onkeyup="search()" placeholder="Search for names.." title="Search">
         </div>
-          {{if transactions:}}
-            <table id="list" style="width:100%">
-              <tr>
-                <th>Date</th>
-                <th>Price</th>
-                <th>Description</th>
-              </tr>
-              {{for tn in transactions:}}
+        <div class="container" style="background-color: #dfdfdf; padding: 20px;">
+          <div class="third">
+            <div class="flex-container" style="margin-left: 40px;">
+              <label class="label1">Upload CSV File
+                <input type="file" id="csvFileInput" size="60" onchange="handleFiles(this.files)"
+                    accept=".csv">
+              </label>
+              <button class="label1" onclick="deleteTable()" style="margin-left: 40px">Delete Transactions Table</button>
+            </div>
+            <div class="container1">
+              <div class="dropdiv">
+                <h4>Filter by Price:</h4>
+                <div class="filterDropdown">
+                  <select id="prices" onchange="selectFilter()">
+                    <option>Select a range</option>
+                    <option value="0"> Income</option>
+                    <option value="1"> Less than $5</option>
+                    <option value="2"> $5 to $10 </option>
+                    <option value="3"> $10 to $20</option>
+                    <option value="4"> $20 to $50</option>
+                    <option value="5"> $50 to $100</option>
+                    <option value="6"> $100+</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="container1">
+              <div class="dropdiv">
+                <h4 style="float:left">Filter by Date:</h4>
+                <br>
+                <div class="filterDropdown">
+                  <select id="dates" onchange="selectFilter()">
+                    <option>Select a range</option>
+                    <option value="1">Days</option>
+                    <option value="2">Weeks </option>
+                    <option value="3">Months</option>
+                    <option value="4">Years</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="twothirds">
+            {{if transactions:}}
+              <table id="list" style="width:100%">
                 <tr>
-                  <div class="table_cells">
-                    <td>{{=tn.date_made.strftime("%m/%d/%Y")}}</td>
-                    <td>${{=tn.price}}</td>
-                    <td>{{=tn.description}}</td>
-                  </div>
+                  <th>Date</th>
+                  <th>Price</th>
+                  <th>Description</th>
                 </tr>
-              {{pass}}
-            </table>
+                {{for tn in transactions:}}
+                  <tr>
+                    <div class="table_cells">
+                      <td>{{=tn.date_made.strftime("%m/%d/%Y")}}</td>
+                      <td>${{=tn.price}}</td>
+                      <td>{{=tn.description}}</td>
+                    </div>
+                  </tr>
+                {{pass}}
+              </table>
+            {{else:}}
+              <p>
+                You have no transactions! Click the "Upload CSV File" button above to get started.
+              </p>
+            {{pass}}
+          </div>
+        </div>
           {{else:}}
-            <p>
-              You have no transactions! Click the "Upload CSV File" button above to get started.
-            </p>
-          {{pass}}
-        {{else:}}
-          <h1><center>Welcome to Budget Tracker!</center></h1>
-            <p><center>This site will help you keep track of your spending and income!
-              Please log in to use it.</center></p>
+            <h1><center>Welcome to Budget Tracker!</center></h1>
+              <p><center>This site will help you keep track of your spending and income!
+                Please log in to use it.</center></p>
               <center><img src="../static/images/logo.png"></center>
 
-          <br>
-    {{pass}}
-    </body>
+              <br>
+     {{pass}}
+      </body>
+
   </div>
 </html>
 <script src="../static/js/search.js"></script>

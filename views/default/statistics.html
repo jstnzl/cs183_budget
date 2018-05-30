@@ -55,14 +55,14 @@
                   All Time <span class="sr-only">(current)</span>
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" onclick="yearly(); getData();">
+              <li class="nav-item" >
+                <a class="nav-link" value="yearly" onclick="return1(); toggler();">
                   <span data-feather="calendar"></span>
                   Yearly
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" onclick="getMonths(2018); monthly();">
+                <a class="nav-link" value="monthly" onclick="return2(); toggler();">
                   <span data-feather="calendar"></span>
                   Monthly
                 </a>
@@ -74,7 +74,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" onclick="compare(2018, 2017);">
+                <a class="nav-link" value="compare" onclick="return4(); toggler();">
                   <span data-feather="calendar"></span>
                   Compare
                 </a>
@@ -113,8 +113,6 @@
           </table>
 
           <canvas class="my-4 w-100" id="myChart1" width="900" height="380"></canvas>
-          <canvas class="my-4 w-100" id="myChart2" width="900" height="380"></canvas>
-          <canvas class="my-4 w-100" id="myChart3" width="900" height="380"></canvas>
           <canvas class="my-4 w-100" id="pie-chart" width="900" height="380"></canvas>
         </main>
       </div>

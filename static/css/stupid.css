@@ -73,7 +73,7 @@ input:not([type]):hover, input:not([type=checkbox]):not([type=radio]):not([type=
 input:invalid, input.error, textarea:invalid, textarea.error {background: #ffdfdf}
 
 /*** grid ***/
-.container {margin-right:-20px}
+.container {}
 .container>.quarter, .container>.half, .container>.third, .container>.twothirds, .container>.threequarters {display:inline-block; padding: 0 20px 0 0; vertical-align:top}
 .container>.fill{display: inline-block; padding-right: 20px; margin-right:-10px}
 .container img, .container video {max-width:100%}
@@ -259,6 +259,11 @@ a:not(.btn):not(.noeffect):after {
   transition:width 0.2s;
 }
 
+.container1 {
+  width:100%;
+  height: 200px;
+}
+
 .label1 {
   background-color: #056c9f;
   border: none;
@@ -278,6 +283,11 @@ input[type="file"] {
 
 * {
   box-sizing: border-box;
+}
+
+.bezels{
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 #entry {

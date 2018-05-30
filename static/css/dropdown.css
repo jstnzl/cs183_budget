@@ -39,17 +39,16 @@
 
 .filterDropdown {
     position: relative;
-    float: right;
-    margin-right: 50px;
+    /* float: right;
+    margin-right: 50px; */
 }
 
 .dropdiv {
     position: relative;
     display:  inline-block;
-    width: 25%;
     padding: 20px;
     padding-top: 20px;
-    padding-left: 50px;
+    padding-left: 40px;
 }
 
 .filterDropdown:before {
