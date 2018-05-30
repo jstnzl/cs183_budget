@@ -65,6 +65,9 @@ function searchingWithFilter(){
           tr[i].style.display = "none";
         }
       }
+      else if(de.innerHTML.toUpperCase().includes(filter)) {
+        tr[i].style.display = "";
+      }
       else{
         tr[i].style.display = "none";
       }
