@@ -1,3 +1,25 @@
+function findPercentages(){
+  new Chart(document.getElementById("myChart1"), {
+      type: 'pie',
+      data: {
+        labels: ["Food", "Transportation", "Misc", "Groceries", "Venmo"],
+        datasets: [{
+          label: "Transactions split by category",
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+          data: [2450,5267,734,784,433]
+        }]
+      },
+      options: {
+        title: {
+          display: true,
+          text: 'Transactions split by category'
+        }
+      }
+  });
+}
+
+
+
 function monthly () {
   var ctx = document.getElementById('myChart1').getContext('2d');
   var myChart = new Chart(ctx, {
@@ -107,6 +129,10 @@ function return4() {
   return x = "4";
 }
 
+function return5() {
+  return x = "5";
+}
+
 function clearCanvas () {
   canvas = document.getElementById("myChart1");
   ctx = canvas.getContext("2d");
@@ -130,6 +156,11 @@ function toggler () {
     console.log("compare was pressed");
     clearCanvas();
     compare("2018", "2017");
+  }
+  else if (x == "5") {
+    console.log("compare was pressed");
+    clearCanvas();
+    findPercentages();
   }
 }
 
@@ -291,22 +322,3 @@ function getMonths(year) {
    months.push(parseFloat(dec).toFixed(2));
    return months;
  }
-
-
-new Chart(document.getElementById("pie-chart"), {
-    type: 'pie',
-    data: {
-      labels: ["Food", "Transportation", "Misc", "Groceries", "Venmo"],
-      datasets: [{
-        label: "Transactions split by category",
-        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-        data: [2450,5267,734,784,433]
-      }]
-    },
-    options: {
-      title: {
-        display: true,
-        text: 'Transactions split by category'
-      }
-    }
-});
