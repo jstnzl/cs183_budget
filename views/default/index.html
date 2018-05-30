@@ -21,7 +21,7 @@
   <div class="main_content">
     {{if auth.user is not None:}}
       <body>
-        <center><h2 style="margin: 0.0em 0 0.25em 0;">Your Transactions</h2></center>
+        <center><h2 style="margin: 0.5em 0 0.25em 0;">Your Transactions</h2></center>
         <div class="flex-container">
           <input type="text" id="entry" onkeyup="searchingWithFilter(); search();" placeholder="Search for names.." title="Search">
         </div>
@@ -32,7 +32,7 @@
                 <input type="file" id="csvFileInput" size="60" onchange="handleFiles(this.files)"
                     accept=".csv">
               </label>
-              <button class="label1" onclick="deleteTable()" style="margin-left: 40px">Delete Transactions Table</button>
+              <button class="label1" onclick="refresh();" style="margin-left: 100px;">Refresh</button>
             </div>
             <div class="container1">
               <div class="dropdiv">
@@ -69,7 +69,7 @@
             </div>
 
             <div class="container1">
-              <button class="label1" onclick="refresh();" style="margin-left: 40px; margin-top: 60px;">Refresh</button>
+              <button class="label1" onclick="deleteTable()" style="margin-left: 40px; margin-top: 60px; background-color: red;">Delete Transactions Table</button>
             </div>
         </div>
 
@@ -92,9 +92,11 @@
                 {{pass}}
               </table>
             {{else:}}
-              <p>
-                You have no transactions! Click the "Upload CSV File" button above to get started.
-              </p>
+              <center>
+                <h4>
+                  You have no transactions! Click the "Upload CSV File" button above to get started.
+                </h4>
+              </center>
             {{pass}}
           </div>
         </div>

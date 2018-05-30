@@ -264,6 +264,11 @@ a:not(.btn):not(.noeffect):after {
   height: 200px;
 }
 
+.container.third {
+  border-right-width: 1px;
+  border-right-color: black;
+}
+
 .label1 {
   background-color: #056c9f;
   border: none;
