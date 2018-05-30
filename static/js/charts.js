@@ -35,6 +35,22 @@ function monthly () {
   });
 }
 
+function daily() {
+  var ctx = document.getElementById('myChart1').getContext('2d');
+  spent = dailyTimeLine();
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: mSpent,
+      datasets: [{
+        label: 'daily spending',
+        data: spent,
+        backgroundColor: "rgba(0,250,250,0.4)"
+      }]
+    }
+  });
+}
+
 function yearly () {
   var ctx = document.getElementById("myChart1").getContext('2d');
   getAnnual();
@@ -193,6 +209,23 @@ function getData() {
     }
   }
 }
+
+var mSpent = [];
+//filter by days and months
+function dailyTimeLine() {
+  mSpent = [];
+  var spent = [];
+  getData();
+  for(i = 0; i< prices.length; i++) {
+    if(prices[i] < 0) {
+      mSpent.push(dates[i]);
+      spent.push(Math.abs(prices[i]));
+    }
+  }
+  return spent;
+}
+
+
 
 function selectYear() {
   var x = document.getElementById("selectYear").value;
