@@ -14,7 +14,7 @@ function searchingWithFilter(){
           tr[i].style.display = "";
         }
         else{
-            tr[i].style.display = "none";
+          tr[i].style.display = "none";
         }
       }
       else if(x === "1"){

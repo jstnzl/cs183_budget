@@ -18,8 +18,6 @@ function findPercentages(){
   });
 }
 
-
-
 function monthly () {
   var ctx = document.getElementById('myChart1').getContext('2d');
   var myChart = new Chart(ctx, {
@@ -155,27 +153,23 @@ function clearCanvas () {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
+
 function toggler () {
   if(x == "1"){
     console.log("year was pressed");
-    clearCanvas();
     yearly();
-    clearCanvas();
   }
   else if (x == "2") {
     console.log("monthly was pressed");
-    clearCanvas();
     getMonths("2018");
     monthly();
   }
   else if (x == "4") {
     console.log("compare was pressed");
-    clearCanvas();
     compare("2018", "2017");
   }
   else if (x == "5") {
     console.log("compare was pressed");
-    clearCanvas();
     findPercentages();
   }
 }

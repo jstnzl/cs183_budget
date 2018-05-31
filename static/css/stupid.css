@@ -334,11 +334,16 @@ input[type="file"] {
   margin-top: 4px;
 }
 
-#list {
+#list{
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
     font-size: 18px;
+    border: 2px solid black;
+}
+
+.table1 {
+  border: 2px solid black;
 }
 
 #list th, #list td {
