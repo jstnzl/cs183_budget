@@ -353,6 +353,7 @@ input[type="file"] {
 #list tr {
   border: 0px;
   border-top: 1px solid #808080;
+  background-color: #f2f2f2;
 }
 
 #list td:first-child{
@@ -387,8 +388,6 @@ input[type="file"] {
 #list tr.header, #list tr:hover {
   background-color: #f1f1f1;
 }
-
-#list tr:nth-child(even){background-color: #f2f2f2;}
 
 #list tr:hover {background-color: #ddd;}
 
