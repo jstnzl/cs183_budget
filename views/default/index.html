@@ -19,33 +19,33 @@
 
 <!DOCTYPE html>
 <html>
-  <div class="main_content">
+  <div class="main_content" style="background-image: url(../static/images/penta.png);">
     {{if auth.user is not None:}}
       <body>
-        <div class="banner" style ="background-image: url(../static/images/banner.png);">
+        <div class="banner-container" style ="background-color: black; background-size: 100% 100%; margin-top"0%">
 
-          <div class="banner-text" style= "font-family: 'lobster',cursive;">
+          <div class="banner-text" style= "font-family: 'lobster',cursive; color: white;">
             <h1><center>Your Transactions</center></h1>
           </div>
         </div>
 
         <div class="flex-container">
-          <input type="text" id="entry" onkeyup="searchingWithFilter();" placeholder="Search for names.." title="Search">
+          <input type="text" id="entry" onkeyup="searchingWithFilter();" placeholder="Search for names.." title="Search" style="font-family: 'lobster'; color:black;">
         </div>
-        <div class="container" style="background-color: #dfdfdf; padding: 20px;">
+        <div class="container" style="background-color:#e2ffe9; padding: 20px;">
           <div class="third">
             <div class="flex-container" style="margin-left: 40px;">
-              <label class="label1">Upload CSV File
+              <label class="label1" style="background-color: #fca776;">Upload CSV File
                 <input type="file" id="csvFileInput" size="60" onchange="handleFiles(this.files)"
                     accept=".csv">
               </label>
-              <button class="label1" onclick="refresh();" style="margin-left: 100px;">Refresh</button>
+              <button class="label1" onclick="refresh();" style="margin-left: 100px; background-color: #fca776;">Refresh</button>
             </div>
             <div class="container1">
-              <div class="dropdiv">
+              <div class="dropdiv" style="font-family: 'lobster';" >
                 <h4>Filter by Price:</h4>
-                <div class="filterDropdown">
-                  <select id="prices" onchange="selectFilter()">
+                <div class="filterDropdown"  style="background-color: #fca776">
+                  <select id="prices" onchange="selectFilter()" style= "font-family: 'lobster'" >
                     <option>Select a range</option>
                     <option value="0"> Income</option>
                     <option value="1"> Less than $5</option>
@@ -60,11 +60,11 @@
             </div>
 
             <div class="container1">
-              <div class="dropdiv">
+              <div class="dropdiv" style="font-family: 'lobster';">
                 <h4 style="float:left">Filter by Date:</h4>
                 <br>
-                <div class="filterDropdown">
-                  <select id="dates" onchange="selectFilter()">
+                <div class="filterDropdown" style=" background-color: #fca776">
+                  <select id="dates" onchange="selectFilter()" style= "font-family: 'lobster'" >
                     <option>Select a range</option>
                     <option value="1">Days</option>
                     <option value="2">Weeks </option>
@@ -76,7 +76,7 @@
             </div>
 
             <div class="container1">
-              <button class="label1" onclick="deleteTable()" style="margin-left: 40px; margin-top: 60px; background-color: red;">Delete Transactions Table</button>
+              <button class="label1" onclick="deleteTable()" style="margin-left: 40px; margin-top: 60px; background-color: #ff5454">Delete Transactions Table</button>
             </div>
         </div>
 
@@ -100,9 +100,11 @@
               </table>
             {{else:}}
               <center>
-                <h4>
+                <div class="bodytext" style="font-family: 'Acme', sans-serif; font-size: 2em;"
+                <h2>
                   You have no transactions! Click the "Upload CSV File" button above to get started.
-                </h4>
+                </h2>
+              </div>
               </center>
             {{pass}}
           </div>
