@@ -580,14 +580,24 @@ input[type="file"] {
   margin-left: 35%;
 }
 
-.landinginfo {
-  margin-left: 8%;
-  line-height: 1.5;
-  font-size: 25px;
-  margin-top: 2%;
-  font-family: "Helvetica Neue";
-  font-weight: lighter;
+.landinglogo{
+  padding-left: 50px;
+}
 
+.landinginfo {
+  position: absolute;
+  line-height: 2.4;
+  font-size: 30px;
+  font-family:  AvantGardeBook,Helvetica;
+  font-weight: 100;
+  margin-left: 60%;
+  margin-top: 3%;
+}
+
+.signuphere {
+  font-weight: normal;
+  font-size: 20px;
+  margin-left: 12%;
 }
 
 .landingquote {
@@ -628,3 +638,5 @@ input[type="file"] {
   right: 85%;
   margin-top: 0.1%;
 }
+
+
