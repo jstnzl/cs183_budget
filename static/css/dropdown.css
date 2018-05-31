@@ -3,7 +3,7 @@
    width: 200px;
    padding: 10px;
    padding-left: 20px;
-   font-family:Arial, Helvetica, sans-serif;
+   font-family: lobster;
    font-size:1.3em;
    font-weight:500;
    color:#fff;
@@ -21,8 +21,7 @@
 .filterDropdown{
 	width: 200px;
 	overflow: hidden;
-	background: no-repeat right #056c9f;
-	border-top:#575757 1px solid;
+	background: no-repeat right #fca776;
   height: 50px;
   margin-top: 1px;
 	-webkit-border-radius: 4px 4px 4px 4px;
@@ -45,9 +44,9 @@
 
 .dropdiv {
     position: relative;
+    font-family: lobster;
     display:  inline-block;
     padding-top: 50px;
-    padding-left: 40px;
 }
 
 .filterDropdown:before {
@@ -71,7 +70,7 @@
   	height: 0;
   	border-left: 10px solid transparent;
   	border-right: 10px solid transparent;
-  	border-top: 10px solid #056c9f;
+  	border-top: 10px solid #fca776;
 }
 
 select > option {

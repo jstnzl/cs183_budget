@@ -22,30 +22,26 @@
   <div class="main_content" style="background-image: url(../static/images/penta.png);">
     {{if auth.user is not None:}}
       <body>
-        <div class="banner-container" style ="background-color: black; background-size: 100% 100%; margin-top"0%">
-
-          <div class="banner-text" style= "font-family: 'lobster',cursive; color: white;">
+        <div class="banner-container">
+          <div class="banner-text">
             <h1><center>Your Transactions</center></h1>
           </div>
         </div>
-
-        <div class="flex-container">
+        <div class="container" style="padding-top: 15px">
           <input type="text" id="entry" onkeyup="searchingWithFilter();" placeholder="Search for names.." title="Search" style="font-family: 'lobster'; color:black;">
-        </div>
-        <div class="container" style="background-color:#e2ffe9; padding: 20px;">
-          <div class="third">
-            <div class="flex-container" style="margin-left: 40px;">
-              <label class="label1" style="background-color: #fca776;">Upload CSV File
+          <div class="third" style="padding-left: 5%;">
+            <div class="flex-container" style="margin-top: 10%">
+              <label class="label1">Upload CSV File
                 <input type="file" id="csvFileInput" size="60" onchange="handleFiles(this.files)"
                     accept=".csv">
               </label>
-              <button class="label1" onclick="refresh();" style="margin-left: 100px; background-color: #fca776;">Refresh</button>
+              <button class="label1" onclick="refresh();" style="margin-left: 28%">Reset Filters</button>
             </div>
             <div class="container1">
-              <div class="dropdiv" style="font-family: 'lobster';" >
-                <h4>Filter by Price:</h4>
-                <div class="filterDropdown"  style="background-color: #fca776">
-                  <select id="prices" onchange="selectFilter()" style= "font-family: 'lobster'" >
+              <div class="dropdiv">
+                <h5>Filter by Price:</h5>
+                <div class="filterDropdown">
+                  <select id="prices" onchange="selectFilter()" >
                     <option>Select a range</option>
                     <option value="0"> Income</option>
                     <option value="1"> Less than $5</option>
@@ -60,11 +56,11 @@
             </div>
 
             <div class="container1">
-              <div class="dropdiv" style="font-family: 'lobster';">
-                <h4 style="float:left">Filter by Date:</h4>
+              <div class="dropdiv" style="padding-top: 10%;">
+                <h5 style="float:left">Filter by Date:</h5>
                 <br>
-                <div class="filterDropdown" style=" background-color: #fca776">
-                  <select id="dates" onchange="selectFilter()" style= "font-family: 'lobster'" >
+                <div class="filterDropdown">
+                  <select id="dates" onchange="selectFilter()" >
                     <option>Select a range</option>
                     <option value="1">Days</option>
                     <option value="2">Weeks </option>
@@ -76,13 +72,13 @@
             </div>
 
             <div class="container1">
-              <button class="label1" onclick="deleteTable()" style="margin-left: 40px; margin-top: 60px; background-color:  #fca776">Delete Transactions Table</button>
+              <button class="deleteButton" onclick="deleteTable()">Delete Transactions Table</button>
             </div>
         </div>
 
           <div class="twothirds">
             {{if transactions:}}
-              <table id="list" style="width:100%">
+              <table id="list">
                 <tr>
                   <th>Date</th>
                   <th>Price</th>

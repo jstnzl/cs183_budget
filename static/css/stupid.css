@@ -261,7 +261,7 @@ a:not(.btn):not(.noeffect):after {
 
 .container1 {
   width:100%;
-  height: 200px;
+  height: 150px;
 }
 
 .container.third {
@@ -269,16 +269,41 @@ a:not(.btn):not(.noeffect):after {
   border-right-color: black;
 }
 
+.banner-container {
+  background-size: 100% 100%;
+  margin-top: -50px;
+  margin-bottom: 20px;
+}
+
+.banner-text {
+  font-family: 'lobster';
+  cursive;
+  color: black;
+}
+
 .label1 {
   background-color: #056c9f;
   border: none;
   color: white;
   border-radius: 10px;
-  padding: 15px 32px;
+  padding: 15px 15px;
   text-align: center;
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
+  cursor: pointer;
+}
+
+.deleteButton {
+  margin-top: 15%;
+  background-color: red;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  padding: 15px 15px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
   cursor: pointer;
 }
 
@@ -299,19 +324,21 @@ input[type="file"] {
   display: flex;
   background-position: 10px 10px;
   background-repeat: no-repeat;
-  width: 100%;
+  width: 80%;
   font-size: 16px;
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 20px;
-  margin-top: 20px;
+  margin-top: 4px;
 }
 
 #list {
-  border-collapse: collapse;
-  width: 100%;
-  border: 1px solid #ddd;
-  font-size: 18px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 18px;
 }
 
 #list th, #list td {
@@ -325,13 +352,6 @@ input[type="file"] {
 
 #list tr.header, #list tr:hover {
   background-color: #f1f1f1;
-}
-
-
-#list {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
 }
 
 #list td, #list th {
