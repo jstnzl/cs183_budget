@@ -19,7 +19,7 @@
 
 <!DOCTYPE html>
 <html>
-  <div class="main_content" style="background-image: url(../static/images/penta.png);">
+  <div class="main_content" style="background-image: url(../static/images/background2.jpg);">
     {{if auth.user is not None:}}
       <body>
         <div class="banner-container">
@@ -108,10 +108,23 @@
         </div>
           {{else:}}
             <h1><center>Welcome to Budget Tracker!</center></h1>
-              <p><center>This site will help you keep track of your spending and income!
-                Please log in to use it.</center></p>
-              <center><img src="../static/images/logo.png"></center>
-
+            
+            <div class="landinginfo">
+              <i>Manage your Expenses</i>
+              <br>
+              <i>View Purchase History</i>
+              <br>
+              <i>Track Spending Habits</i>
+              <br>
+              <br>
+              <div class="signuphere">
+                 Sign up today. It's <u>FREE!</u>
+              </div>
+            </div>
+            
+            <div class="landinglogo">
+              <img src="../static/images/logo.png">
+            </div>
               <br>
      {{pass}}
       </body>
