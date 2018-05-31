@@ -339,7 +339,7 @@ input[type="file"] {
 #list{
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: 95%;
     font-size: 18px;
     border: 1px solid black;
 }
@@ -637,5 +637,3 @@ input[type="file"] {
   right: 85%;
   margin-top: 0.1%;
 }
-
-
