@@ -14,6 +14,7 @@
   <script type="text/javascript" src="../static/js/dropdown.js"></script>
   <link href="../static/css/stupid.css" rel="stylesheet">
   <link href="../static/css/dropdown.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 </head>
 
 <!DOCTYPE html>
@@ -21,7 +22,13 @@
   <div class="main_content">
     {{if auth.user is not None:}}
       <body>
-        <center><h2 style="margin: 0.5em 0 0.25em 0;">Your Transactions</h2></center>
+        <div class="banner" style ="background-image: url(../static/images/banner.png);">
+
+          <div class="banner-text" style= "font-family: 'lobster',cursive;">
+            <h1><center>Your Transactions</center></h1>
+          </div>
+        </div>
+
         <div class="flex-container">
           <input type="text" id="entry" onkeyup="searchingWithFilter();" placeholder="Search for names.." title="Search">
         </div>
