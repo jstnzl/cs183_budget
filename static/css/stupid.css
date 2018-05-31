@@ -322,8 +322,10 @@ input[type="file"] {
 
 #entry {
   display: flex;
-  background-position: 10px 10px;
+  background-image: url(../images/search.png);
   background-repeat: no-repeat;
+  background-position: 15px 50%;
+  background-size: 15px 15px;
   width: 80%;
   font-size: 16px;
   padding: 12px 20px 12px 40px;
@@ -339,29 +341,51 @@ input[type="file"] {
     border-collapse: collapse;
     width: 100%;
     font-size: 18px;
-    border: 2px solid black;
-}
-
-.table1 {
-  border: 2px solid black;
+    border: 1px solid black;
 }
 
 #list th, #list td {
   text-align: left;
   padding: 12px;
+  vertical-align: middle;
 }
 
 #list tr {
-  border-bottom: 1px solid #ddd;
+  border: 0px;
+  border-top: 1px solid #808080;
+}
+
+#list td:first-child{
+  border-right: 1px solid #808080;
+  text-align: center;
+}
+
+#list td:nth-child(2){
+  border-right: 1px solid #808080;
+  text-align: center;
+}
+
+#list th:first-child{
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  border-bottom: 2px solid #000;
+  text-align: center;
+}
+
+#list th:nth-child(2){
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  border-bottom: 2px solid #000;
+  text-align: center;
+}
+
+#list th:nth-child(3){
+  border-top: 1px solid #000;
+  border-bottom: 2px solid #000;
 }
 
 #list tr.header, #list tr:hover {
   background-color: #f1f1f1;
-}
-
-#list td, #list th {
-    border: 1px solid #ddd;
-    padding: 8px;
 }
 
 #list tr:nth-child(even){background-color: #f2f2f2;}
