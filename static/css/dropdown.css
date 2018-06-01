@@ -1,0 +1,80 @@
+.filterDropdown select{
+  background:transparent;
+   width: 200px;
+   padding: 10px;
+   padding-left: 20px;
+   font-family: times new roman;
+   font-size:1.3em;
+   font-weight:500;
+   color:#fff;
+   border: 0;
+   border-radius: 0;
+   /*Hides the default arrows for Selects*/
+  -webkit-appearance: none;
+  -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+     position: relative;
+  }
+
+
+.filterDropdown{
+	width: 200px;
+	overflow: hidden;
+	background: no-repeat right #fca776;
+  height: 50px;
+  margin-top: 1px;
+  margin-bottom: 15px;
+	-webkit-border-radius: 4px 4px 4px 4px;
+	 -moz-border-radius: 4px 4px 4px 4px;
+		  border-radius: 4px 4px 4px 4px;
+	-webkit-box-shadow: inset 0 2px 4px rgba(107, 105, 105, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+	 -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+		  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+		  -moz-box-shadow:    0px 8px 3px -9px #000000;
+		  -webkit-box-shadow: 0px 8px 3px -9px #000000;
+		  box-shadow:         0px 8px 3px -9px #000000;
+
+}
+
+.filterDropdown {
+    position: relative;
+    /* float: right;
+    margin-right: 50px; */
+    background-color:#00D176;
+}
+
+.dropdiv {
+    position: relative;
+    font-family: lobster;
+    display:  inline-block;
+    padding-top: 50px;
+}
+
+.filterDropdown:before {
+    content: "";
+    position: absolute;
+    right: 13px;
+    top: 20px;
+  	width: 0;
+  	height: 0;
+  	border-left: 10px solid transparent;
+  	border-right: 10px solid transparent;
+  	border-top: 10px solid #DCDCDC;
+}
+
+.filterDropdown:after {
+    content: "";
+    position: absolute;
+    right: 13px;
+    top: 15px;
+  	width: 0;
+  	height: 0;
+  	border-left: 10px solid transparent;
+  	border-right: 10px solid transparent;
+  	border-top: 10px solid #00D176;
+}
+
+select > option {
+  background: #00AC61;
+  color: black;
