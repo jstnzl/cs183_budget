@@ -19,7 +19,7 @@
 
 <!DOCTYPE html>
 <html>
-  <div class="main_content" style="background-image: url(../static/images/background2.jpg);">
+  <div class="main_content">
     {{if auth.user is not None:}}
       <body>
         <div class="banner-container">
@@ -97,7 +97,7 @@
               </table>
             {{else:}}
               <center>
-                <div class="bodytext" style="font-family: 'Acme', sans-serif; font-size: 1em; margin-left: -20%; padding-top: 10%">
+                <div class="bodytext" style="font-family: 'Acme', sans-serif; font-size: 1em; margin-left: 0%; padding-top: 10%">
                 <h4>
                   You have no transactions! Click the "Upload CSV File" button above to get started.
                 </h4>
@@ -108,7 +108,7 @@
         </div>
           {{else:}}
             <h1><center>Welcome to Budget Tracker!</center></h1>
-            
+
             <div class="landinginfo">
               <i>Manage your Expenses</i>
               <br>
@@ -121,7 +121,7 @@
                  Sign up today. It's <u>FREE!</u>
               </div>
             </div>
-            
+
             <div class="landinglogo">
               <img src="../static/images/logo.png">
             </div>
