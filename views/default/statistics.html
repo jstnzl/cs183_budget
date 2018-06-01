@@ -48,11 +48,11 @@
 
     <div class="container-fluid">
       <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar"  style="background-color: white">
+        <nav class="col-md-2 sidenav">
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" onclick="return0(); toggler();" >
+                <a class="nav-link" value="daily" onclick="return0(); toggler();" >
                   <span data-feather="calendar"></span>
                   All Time <span class="sr-only">(current)</span>
                 </a>
@@ -70,7 +70,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" value="weekly" href="#">
                   <span data-feather="calendar"></span>
                   Weekly
                 </a>
@@ -98,7 +98,7 @@
             </center></h1>
           </div>
           <div id="monthlyFilter" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" style="display:none;">
-            <h1 class="h2">Money Spent Over Time</h1>
+            <h1 class="h2">Money Spent Per Month</h1>
             <div class="filterDropdown">
               <select id="selectYear" onchange="selectYear()">
                 <option>Select a year</option>
@@ -107,6 +107,21 @@
                 <option value="2016"> 2016</option>
               </select>
             </div>
+          </div>
+          <div id="yearly" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" style="display:none;">
+            <h1 class="h2">Money Spent Per Year</h1>
+          </div>
+          <div id="daily" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" style="display:none;">
+            <h1 class="h2">Money Spent Over All Time</h1>
+          </div>
+          <div id="comparison" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" style="display:none;">
+            <h1 class="h2">Comparing Money Spent in 2017 and 2018</h1>
+          </div>
+          <div id="pie" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" style="display:none;">
+            <h1 class="h2">Categories Spent Money In</h1>
+          </div>
+          <div id="weekly" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" style="display:none;">
+            <h1 class="h2">Money Spent Per Week</h1>
           </div>
           <table style="display:none" id="list" style="width:100%" >
             <tr>
@@ -125,12 +140,12 @@
             {{pass}}
           </table>
 
-          <canvas class="my-4 w-100" id="myChart0" width="900" height="380"></canvas>
-          <canvas class="my-4 w-100" id="myChart1" width="900" height="380"></canvas>
-          <canvas class="my-4 w-100" id="myChart2" width="900" height="380"></canvas>
-          <canvas class="my-4 w-100" id="myChart3" width="900" height="380"></canvas>
-          <canvas class="my-4 w-100" id="myChart4" width="900" height="380"></canvas>
-          <canvas class="my-4 w-100" id="myChart5" width="900" height="380"></canvas>
+          <canvas class="my-4 w-100" id="dailyChart" style="display:none"></canvas>
+          <canvas class="my-4 w-100" id="yearChart" style="display:none"></canvas>
+          <canvas class="my-4 w-100" id="monthChart" style="display:none"></canvas>
+          <canvas class="my-4 w-100" id="weekChart" style="display:none"></canvas>
+          <canvas class="my-4 w-100" id="cmpChart" style="display:none"></canvas>
+          <canvas class="my-4 w-100" id="pieChart" style="display:none"></canvas>
 
         </main>
       </div>

@@ -1,5 +1,5 @@
 function findPercentages(){
-  new Chart(document.getElementById("myChart5"), {
+  new Chart(document.getElementById("pieChart"), {
       type: 'pie',
       data: {
         labels: ["Food", "Transportation", "Misc", "Groceries", "Venmo"],
@@ -19,7 +19,7 @@ function findPercentages(){
 }
 
 function monthly () {
-  var ctx = document.getElementById('myChart2').getContext('2d');
+  var ctx = document.getElementById('monthChart').getContext('2d');
   var myChart = new Chart(ctx, {
     type: 'line',
     data: {
@@ -34,7 +34,7 @@ function monthly () {
 }
 
 function daily() {
-  var ctx = document.getElementById('myChart0').getContext('2d');
+  var ctx = document.getElementById('dailyChart').getContext('2d');
   spent = dailyTimeLine();
   var myChart = new Chart(ctx, {
     type: 'line',
@@ -50,7 +50,7 @@ function daily() {
 }
 
 function yearly () {
-  var ctx = document.getElementById("myChart1").getContext('2d');
+  var ctx = document.getElementById("yearChart").getContext('2d');
   getAnnual();
   var myChart = new Chart(ctx, {
       type: 'bar',
@@ -105,7 +105,7 @@ function yearly () {
 
 
 function compare (year1, year2) {
-  var ctx = document.getElementById('myChart4').getContext('2d');
+  var ctx = document.getElementById('cmpChart').getContext('2d');
     var y1 = getMonths(year1);
     var y2 = getMonths(year2);
     var myChart = new Chart(ctx, {
@@ -128,84 +128,69 @@ function compare (year1, year2) {
 var x = "";
 
 function return0() {
-  document.getElementById('monthlyFilter').style.display="none";
-  document.getElementById('main').style.display="none";
-  document.getElementById('myChart0').style.display="";
-  document.getElementById('myChart1').style.display="none";
-  document.getElementById('myChart2').style.display="none";
-  document.getElementById('myChart3').style.display="none";
-  document.getElementById('myChart4').style.display="none";
-  document.getElementById('myChart5').style.display="none";
+  disableCharts();
+  document.getElementById('daily').style.display="";
+  document.getElementById('dailyChart').style.display="";
   return x = "0";
 }
 
 function return1() {
-  document.getElementById('monthlyFilter').style.display="none";
-  document.getElementById('main').style.display="none";
-  document.getElementById('myChart0').style.display="none";
-  document.getElementById('myChart1').style.display="";
-  document.getElementById('myChart2').style.display="none";
-  document.getElementById('myChart3').style.display="none";
-  document.getElementById('myChart4').style.display="none";
-  document.getElementById('myChart5').style.display="none";
+  disableCharts();
+  document.getElementById('yearly').style.display="";
+  document.getElementById('yearChart').style.display="";
   return x = "1";
 }
 
 function return2() {
+  disableCharts();
   document.getElementById('monthlyFilter').style.display="";
-  document.getElementById('main').style.display="none";
-  document.getElementById('myChart0').style.display="none";
-  document.getElementById('myChart1').style.display="none";
-  document.getElementById('myChart2').style.display="";
-  document.getElementById('myChart3').style.display="none";
-  document.getElementById('myChart4').style.display="none";
-  document.getElementById('myChart5').style.display="none";
+  document.getElementById('monthChart').style.display="";
   return x = "2";
 }
 
 function return3() {
-  document.getElementById('monthlyFilter').style.display="none";
-  document.getElementById('main').style.display="none";
-  document.getElementById('myChart0').style.display="none";
-  document.getElementById('myChart1').style.display="none";
-  document.getElementById('myChart2').style.display="none";
-  document.getElementById('myChart3').style.display="";
-  document.getElementById('myChart4').style.display="none";
-  document.getElementById('myChart5').style.display="none";
+  disableCharts();
+  document.getElementById('weekly').style.display="";
+  document.getElementById('weekChart').style.display="";
   return x = "3";
 }
 
 function return4() {
-  document.getElementById('monthlyFilter').style.display="none";
-  document.getElementById('main').style.display="none";
-  document.getElementById('myChart0').style.display="none";
-  document.getElementById('myChart1').style.display="none";
-  document.getElementById('myChart2').style.display="none";
-  document.getElementById('myChart3').style.display="none";
-  document.getElementById('myChart4').style.display="";
-  document.getElementById('myChart5').style.display="none";
+  disableCharts();
+  document.getElementById('comparison').style.display="";
+  document.getElementById('cmpChart').style.display="";
   return x = "4";
 }
 
 function return5() {
-  document.getElementById('monthlyFilter').style.display="none";
-  document.getElementById('main').style.display="none";
-  document.getElementById('myChart0').style.display="none";
-  document.getElementById('myChart1').style.display="none";
-  document.getElementById('myChart2').style.display="none";
-  document.getElementById('myChart3').style.display="none";
-  document.getElementById('myChart4').style.display="none";
-  document.getElementById('myChart5').style.display="";
+  disableCharts();
+  document.getElementById('pie').style.display="";
+  document.getElementById('pieChart').style.display="";
   return x = "5";
 }
 
 function clearCanvas () {
-  canvas = document.getElementById("myChart1");
+  canvas = document.getElementById("yearChart");
   document.getElementById('main').style.display="";
   ctx = canvas.getContext("2d");
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
+function disableCharts() {
+  document.getElementById('main').style.display="none";
+  document.getElementById('monthlyFilter').style.display="none";
+  document.getElementById('yearly').style.display="none";
+  document.getElementById('daily').style.display="none";
+  document.getElementById('pie').style.display="none";
+  document.getElementById('weekly').style.display="none";
+  document.getElementById('comparison').style.display="none";
+  document.getElementById('dailyChart').style.display="none";
+  document.getElementById('yearChart').style.display="none";
+  document.getElementById('monthChart').style.display="none";
+  document.getElementById('weekChart').style.display="none";
+  document.getElementById('cmpChart').style.display="none";
+  document.getElementById('pieChart').style.display="none";
+}
 
 function toggler () {
   if(x == "0"){

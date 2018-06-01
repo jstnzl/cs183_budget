@@ -640,4 +640,24 @@ input[type="file"] {
 
 .main_content{
   background-image: linear-gradient(to right bottom, #92dccb, #73d0d3, #5dc2da, #5ab2dd, #6aa0da);
+  min-height: 100%;
+}
+
+.nav-item{
+  height: 15.5%;
+}
+
+.sidenav{
+  background-color: white;
+  border-radius: 5px;
+  height:450px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+canvas{
+  padding: 20px;
+  background-color: white;
+  width: 900px;
+  height: 380px;
 }
