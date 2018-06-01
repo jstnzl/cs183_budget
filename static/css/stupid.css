@@ -637,3 +637,7 @@ input[type="file"] {
   right: 85%;
   margin-top: 0.1%;
 }
+
+.main_content{
+  background-image: linear-gradient(to right bottom, #92dccb, #73d0d3, #5dc2da, #5ab2dd, #6aa0da);
+}
