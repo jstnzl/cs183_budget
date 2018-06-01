@@ -648,14 +648,16 @@ input[type="file"] {
 }
 
 .sidenav{
+  margin-top: 100px;
   background-color: white;
   border-radius: 5px;
-  height:450px;
+  height:500px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
 canvas{
+  margin-top: 20px;
   padding: 20px;
   background-color: white;
   width: 900px;
