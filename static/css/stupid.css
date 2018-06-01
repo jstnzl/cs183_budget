@@ -254,7 +254,7 @@ a:not(.btn):not(.noeffect):after {
   bottom:-1px;
   width:0;
   height:2px;
-  background-color:#26a69a;
+  background-color:#00D176;
   content:"";
   transition:width 0.2s;
 }
@@ -276,13 +276,13 @@ a:not(.btn):not(.noeffect):after {
 }
 
 .banner-text {
-  font-family: 'Kaushan Script';
+  font-family: 'cambria';
   cursive;
   color: black;
 }
 
 .label1 {
-  background-color: #056c9f;
+  background-color: #00D176;
   border: none;
   color: white;
   border-radius: 10px;
@@ -296,7 +296,7 @@ a:not(.btn):not(.noeffect):after {
 
 .deleteButton {
   margin-top: 15%;
-  background-color: red;
+  background-color:#00D176;
   border: none;
   color: white;
   border-radius: 10px;
@@ -654,7 +654,7 @@ input[type="file"] {
 }
 
 .main_content{
-  background-image: linear-gradient(to right bottom, #92dccb, #73d0d3, #5dc2da, #5ab2dd, #6aa0da);
+  background-image: linear-gradient(to right top, #e1fffa, #b8f2e7, #8ee4d3, #5fd6be, #09c8a7);
   min-height: 100%;
 }
 

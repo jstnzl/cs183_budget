@@ -3,7 +3,7 @@
    width: 200px;
    padding: 10px;
    padding-left: 20px;
-   font-family: lobster;
+   font-family: times new roman;
    font-size:1.3em;
    font-weight:500;
    color:#fff;
@@ -41,6 +41,7 @@
     position: relative;
     /* float: right;
     margin-right: 50px; */
+    background-color:#00D176;
 }
 
 .dropdiv {
@@ -71,9 +72,9 @@
   	height: 0;
   	border-left: 10px solid transparent;
   	border-right: 10px solid transparent;
-  	border-top: 10px solid #fca776;
+  	border-top: 10px solid #00D176;
 }
 
 select > option {
-  background: #ffffe0;
+  background: #00AC61;
   color: black;
