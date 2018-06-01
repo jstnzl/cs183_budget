@@ -342,12 +342,27 @@ input[type="file"] {
     width: 95%;
     font-size: 18px;
     border: 1px solid black;
+    table-layout: fixed;
 }
 
 #list th, #list td {
   text-align: left;
   padding: 12px;
   vertical-align: middle;
+}
+
+#list th:first-child {
+  text-align: left;
+  padding: 12px;
+  vertical-align: middle;
+  width: 140px;
+}
+
+#list th:nth-child(2) {
+  text-align: left;
+  padding: 12px;
+  vertical-align: middle;
+  width: 140px;
 }
 
 #list tr {
