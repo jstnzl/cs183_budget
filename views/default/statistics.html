@@ -51,7 +51,7 @@
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" onclick="daily();" >
+                <a class="nav-link active" onclick="return0(); toggler();" >
                   <span data-feather="calendar"></span>
                   All Time <span class="sr-only">(current)</span>
                 </a>
@@ -91,7 +91,12 @@
         </nav>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <div id="main">
+            <h1><center>
+              Hover over the sidebar to view graphs!
+            </center></h1>
+          </div>
+          <div id="monthlyFilter" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" style="display:none;">
             <h1 class="h2">Money Spent Over Time</h1>
             <div class="filterDropdown">
               <select id="selectYear" onchange="selectYear()">
@@ -119,7 +124,13 @@
             {{pass}}
           </table>
 
+          <canvas class="my-4 w-100" id="myChart0" width="900" height="380"></canvas>
           <canvas class="my-4 w-100" id="myChart1" width="900" height="380"></canvas>
+          <canvas class="my-4 w-100" id="myChart2" width="900" height="380"></canvas>
+          <canvas class="my-4 w-100" id="myChart3" width="900" height="380"></canvas>
+          <canvas class="my-4 w-100" id="myChart4" width="900" height="380"></canvas>
+          <canvas class="my-4 w-100" id="myChart5" width="900" height="380"></canvas>
+
         </main>
       </div>
       </div>
