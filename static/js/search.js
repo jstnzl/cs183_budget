@@ -15,12 +15,7 @@ function searchingWithFilter(){
       var includes = de.innerHTML.toUpperCase().includes(filter);
       var priceFilter = (resetPrice(price,x) || income(price,x) || lessThan5(price,x) || from5to10(price,x) ||
                         from10to20(price,x) || from20to50(price,x) || from50to100(price,x) || over100(price,x));
-      var dateFilter = (resetDate(date,y) || day(date,y) || week(date,y) || month(date,y) ||
-                        quarter(date,y) || year(date,y));
-      console.log(priceFilter);
-      console.log(dateFilter);
-      console.log(includes);
-      console.log("end search");
+      var dateFilter = (resetDate(date,y) || day(date,y) || week(date,y) || month(date,y) || quarter(date,y) || year(date,y));
       if(includes && priceFilter && dateFilter)
         tr[i].style.display = "";
       else
@@ -51,12 +46,7 @@ function filterPrice(){
       var includes = de.innerHTML.toUpperCase().includes(filter);
       var priceFilter = (resetPrice(price,x) || income(price,x) || lessThan5(price,x) || from5to10(price,x) ||
                         from10to20(price,x) || from20to50(price,x) || from50to100(price,x) || over100(price,x));
-      var dateFilter = (resetDate(date,y) || day(date,y) || week(date,y) || month(date,y) ||
-                        quarter(date,y) || year(date,y));
-                        console.log(priceFilter);
-                        console.log(dateFilter);
-                        console.log(includes);
-                        console.log("end price");
+      var dateFilter = (resetDate(date,y) || day(date,y) || week(date,y) || month(date,y) || quarter(date,y) || year(date,y));
       if(includes && priceFilter && dateFilter)
         tr[i].style.display = "";
       else
@@ -132,12 +122,7 @@ function filterDate(){
       var includes = de.innerHTML.toUpperCase().includes(filter);
       var priceFilter = (resetPrice(price,x) || income(price,x) || lessThan5(price,x) || from5to10(price,x) ||
                         from10to20(price,x) || from20to50(price,x) || from50to100(price,x) || over100(price,x));
-      var dateFilter = (resetDate(date,y) || day(date,y) || week(date,y) || month(date,y) ||
-                        quarter(date,y) || year(date,y));
-                        console.log(priceFilter);
-                        console.log(dateFilter);
-                        console.log(includes);
-                        console.log("end date");
+      var dateFilter = (resetDate(date,y) || day(date,y) || week(date,y) || month(date,y) || quarter(date,y) || year(date,y));
       if(includes && dateFilter && priceFilter)
         tr[i].style.display = "";
       else
@@ -182,6 +167,9 @@ function month(value,x){
   var thisMonth = new Date(todaysDate()).getMonth() + 1;
   var yearVal = value.substring(6);
   var monthVal = value.substring(0,2);
+  console.log(monthVal == thisMonth);
+  console.log(thisYear == yearVal);
+  console.log("end");
   return (x === "3" && (monthVal == thisMonth) && (thisYear == yearVal));
 }
 

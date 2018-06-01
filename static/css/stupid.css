@@ -296,7 +296,7 @@ a:not(.btn):not(.noeffect):after {
 
 .deleteButton {
   margin-top: 15%;
-  background-color:#00D176;
+  background-color:red;
   border: none;
   color: white;
   border-radius: 10px;
