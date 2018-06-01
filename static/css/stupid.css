@@ -648,7 +648,7 @@ input[type="file"] {
 }
 
 .sidenav{
-  margin-top: 100px;
+  margin-top: 6%;
   background-color: white;
   border-radius: 5px;
   height:500px;
@@ -656,10 +656,17 @@ input[type="file"] {
   padding-bottom: 10px;
 }
 
+.navrow {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-right: 50px;
+}
+
 canvas{
   margin-top: 20px;
+  margin-left: 20px;
   padding: 20px;
   background-color: white;
-  width: 900px;
-  height: 380px;
+  max-width: 1300px;
+  max-height: 650px;
 }
