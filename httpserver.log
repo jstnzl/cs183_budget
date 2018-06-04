@@ -23958,3 +23958,23 @@
 127.0.0.1, 2018-06-04 15:57:30, GET, /budget/static/images/logo.png, HTTP/1.1, 404, 0.001000
 127.0.0.1, 2018-06-04 15:57:30, GET, /budget/static/font-awesome-4.6.3/fonts/fontawesome-webfont.woff2, HTTP/1.1, 200, 0.000000
 127.0.0.1, 2018-06-04 15:57:31, GET, /favicon.ico, HTTP/1.1, 400, 0.000000
+127.0.0.1, 2018-06-04 16:04:12, GET, /budget/default/index, HTTP/1.1, 200, 0.437000
+127.0.0.1, 2018-06-04 16:04:12, GET, /budget/static/css/stupid.css, HTTP/1.1, 304, 0.001000
+127.0.0.1, 2018-06-04 16:04:12, GET, /budget/static/css/custom.css, HTTP/1.1, 304, 0.001000
+127.0.0.1, 2018-06-04 16:04:12, GET, /budget/static/css/calendar.css, HTTP/1.1, 304, 0.005000
+127.0.0.1, 2018-06-04 16:04:12, GET, /budget/static/css/myapp.css, HTTP/1.1, 304, 0.002000
+127.0.0.1, 2018-06-04 16:04:12, GET, /budget/static/font-awesome-4.6.3/css/font-awesome.min.css, HTTP/1.1, 304, 0.001000
+127.0.0.1, 2018-06-04 16:04:12, GET, /budget/static/js/jquery.js, HTTP/1.1, 304, 0.002000
+127.0.0.1, 2018-06-04 16:04:12, GET, /budget/static/css/dropdown.css, HTTP/1.1, 304, 0.005000
+127.0.0.1, 2018-06-04 16:04:12, GET, /budget/static/js/web2py.js, HTTP/1.1, 304, 0.004000
+
+127.0.0.1, 2018-06-04 16:04:12, GET, /budget/static/js/read-csv.js, HTTP/1.1, 304, 0.001000
+127.0.0.1, 2018-06-04 16:04:12, GET, /budget/static/js/delete-table.js, HTTP/1.1, 304, 0.001000
+127.0.0.1, 2018-06-04 16:04:12, GET, /budget/static/js/dropdown.js, HTTP/1.1, 304, 0.001000
+127.0.0.1, 2018-06-04 16:04:12, GET, /budget/static/js/search.js, HTTP/1.1, 304, 0.001000
+127.0.0.1, 2018-06-04 16:04:12, GET, /budget/static/js/marked.min.js, HTTP/1.1, 304, 0.001000
+127.0.0.1, 2018-06-04 16:04:12, GET, /budget/static/js/vue.min.js, HTTP/1.1, 304, 0.002000
+127.0.0.1, 2018-06-04 16:04:12, GET, /budget/static/images/navbar_logo.png, HTTP/1.1, 304, 0.001000
+127.0.0.1, 2018-06-04 16:04:12, GET, /budget/static/images/logo.png, HTTP/1.1, 404, 0.000000
+127.0.0.1, 2018-06-04 16:04:13, GET, /budget/static/font-awesome-4.6.3/fonts/fontawesome-webfont.woff2, HTTP/1.1, 304, 0.000000
+127.0.0.1, 2018-06-04 16:04:13, GET, /favicon.ico, HTTP/1.1, 400, 0.000000
