@@ -14,88 +14,121 @@
   <script type="text/javascript" src="../static/js/dropdown.js"></script>
   <link href="../static/css/stupid.css" rel="stylesheet">
   <link href="../static/css/dropdown.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
 </head>
 
 <!DOCTYPE html>
 <html>
   <div class="main_content">
     {{if auth.user is not None:}}
-
-    <div class="flex-container">
-      <input style="width:50%;" type="text" id="entry" onkeyup="search()" placeholder="Search for names.." title="Search">
-      <div class="dropdiv">
-        <h4 style="float:left">Filter by Price:</h4>
-        <div class="filterDropdown">
-          <select id="prices" onchange="selectFilter()">
-            <option>Select a range</option>
-            <option value="0"> Income</option>
-            <option value="1"> Less than $5</option>
-            <option value="2"> $5 to $10 </option>
-            <option value="3"> $10 to $20</option>
-            <option value="4"> $20 to $50</option>
-            <option value="5"> $50 to $100</option>
-            <option value="6"> $100+</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="dropdiv">
-        <h4 style="float:left">Filter by Date:</h4>
-        <div class="filterDropdown">
-          <select id="prices" onchange="selectFilter()">
-            <option>Select a range</option>
-            <option value="1">Days</option>
-            <option value="2">Weeks </option>
-            <option value="3">Months</option>
-            <option value="4">Years</option>
-          </select>
-        </div>
-      </div>
-    </div>
-
       <body>
-        <center>
-          <label class="label1">Upload CSV File
-            <input type="file" id="csvFileInput" size="60" onchange="handleFiles(this.files)"
-                accept=".csv">
-          </label>
-        </center>
-        <div class="container-fluid">
-        <h2>Your Transactions <button class="label1" onclick="deleteTable()" style="float: right">Delete Transactions Table</button></h2>
-
+        <div class="banner-container">
+          <div class="banner-text">
+            <h1><center>Your Transactions</center></h1>
+          </div>
         </div>
-          {{if transactions:}}
-            <table id="list" style="width:100%">
-              <tr>
-                <th>Date</th>
-                <th>Price</th>
-                <th>Description</th>
-              </tr>
-              {{for tn in transactions:}}
-                <tr>
-                  <div class="table_cells">
-                    <td>{{=tn.date_made.strftime("%m/%d/%Y")}}</td>
-                    <td>${{=tn.price}}</td>
-                    <td>{{=tn.description}}</td>
-                  </div>
-                </tr>
-              {{pass}}
-            </table>
-          {{else:}}
-            <p>
-              You have no transactions! Click the "Upload CSV File" button above to get started.
-            </p>
-          {{pass}}
-        {{else:}}
-          <h1><center>Welcome to Budget Tracker!</center></h1>
-            <p><center>This site will help you keep track of your spending and income!
-              Please log in to use it.</center></p>
-              <center><img src="../static/images/logo.png"></center>
+        <div class="container" style="padding-top: 15px">
+          <input type="text" id="entry" onkeyup="searchingWithFilter();" placeholder="Search for names.." title="Search" style="color:black;">
+          <div class="third" style="padding-left: 5%;">
+            <div class="flex-container" style="margin-top: 10%">
+              <label class="label1">Upload CSV File
+                <input type="file" id="csvFileInput" size="60" onchange="handleFiles(this.files)"
+                    accept=".csv">
+              </label>
+              <button class="label1" onclick="refresh();" style="margin-left: 28%">Reset Filters</button>
+            </div>
+            <div class="container1">
+              <div class="dropdiv">
+                <h5>Filter by Price:</h5>
+                <div class="filterDropdown">
+                  <select id="prices" onchange="filterPrice()" >
+                    <option value="-1">Select a range</option>
+                    <option value="0"> Income</option>
+                    <option value="1"> Less than $5</option>
+                    <option value="2"> $5 to $10 </option>
+                    <option value="3"> $10 to $20</option>
+                    <option value="4"> $20 to $50</option>
+                    <option value="5"> $50 to $100</option>
+                    <option value="6"> $100+</option>
+                  </select>
+                </div>
+              </div>
+            </div>
 
-          <br>
-    {{pass}}
-    </body>
+            <div class="container1">
+              <div class="dropdiv" style="padding-top: 10%;">
+                <h5 style="float:left">Filter by Date:</h5>
+                <br>
+                <div class="filterDropdown">
+                  <select id="dates" onchange="filterDate()" >
+                    <option value="-1">Select a range</option>
+                    <option value="1">Daily</option>
+                    <option value="2">Weekly </option>
+                    <option value="3">Monthly</option>
+                    <option value="4">Quarterly</option>
+                    <option value="5">Yearly</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="container1">
+              <button class="deleteButton" onclick="deleteTable()">Delete Transactions Table</button>
+            </div>
+        </div>
+
+          <div class="twothirds">
+            {{if transactions:}}
+              <table id="list">
+                <tr>
+                  <th>Date</th>
+                  <th>Price</th>
+                  <th>Description</th>
+                </tr>
+                {{for tn in transactions:}}
+                  <tr>
+                    <div class="table_cells">
+                      <td>{{=tn.date_made.strftime("%m/%d/%Y")}}</td>
+                      <td>${{=tn.price}}</td>
+                      <td>{{=tn.description}}</td>
+                    </div>
+                  </tr>
+                {{pass}}
+              </table>
+            {{else:}}
+              <center>
+                <div class="bodytext" style="font-family: 'cambria', sans-serif; font-size: 1em; margin-left: 0%; padding-top: 10%">
+                <h4>
+                  You have no transactions! Click the "Upload CSV File" button above to get started.
+                </h4>
+              </div>
+              </center>
+            {{pass}}
+          </div>
+        </div>
+          {{else:}}
+            <h1><center>Welcome to Budget Tracker!</center></h1>
+
+            <div class="landinginfo">
+              <i>Manage your Expenses</i>
+              <br>
+              <i>View Purchase History</i>
+              <br>
+              <i>Track Spending Habits</i>
+              <br>
+              <br>
+              <div class="signuphere">
+                 Sign up today. It's <u>FREE!</u>
+              </div>
+            </div>
+
+            <div class="landinglogo">
+              <img src="../static/images/logo.png">
+            </div>
+              <br>
+     {{pass}}
+      </body>
+
   </div>
 </html>
 <script src="../static/js/search.js"></script>

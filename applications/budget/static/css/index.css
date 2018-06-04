@@ -116,3 +116,7 @@ margin-right: auto;
   font-family: "Times New Roman", Times, serif;
   font-style: italic;
 }
+
+.main_content {
+  background-image: url(../static/images/banner2.jpg);
+}

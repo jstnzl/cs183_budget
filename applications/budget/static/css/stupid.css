@@ -73,7 +73,7 @@ input:not([type]):hover, input:not([type=checkbox]):not([type=radio]):not([type=
 input:invalid, input.error, textarea:invalid, textarea.error {background: #ffdfdf}
 
 /*** grid ***/
-.container {margin-right:-20px}
+.container {}
 .container>.quarter, .container>.half, .container>.third, .container>.twothirds, .container>.threequarters {display:inline-block; padding: 0 20px 0 0; vertical-align:top}
 .container>.fill{display: inline-block; padding-right: 20px; margin-right:-10px}
 .container img, .container video {max-width:100%}
@@ -254,21 +254,56 @@ a:not(.btn):not(.noeffect):after {
   bottom:-1px;
   width:0;
   height:2px;
-  background-color:#26a69a;
+  background-color:#00D176;
   content:"";
   transition:width 0.2s;
 }
 
+.container1 {
+  width:100%;
+  height: 150px;
+}
+
+.container.third {
+  border-right-width: 1px;
+  border-right-color: black;
+}
+
+.banner-container {
+  background-size: 100% 100%;
+  margin-top: -50px;
+  margin-bottom: 20px;
+}
+
+.banner-text {
+  font-family: 'cambria';
+  cursive;
+  color: black;
+}
+
 .label1 {
-  background-color: #056c9f;
+  background-color: #00D176;
   border: none;
   color: white;
   border-radius: 10px;
-  padding: 15px 32px;
+  padding: 15px 15px;
   text-align: center;
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
+  cursor: pointer;
+}
+
+.deleteButton {
+  margin-top: 15%;
+  background-color:red;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  padding: 15px 15px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
   cursor: pointer;
 }
 
@@ -280,51 +315,94 @@ input[type="file"] {
   box-sizing: border-box;
 }
 
+.bezels{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
 #entry {
   display: flex;
-  background-position: 10px 10px;
+  background-image: url(../images/search.png);
   background-repeat: no-repeat;
-  width: 100%;
+  background-position: 15px 50%;
+  background-size: 15px 15px;
+  width: 80%;
   font-size: 16px;
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 20px;
-  margin-top: 20px;
+  margin-top: 4px;
 }
 
-#list {
-  border-collapse: collapse;
-  width: 100%;
-  border: 1px solid #ddd;
-  font-size: 18px;
+#list{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 95%;
+    font-size: 18px;
+    border: 1px solid black;
+    table-layout: fixed;
 }
 
 #list th, #list td {
   text-align: left;
   padding: 12px;
+  vertical-align: middle;
+}
+
+#list th:first-child {
+  text-align: left;
+  padding: 12px;
+  vertical-align: middle;
+  width: 140px;
+}
+
+#list th:nth-child(2) {
+  text-align: left;
+  padding: 12px;
+  vertical-align: middle;
+  width: 140px;
 }
 
 #list tr {
-  border-bottom: 1px solid #ddd;
+  border: 0px;
+  border-top: 1px solid #808080;
+  background-color: #f2f2f2;
+}
+
+#list td:first-child{
+  border-right: 1px solid #808080;
+  text-align: center;
+}
+
+#list td:nth-child(2){
+  border-right: 1px solid #808080;
+  text-align: center;
+}
+
+#list th:first-child{
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  border-bottom: 2px solid #000;
+  text-align: center;
+}
+
+#list th:nth-child(2){
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  border-bottom: 2px solid #000;
+  text-align: center;
+}
+
+#list th:nth-child(3){
+  border-top: 1px solid #000;
+  border-bottom: 2px solid #000;
 }
 
 #list tr.header, #list tr:hover {
   background-color: #f1f1f1;
 }
-
-
-#list {
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-#list td, #list th {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-#list tr:nth-child(even){background-color: #f2f2f2;}
 
 #list tr:hover {background-color: #ddd;}
 
@@ -516,14 +594,24 @@ input[type="file"] {
   margin-left: 35%;
 }
 
-.landinginfo {
-  margin-left: 8%;
-  line-height: 1.5;
-  font-size: 25px;
-  margin-top: 2%;
-  font-family: "Helvetica Neue";
-  font-weight: lighter;
+.landinglogo{
+  padding-left: 50px;
+}
 
+.landinginfo {
+  position: absolute;
+  line-height: 2.4;
+  font-size: 30px;
+  font-family:  AvantGardeBook,Helvetica;
+  font-weight: 100;
+  margin-left: 60%;
+  margin-top: 3%;
+}
+
+.signuphere {
+  font-weight: normal;
+  font-size: 20px;
+  margin-left: 12%;
 }
 
 .landingquote {
@@ -563,4 +651,37 @@ input[type="file"] {
   position: absolute;
   right: 85%;
   margin-top: 0.1%;
+}
+
+.main_content{
+  background-image: linear-gradient(to right top, #e1fffa, #b8f2e7, #8ee4d3, #5fd6be, #09c8a7);
+  min-height: 100%;
+}
+
+.nav-item{
+  height: 15.5%;
+}
+
+.sidenav{
+  margin-top: 6%;
+  background-color: white;
+  border-radius: 5px;
+  height:500px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.navrow {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-right: 50px;
+}
+
+canvas{
+  margin-top: 20px;
+  margin-left: 20px;
+  padding: 20px;
+  background-color: white;
+  max-width: 1300px;
+  max-height: 650px;
 }

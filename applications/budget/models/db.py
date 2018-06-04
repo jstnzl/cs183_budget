@@ -97,3 +97,46 @@ logger.setLevel(logging.INFO)
 
 # Let's log the request.
 logger.info("====> Request: %r %r %r %r" % (request.env.request_method, request.env.path_info, request.args, request.vars))
+
+# google auth
+from gluon.contrib.appconfig import AppConfig
+myconf = AppConfig(reload=False)
+import json
+import urllib2
+from gluon.contrib.login_methods.oauth20_account import OAuthAccount
+
+class googleAccount(OAuthAccount):
+    AUTH_URL="https://accounts.google.com/o/oauth2/auth"
+    TOKEN_URL="https://accounts.google.com/o/oauth2/token"
+
+    def __init__(self):
+        OAuthAccount.__init__(self,
+                                client_id=myconf.get('client.id'),
+                                client_secret=myconf.get('client.secret'),
+                                auth_url=self.AUTH_URL,
+                                token_url=self.TOKEN_URL,
+    approval_prompt='force', state='auth_provider=google',
+    scope='https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email')
+
+    def get_user(self):
+        token = self.accessToken()
+        if not token:
+            return None
+
+        uinfo_url = 'https://www.googleapis.com/oauth2/v1/userinfo?access_token=%s' % urllib2.quote(token, safe='')
+        uinfo = None
+        try:
+            uinfo_stream = urllib2.urlopen(uinfo_url)
+        except:
+            session.token = None
+            return
+        data = uinfo_stream.read()
+        uinfo = json.loads(data)
+        return dict(first_name = uinfo['given_name'],
+                        last_name = uinfo['family_name'],
+                        username = uinfo['id'], email=uinfo['email'])
+
+
+auth.settings.actions_disabled=['register',
+    'change_password','request_reset_password','profile']
+auth.settings.login_form=googleAccount()

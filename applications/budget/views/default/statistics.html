@@ -8,6 +8,7 @@
 </script>
 
 <!doctype html>
+<div class="main_content">
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -15,14 +16,16 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
+    <link href="../static/css/statsDropdown.css" rel="stylesheet">
+    <link href="../static/css/stupid.css" rel="stylesheet">
 
     <title>Statistics</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet"> -->
 
     <!-- Custom styles for this template -->
-    <link  rel="stylesheet" type="text/css" href="index.css">
+    <!-- <link  rel="stylesheet" type="text/css" href="index.css"> -->
 
       <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -37,50 +40,90 @@
   {{if auth.user is not None:}}
   <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-      <div class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Statistics</div>
+      <h1>Statistics</h1>
       <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
       <ul class="navbar-nav px-3">
       </ul>
     </nav>
 
     <div class="container-fluid">
-      <div class="row">
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="navrow">
+        <nav class="col-md-2 sidenav">
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" onclick="">
+                <a class="nav-link" value="daily" onclick="return0(); toggler();" >
                   <span data-feather="calendar"></span>
                   All Time <span class="sr-only">(current)</span>
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" onclick="yearly();">
+              <li class="nav-item" >
+                <a class="nav-link" value="yearly" onclick="return1(); toggler();">
                   <span data-feather="calendar"></span>
                   Yearly
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" onclick=" getMonths(2017); monthly();">
+                <a class="nav-link" value="monthly" onclick="return2(); toggler();">
                   <span data-feather="calendar"></span>
                   Monthly
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" value="weekly" href="#">
                   <span data-feather="calendar"></span>
                   Weekly
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" value="compare" onclick="return4(); toggler();">
+                  <span data-feather="calendar"></span>
+                  Compare
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" value="compare" onclick="return5(); toggler();">
+                  <span data-feather="calendar"></span>
+                  Percentage Spending
                 </a>
               </li>
             </ul>
           </div>
         </nav>
 
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Money Spent Over Time</h1>
+        <main role="main" class="col-md-9">
+          <div id="main">
+            <h1><center>
+              Click an item in the sidebar to view a graph!
+            </center></h1>
           </div>
-          <table style="display:none" id="list" style="width:100%">
+          <div class= "statHeaders" id="monthlyFilter" style="display:none; margin-left:20px;">
+            <h1 class="h2" style="float:left; margin-right: 25px;">Money Spent Per Month</h1>
+            <div class="filterDropdown">
+              <select id="selectYear" onchange="selectYear()">
+                <option>Select a year</option>
+                <option value="2018"> 2018</option>
+                <option value="2017"> 2017</option>
+                <option value="2016"> 2016</option>
+              </select>
+            </div>
+          </div>
+          <div id="yearly" style="display:none; margin-left:20px;">
+            <h1 class="h2">Money Spent Per Year</h1>
+          </div>
+          <div id="daily" style="display:none; margin-left:20px;">
+            <h1 class="h2">Money Spent Over All Time</h1>
+          </div>
+          <div id="comparison" style="display:none; margin-left:20px;">
+            <h1 class="h2">Comparing Money Spent in 2017 and 2018</h1>
+          </div>
+          <div id="pie" style="display:none; margin-left:20px;">
+            <h1 class="h2">Categories Spent Money In</h1>
+          </div>
+          <div id="weekly" style="display:none; margin-left:20px;">
+            <h1 class="h2">Money Spent Per Week</h1>
+          </div>
+          <table style="display:none" id="list" style="width:100%" >
             <tr>
               <th>Date</th>
               <th>Price</th>
@@ -97,9 +140,13 @@
             {{pass}}
           </table>
 
-          <canvas class="my-4 w-100" id="myChart1" width="900" height="380"></canvas>
-          <canvas class="my-4 w-100" id="myChart2" width="900" height="380"></canvas>
-          <canvas class="my-4 w-100" id="pie-chart" width="900" height="380"></canvas>
+          <canvas class="my-4 w-100" id="dailyChart" style="display:none"></canvas>
+          <canvas class="my-4 w-100" id="yearChart" style="display:none"></canvas>
+          <canvas class="my-4 w-100" id="monthChart" style="display:none"></canvas>
+          <canvas class="my-4 w-100" id="weekChart" style="display:none"></canvas>
+          <canvas class="my-4 w-100" id="cmpChart" style="display:none"></canvas>
+          <canvas class="my-4 w-100" id="pieChart" style="display:none"></canvas>
+
         </main>
       </div>
       </div>
@@ -121,6 +168,6 @@
     <!-- Graphs -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
     <script src="../static/js/charts.js"></script>
-
+   </div>
   </body>
 </html>
