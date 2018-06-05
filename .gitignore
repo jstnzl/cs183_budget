@@ -31,7 +31,8 @@ parameters*.py
 ./docs
 ./logs
 ./*.zip
-./gluon/*
+./gluon/*.1
+./gluon/*.txt
 ./admin.w2p
 ./examples.w2p
 cron.master
