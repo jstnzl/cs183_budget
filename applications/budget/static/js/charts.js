@@ -1,47 +1,3 @@
-function findPercentages(){
-  new Chart(document.getElementById("pieChart"), {
-      type: 'pie',
-      data: {
-        labels: ["Food", "Transportation", "Misc", "Groceries", "Venmo"],
-        datasets: [{
-          label: "Transactions split by category",
-          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-          data: [2450,5267,734,784,433]
-        }]
-      },
-      options: {
-        title: {
-          display: true,
-          text: 'Transactions split by category'
-        }
-      }
-  });
-}
-
-function itemPercentage() {
-  var item = findPercent();
-  var input = document.getElementById("search");
-  var filter = input.value.toUpperCase();
-  console.log("item: " + item);
-  new Chart(document.getElementById("pieChart2"), {
-      type: 'pie',
-      data: {
-        labels: [filter, 'Everything Else'],
-        datasets: [{
-          label: "Transactions split by category",
-          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-          data: [item, 100-item]
-        }]
-      },
-      options: {
-        title: {
-          display: true,
-          text: 'Transactions split by category'
-        }
-      }
-  });
-}
-
 function monthly () {
   var ctx = document.getElementById('monthChart').getContext('2d');
   var myChart = new Chart(ctx, {
@@ -193,12 +149,15 @@ function return5() {
   return x = "5";
 }
 
-function clearCanvas () {
-  canvas = document.getElementById("yearChart");
-  document.getElementById('main').style.display="";
-  ctx = canvas.getContext("2d");
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+function return6() {
+  disableCharts();
+  document.getElementById('search').style.display="";
+  document.getElementById('searchPie').style.display="";
+  return x = "6";
 }
+
+
+
 
 function disableCharts() {
   document.getElementById('main').style.display="none";
@@ -214,6 +173,7 @@ function disableCharts() {
   document.getElementById('weekChart').style.display="none";
   document.getElementById('cmpChart').style.display="none";
   document.getElementById('pieChart').style.display="none";
+  document.getElementById('searchPie').style.display="none";
 }
 
 function toggler () {
@@ -237,6 +197,10 @@ function toggler () {
   else if (x == "5") {
     console.log("compare was pressed");
     findPercentages();
+  }
+  else if (x == "6") {
+    console.log("compare was pressed");
+    itemPercentage();
   }
 }
 
@@ -319,9 +283,6 @@ function findPercent() {
   console.log(percentage*100);
   return (percentage*100);
 }
-
-
-
 
 function selectYear() {
   var x = document.getElementById("selectYear").value;
