@@ -18,6 +18,30 @@ function findPercentages(){
   });
 }
 
+function itemPercentage() {
+  var item = findPercent();
+  var input = document.getElementById("search");
+  var filter = input.value.toUpperCase();
+  console.log("item: " + item);
+  new Chart(document.getElementById("pieChart2"), {
+      type: 'pie',
+      data: {
+        labels: [filter, 'Everything Else'],
+        datasets: [{
+          label: "Transactions split by category",
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+          data: [item, 100-item]
+        }]
+      },
+      options: {
+        title: {
+          display: true,
+          text: 'Transactions split by category'
+        }
+      }
+  });
+}
+
 function monthly () {
   var ctx = document.getElementById('monthChart').getContext('2d');
   var myChart = new Chart(ctx, {
@@ -237,7 +261,7 @@ function getData() {
     }
     if(pr) {
       price = pr.innerHTML.substring(1, pr.innerHTML.length);
-      prices.push(price);
+      prices.push(parseFloat(price).toFixed(2));
     }
     if(de) {
       descript = de.innerHTML;
@@ -261,7 +285,7 @@ function dailyTimeLine() {
   return spent;
 }
 
-function getTotalSpent() {
+function getTotal() {
   getData();
   var total = 0;
   for(var i = 0; i < prices.length; i++) {
@@ -270,11 +294,10 @@ function getTotalSpent() {
       //console.log(prices[i]);
     }
   }
-  console.log(parseFloat(total).toFixed(2));
-  return total;
+  return parseFloat(total).toFixed(2);
 }
 
-function getSpentItem() {
+function getItemTotal() {
   getData();
   var itemTotal = 0;
   var input = document.getElementById("search");
@@ -286,9 +309,18 @@ function getSpentItem() {
       }
     }
   }
-  console.log(parseFloat(itemTotal).toFixed(2));
-  return itemTotal;
+  return parseFloat(itemTotal).toFixed(2);
 }
+
+function findPercent() {
+  var itemTotal = getItemTotal();
+  var total = getTotal();
+  var percentage = itemTotal/total;
+  console.log(percentage*100);
+  return (percentage*100);
+}
+
+
 
 
 function selectYear() {
