@@ -2,7 +2,7 @@ function itemPercentage() {
   var item = findPercent();
   var input = document.getElementById("search");
   var filter = input.value.toUpperCase();
-  new Chart(document.getElementById("searchPie"), {
+  window.searchPie = new Chart(document.getElementById("searchPie"), {
       type: 'pie',
       data: {
         labels: [filter, 'Everything Else'],
@@ -22,7 +22,7 @@ function itemPercentage() {
 }
 
 
-function findPercentages(){
+function categories(){
   new Chart(document.getElementById("pieChart"), {
       type: 'pie',
       data: {
@@ -81,6 +81,7 @@ function getTotal() {
       //console.log(prices[i]);
     }
   }
+  console.log(total.toFixed(2));
   return parseFloat(total).toFixed(2);
 }
 
@@ -96,13 +97,14 @@ function getItemTotal() {
       }
     }
   }
+  console.log(itemTotal.toFixed(2));
   return parseFloat(itemTotal).toFixed(2);
 }
 
 function findPercent() {
   var itemTotal = getItemTotal();
   var total = getTotal();
-  var percentage = itemTotal/total;
-  console.log(percentage*100);
-  return (percentage*100);
+  var percentage = (itemTotal/total)*100;
+  console.log(parseFloat(percentage).toFixed(2));
+  return (parseFloat(percentage).toFixed(2));
 }

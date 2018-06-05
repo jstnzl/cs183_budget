@@ -35,11 +35,12 @@
       <body>
         <div class="banner-container">
           <div class="banner-text" style="margin-top: 5%;">
-            <h1><center><b>Statistics<b></center></h1>
+            <h1><center style="font-size:2em"><b>Statistics<b></center></h1>
           </div>
         </div>
         <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-          <input id="search" onkeyup="return6(); toggler();" class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+          <input id="search" onkeyup="return6(); toggler();" class="form-control form-control-dark w-100"
+            type="text" placeholder="Search" aria-label="Search" onblur="this.value=''">
           <ul class="navbar-nav px-3">
           </ul>
         </nav>
@@ -80,9 +81,9 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" value="compare" onclick="return5(); toggler();">
+                    <a class="nav-link" value="category" onclick="return5(); toggler();">
                       <span data-feather="calendar"></span>
-                      Percentage Spending
+                      Categories
                     </a>
                   </li>
                 </ul>

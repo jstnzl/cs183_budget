@@ -151,7 +151,6 @@ function return5() {
 
 function return6() {
   disableCharts();
-  document.getElementById('search').style.display="";
   document.getElementById('searchPie').style.display="";
   return x = "6";
 }
@@ -173,6 +172,7 @@ function disableCharts() {
   document.getElementById('searchPie').style.display="none";
 }
 
+var count = 0;
 function toggler () {
   if(x == "0"){
     console.log("all time was pressed");
@@ -188,19 +188,22 @@ function toggler () {
     monthly();
   }
   else if (x == "4") {
-    console.log("compare was pressed");
+    console.log("4 was pressed");
     compare("2018", "2017");
   }
   else if (x == "5") {
-    console.log("compare was pressed");
-    findPercentages();
+    console.log("5 was pressed");
+    categories();
   }
   else if (x == "6") {
-    console.log("compare was pressed");
+    console.log("6 was pressed");
+    if(window.searchPie != null && count > 0){
+      window.searchPie.destroy();
+    }
     itemPercentage();
+    count++;
   }
 }
-
 
 var descriptions = [];
 var prices = [];
@@ -271,14 +274,6 @@ function getItemTotal() {
     }
   }
   return parseFloat(itemTotal).toFixed(2);
-}
-
-function findPercent() {
-  var itemTotal = getItemTotal();
-  var total = getTotal();
-  var percentage = itemTotal/total;
-  console.log(percentage*100);
-  return (percentage*100);
 }
 
 function selectYear() {
