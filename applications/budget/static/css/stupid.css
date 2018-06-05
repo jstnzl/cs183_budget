@@ -595,7 +595,9 @@ input[type="file"] {
 }
 
 .landinglogo{
-  padding-left: 50px;
+  position: absolute;
+  margin-left: 5%;
+  margin-top: 2%;
 }
 
 .landinginfo {
@@ -604,8 +606,8 @@ input[type="file"] {
   font-size: 30px;
   font-family:  AvantGardeBook,Helvetica;
   font-weight: 100;
-  margin-left: 60%;
-  margin-top: 3%;
+  margin-left: 10%;
+  margin-top: 2%;
 }
 
 .signuphere {
@@ -626,10 +628,7 @@ input[type="file"] {
 
 }
 
-.budgetpic {
-  margin-top: 2%;
-  margin-right: 3%;
-}
+
 
 .motto {
    margin-left: 8%;
