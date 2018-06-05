@@ -261,6 +261,34 @@ function dailyTimeLine() {
   return spent;
 }
 
+function getTotalSpent() {
+  getData();
+  var total = 0;
+  for(var i = 0; i < prices.length; i++) {
+    if(prices[i] < 0) {
+      total += Math.abs(prices[i]);
+      //console.log(prices[i]);
+    }
+  }
+  console.log(parseFloat(total).toFixed(2));
+  return total;
+}
+
+function getSpentItem() {
+  getData();
+  var itemTotal = 0;
+  var input = document.getElementById("search");
+  var filter = input.value.toUpperCase();
+  for(var i = 0; i < descriptions.length; i++) {
+    if(descriptions[i].toUpperCase().includes(filter)){
+      if(prices[i] < 0) {
+        itemTotal += Math.abs(prices[i]);
+      }
+    }
+  }
+  console.log(parseFloat(itemTotal).toFixed(2));
+  return itemTotal;
+}
 
 
 function selectYear() {
