@@ -156,9 +156,6 @@ function return6() {
   return x = "6";
 }
 
-
-
-
 function disableCharts() {
   document.getElementById('main').style.display="none";
   document.getElementById('monthlyFilter').style.display="none";
