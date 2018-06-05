@@ -23978,6 +23978,7 @@
 127.0.0.1, 2018-06-04 16:04:12, GET, /budget/static/images/logo.png, HTTP/1.1, 404, 0.000000
 127.0.0.1, 2018-06-04 16:04:13, GET, /budget/static/font-awesome-4.6.3/fonts/fontawesome-webfont.woff2, HTTP/1.1, 304, 0.000000
 127.0.0.1, 2018-06-04 16:04:13, GET, /favicon.ico, HTTP/1.1, 400, 0.000000
+<<<<<<< HEAD
 127.0.0.1, 2018-06-04 16:24:55, GET, /, HTTP/1.1, 303, 0.002000
 127.0.0.1, 2018-06-04 16:24:56, GET, /welcome/default/index, HTTP/1.1, 500, 0.743000
 127.0.0.1, 2018-06-04 16:24:56, GET, /favicon.ico, HTTP/1.1, 400, 0.001000
@@ -24660,3 +24661,25 @@ css, HTTP/1.1, 200, 0.002000
 127.0.0.1, 2018-06-04 17:09:42, GET, /budget/static/images/logo.png, HTTP/1.1, 200, 0.001000
 127.0.0.1, 2018-06-04 17:09:42, GET, /budget/static/font-awesome-4.6.3/fonts/fontawesome-webfont.woff2, HTTP/1.1, 200, 0.001000
 127.0.0.1, 2018-06-04 17:09:42, GET, /favicon.ico, HTTP/1.1, 400, 0.000000
+=======
+127.0.0.1, 2018-06-04 16:19:59, GET, /budget/default/index, HTTP/1.1, 200, 0.454000
+127.0.0.1, 2018-06-04 16:19:59, GET, /budget/static/css/stupid.css, HTTP/1.1, 304, 0.001000
+127.0.0.1, 2018-06-04 16:19:59, GET, /budget/static/css/custom.css, HTTP/1.1, 304, 0.002000
+127.0.0.1, 2018-06-04 16:19:59, GET, /budget/static/css/calendar.css, HTTP/1.1, 304, 0.002000
+127.0.0.1, 2018-06-04 16:19:59, GET, /budget/static/font-awesome-4.6.3/css/font-awesome.min.css, HTTP/1.1, 304, 0.002000
+127.0.0.1, 2018-06-04 16:19:59, GET, /budget/static/css/myapp.css, HTTP/1.1, 304, 0.002000
+127.0.0.1, 2018-06-04 16:19:59, GET, /budget/static/js/jquery.js, HTTP/1.1, 304, 0.002000
+127.0.0.1, 2018-06-04 16:19:59, GET, /budget/static/css/dropdown.css, HTTP/1.1, 304, 0.001000
+127.0.0.1, 2018-06-04 16:19:59, GET, /budget/static/js/calendar.js, HTTP/1.1, 304, 0.001000
+127.0.0.1, 2018-06-04 16:19:59, GET, /budget/static/js/web2py.js, HTTP/1.1, 304, 0.000000
+127.0.0.1, 2018-06-04 16:19:59, GET, /budget/static/js/read-csv.js, HTTP/1.1, 304, 0.001000
+127.0.0.1, 2018-06-04 16:19:59, GET, /budget/static/js/delete-table.js, HTTP/1.1, 304, 0.001000
+127.0.0.1, 2018-06-04 16:19:59, GET, /budget/static/js/dropdown.js, HTTP/1.1, 304, 0.001000
+127.0.0.1, 2018-06-04 16:19:59, GET, /budget/static/js/search.js, HTTP/1.1, 304, 0.001000
+127.0.0.1, 2018-06-04 16:19:59, GET, /budget/static/js/marked.min.js, HTTP/1.1, 304, 0.000000
+127.0.0.1, 2018-06-04 16:19:59, GET, /budget/static/js/vue.min.js, HTTP/1.1, 304, 0.000000
+127.0.0.1, 2018-06-04 16:19:59, GET, /budget/static/images/navbar_logo.png, HTTP/1.1, 304, 0.000000
+127.0.0.1, 2018-06-04 16:19:59, GET, /budget/static/images/logo.png, HTTP/1.1, 200, 0.008000
+127.0.0.1, 2018-06-04 16:20:00, GET, /budget/static/font-awesome-4.6.3/fonts/fontawesome-webfont.woff2, HTTP/1.1, 304, 0.001000
+127.0.0.1, 2018-06-04 16:20:00, GET, /favicon.ico, HTTP/1.1, 400, 0.000000
+>>>>>>> 9926b8b41932cbb085dd94469e7968746e5ce91a
