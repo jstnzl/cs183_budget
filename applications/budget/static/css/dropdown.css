@@ -3,7 +3,6 @@
    width: 200px;
    padding: 10px;
    padding-left: 20px;
-   font-family: times new roman;
    font-size:1.3em;
    font-weight:500;
    color:#fff;
@@ -46,7 +45,6 @@
 
 .dropdiv {
     position: relative;
-    font-family: lobster;
     display:  inline-block;
     padding-top: 50px;
 }
