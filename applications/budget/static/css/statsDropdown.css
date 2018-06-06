@@ -1,8 +1,8 @@
 .filterDropdown select{
   background:transparent;
-   width: 100px;
+   width: 110px;
    padding: 10px;
-   padding-left: 20px;
+   padding-left: 15px;
    font-size:1.3em;
    font-weight:500;
    color:#fff;
@@ -18,7 +18,7 @@
 
 
 .filterDropdown{
-	width: 100px;
+	width: 110px;
   position: relative;
 	overflow: hidden;
 	background: no-repeat right #fca776;
