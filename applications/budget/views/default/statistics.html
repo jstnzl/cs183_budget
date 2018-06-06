@@ -13,12 +13,6 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link rel="icon" href="../../../../favicon.ico">
-  <link href="../static/css/statsDropdown.css" rel="stylesheet">
-  <link href="../static/css/stupid.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
-
-  <title>Statistics</title>
-
   <!-- Bootstrap core CSS -->
     <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -26,6 +20,13 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link href="../static/css/stupid.css" rel="stylesheet">
+  <link href="../static/css/budget.css" rel="stylesheet">
+  <link href="../static/css/statsDropdown.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+
+  <title>Statistics</title>
+
 </head>
 
 <!doctype html>
@@ -34,12 +35,12 @@
     {{if auth.user is not None:}}
       <body>
         <div class="banner-container">
-          <div class="banner-text" style="margin-top: 5%;">
-            <h1><center style="font-size:2em"><b>Statistics<b></center></h1>
+          <div class="banner-text" style="margin-top: 3%;">
+            <h1><center>Statistics</center></h1>
           </div>
         </div>
         <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-          <input id="search" onkeyup="return6(); toggler();" class="form-control form-control-dark w-100"
+          <input id="search" style="width:80%; margin-left:10%;margin-top:1%" onkeyup="return6(); toggler();" class="form-control form-control-dark w-100"
             type="text" placeholder="Search" aria-label="Search" onblur="this.value=''">
           <ul class="navbar-nav px-3">
           </ul>
@@ -53,7 +54,7 @@
                   <li class="nav-item">
                     <a class="nav-link" value="daily" onclick="return0(); toggler();" >
                       <span data-feather="calendar"></span>
-                      All Time <span class="sr-only">(current)</span>
+                      All Time<span class="sr-only">(current)</span>
                     </a>
                   </li>
                   <li class="nav-item" >
@@ -92,19 +93,20 @@
 
             <main role="main" class="col-md-9">
               <div id="main">
-                <h1><center>
+                <h2 style="margin-top: 20%;"><center>
                   Click an item in the sidebar to view a graph!
-                </center></h1>
+                </center></h2>
               </div>
               <div class= "statHeaders" id="monthlyFilter" style="display:none; margin-left:20px;">
                 <h1 class="h2" style="float:left; margin-right: 25px;">Money Spent Per Month</h1>
-                <div class="filterDropdown">
-                  <select id="selectYear" onchange="selectYear()">
-                    <option>Select a year</option>
-                    <option value="2018"> 2018</option>
-                    <option value="2017"> 2017</option>
-                    <option value="2016"> 2016</option>
-                  </select>
+                <div class="dropdiv">
+                  <div class="filterDropdown">
+                    <select id="selectYear" onchange="selectYear()">
+                      <option value="2018"> 2018</option>
+                      <option value="2017"> 2017</option>
+                      <option value="2016"> 2016</option>
+                    </select>
+                  </div>
                 </div>
               </div>
               <div id="yearly" style="display:none; margin-left:20px;">
