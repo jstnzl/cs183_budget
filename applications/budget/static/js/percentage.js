@@ -1,6 +1,6 @@
 function itemPercentage() {
   var item = findPercent();
-  var input = document.getElementById("search");
+  var input = document.getElementById("entry");
   var filter = input.value.toUpperCase();
   window.searchPie = new Chart(document.getElementById("searchPie"), {
       type: 'pie',
@@ -88,7 +88,7 @@ function getTotal() {
 function getItemTotal() {
   getData();
   var itemTotal = 0;
-  var input = document.getElementById("search");
+  var input = document.getElementById("entry");
   var filter = input.value.toUpperCase();
   for(var i = 0; i < descriptions.length; i++) {
     if(descriptions[i].toUpperCase().includes(filter)){
