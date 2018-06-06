@@ -193,7 +193,7 @@ function toggler () {
   }
   else if (x == "5") {
     console.log("5 was pressed");
-    categories();
+    //categories();
   }
   else if (x == "6") {
     console.log("6 was pressed");

@@ -22,27 +22,6 @@ function itemPercentage() {
 }
 
 
-function categories(){
-  new Chart(document.getElementById("pieChart"), {
-      type: 'pie',
-      data: {
-        labels: ["Food", "Transportation", "Misc", "Groceries", "Venmo"],
-        datasets: [{
-          label: "Transactions split by category",
-          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-          data: [2450,5267,734,784,433]
-        }]
-      },
-      options: {
-        title: {
-          display: true,
-          text: 'Transactions split by category'
-        }
-      }
-  });
-}
-
-
 var descriptions = [];
 var prices = [];
 var dates = [];
