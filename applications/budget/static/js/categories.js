@@ -6,7 +6,7 @@ function categories(){
         labels: ["Transportation", "Food", "Groceries", "Housing", "venmo", "Misc"],
         datasets: [{
           label: "Transactions split by category",
-          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#0066ff"],
+          backgroundColor: ["#e8c3b9", "#0066ff", "#8e5ea2", "#c45850", "#3e95cd", "#3cba9f"],
           data: perc
         }]
       },
@@ -57,18 +57,24 @@ function splitData(input) {
 function getPercentages() {
   var total = getTotal();
   var tram = (getPrices(transportation) / total * 100);
+  var a = parseFloat(tram).toFixed(2)
   console.log(tram);
   var rest = getPrices(foodplaces)/ total * 100;
+  var b = parseFloat(rest).toFixed(2)
   console.log(rest);
   var groc = getPrices(grocery)/ total * 100;
+  var c = parseFloat(groc).toFixed(2)
   console.log(groc);
   var hous = housing() / total * 100;
+  var d = parseFloat(hous).toFixed(2)
   console.log(hous);
   var venm = venmo()/ total * 100;
+  var e = parseFloat(venm).toFixed(2)
   console.log(venm);
   var misc = 100 - (tram + rest + groc + hous + venm);
+  var f = parseFloat(misc).toFixed(2)
   console.log(misc);
-  var list = [tram, rest, groc, hous, venm, misc];
+  var list = [a, b, c, d, e, f];
   console.log(list);
   return list;
 }
