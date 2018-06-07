@@ -13,6 +13,40 @@ function monthly () {
   });
 }
 
+function day () {
+  var days = getDaily();
+  console.log(days);
+  var ctx = document.getElementById('dayChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      datasets: [{
+        label: 'Monthly spending',
+        data: days,
+        backgroundColor: "rgba(0,130,250,0.4)"
+      }]
+    }
+  });
+}
+
+
+function weekly() {
+  var days = getWeekly();
+  var ctx = document.getElementById('weeklyChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: weeks,
+      datasets: [{
+        label: 'Monthly spending',
+        data: days,
+        backgroundColor: "rgba(0,130,250,0.4)"
+      }]
+    }
+  });
+}
+
 function daily() {
   var ctx = document.getElementById('dailyChart').getContext('2d');
   spent = dailyTimeLine();
@@ -328,6 +362,95 @@ function getAnnual() {
     annual.push(parseFloat(num).toFixed(2));
   }
 }
+
+
+
+var everyF = [];
+function fridays() {
+  getData();
+  var amt = 0;
+  var f = 0;
+  for (var i = 0; i < dates.length; i++) {
+    var d = new Date(dates[i]);
+    var wd = d.getDay();
+    var day = d.getDate();
+    if(day < 30) {
+      if(!everyF.includes((day + (5 - wd)))){
+        everyF.push((day + (5 - wd)));
+        weeks.push("Week: " +  f++);
+      }
+    }
+  }
+}
+var weeks = [];
+function getWeekly() {
+  fridays();
+  var weekly = [];
+  console.log(everyF);
+  getData();
+  var f = 0;
+  var amt = 0;
+  for(i = 0; i < dates.length; i++) {
+    var d = new Date(dates[i]);
+    var v = d.getDate();
+    if (everyF[f]-4 <= v &&  v <= everyF[f]) {
+      if(prices[i] < 0){
+        amt += Math.abs(parseFloat(prices[i]).toFixed(2));
+      }
+    }
+    else{
+      weekly.push(parseFloat(amt).toFixed(2))
+      f++;
+
+      if(prices[i] < 0){
+        //weeks.push("Week: " +  f);
+        amt = 0;
+        amt += Math.abs(parseFloat(prices[i]).toFixed(2));
+      }
+    }
+  }
+  return weekly;
+}
+
+
+function getDaily() {
+  getData();
+  var m = 0, t = 0, w = 0, th = 0, f = 0;
+  var mc = 0; tc = 0; wc = 0; thc = 0; fc = 0;
+  for(var i = 0; i < dates.length; i++) {
+    var d = new Date(dates[i]);
+    var n = d.getDay();
+    if(prices[i] < 0) {
+      switch(n) {
+        case 1:
+          m += Math.abs(parseFloat(prices[i]).toFixed(2));
+          mc++;
+          break;
+        case 2:
+          t += Math.abs(parseFloat(prices[i]).toFixed(2));
+          tc++;
+          break;
+        case 3:
+          w += Math.abs(parseFloat(prices[i]).toFixed(2));
+          wc++;
+          break;
+        case 4:
+          th += Math.abs(parseFloat(prices[i]).toFixed(2));
+          thc++;
+          break;
+        case 5:
+          f += Math.abs(parseFloat(prices[i]).toFixed(2));
+          fc++;
+          break;
+        default:
+          break;
+      }
+    }
+  }
+  var list = [m/mc, t/tc, w/wc, th/thc, f/fc];
+  return list;
+}
+
 
 function getMonths(year) {
   months = [];

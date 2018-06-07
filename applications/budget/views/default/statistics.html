@@ -54,6 +54,12 @@
                     </a>
                   </li>
                   <li class="nav-item" >
+                    <a class="nav-link"  onclick="day();">
+                      <span data-feather="calendar"></span>
+                      Day
+                    </a>
+                  </li>
+                  <li class="nav-item" >
                     <a class="nav-link" value="yearly" onclick="return1(); toggler();">
                       <span data-feather="calendar"></span>
                       Yearly
@@ -66,7 +72,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" value="weekly" href="#">
+                    <a class="nav-link" value="weekly" onclick="weekly();">
                       <span data-feather="calendar"></span>
                       Weekly
                     </a>
@@ -138,6 +144,8 @@
               </table>
 
               <div>
+                <canvas class="my-4 w-100" id="weeklyChart"></canvas>
+                <canvas class="my-4 w-100" id="dayChart"></canvas>
                 <canvas class="my-4 w-100" id="dailyChart" style="display:none"></canvas>
                 <canvas class="my-4 w-100" id="yearChart" style="display:none"></canvas>
                 <canvas class="my-4 w-100" id="monthChart" style="display:none"></canvas>
