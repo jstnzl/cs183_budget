@@ -315,8 +315,7 @@ input[type="file"] {
 
 .sidenav{
   margin-top: 6%;
-  margin-left: 23%;
-  width: 40%;
+  width: 100%;
   background-color: white;
   border-radius: 5px;
   height:150px;
@@ -327,8 +326,7 @@ input[type="file"] {
 
 .sidenav1{
   margin-top: 6%;
-  margin-left: 23%;
-  width: 40%;
+  width: 100%;
   background-color: white;
   border-radius: 5px;
   height:200px;

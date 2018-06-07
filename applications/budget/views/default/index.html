@@ -26,18 +26,20 @@
          </div>
         <div class="container" style="padding-top: 15px">
           <input type="text" id="entry" onkeyup="searchingWithFilter();" placeholder="Search for names.." title="Search">
-          <div class="third" style="padding-top:4%">
+          <div class="third" style="padding-top:4%;padding-left:7%;padding-right:10%;">
             <nav class="sidenav">
               <div>
                 <ul style="padding-left:5px; padding-top:30px;">
                   <li class="nav-item1">
-                    <a class="nav-link" value="daily" onclick="" >
-                      <span data-feather="calendar"></span>
-                      Upload CSV File
+                    <a class="nav-link">
+                      <label style="font-weight:400">Upload CSV File
+                        <input type="file" id="csvFileInput" size="60" onchange="handleFiles(this.files)"
+                            accept=".csv">
+                      </label>
                     </a>
                   </li>
                   <li class="nav-item1">
-                    <a class="nav-link" value="monthly" onclick="">
+                    <a class="nav-link" onclick="deleteTable()">
                       Delete Transactions Table
                     </a>
                   </li>
@@ -50,70 +52,44 @@
                 <ul style="padding-left: 7px; padding-top: 20px;">
                   <li class="nav-item">
                     <a class="nav-link"  onclick="">
-                      Filter by Price:
+                        Filter by Price:
+                        <div class="filterDropdown">
+                          <select id="prices" onchange="filterPrice()" >
+                            <option value="-1">Price range</option>
+                            <option value="0"> Income</option>
+                            <option value="1"> < $5</option>
+                            <option value="2"> $5 to $10 </option>
+                            <option value="3"> $10 to $20</option>
+                            <option value="4"> $20 to $50</option>
+                            <option value="5"> $50 to $100</option>
+                            <option value="6"> $100+</option>
+                          </select>
+                        </div>
                     </a>
                   </li>
                   <li class="nav-item" >
-                    <a class="nav-link" value="yearly" onclick="">
+                    <a class="nav-link" onclick="">
                       Filter by Date:
+                      <div class="filterDropdown">
+                        <select id="dates" onchange="filterDate()" >
+                          <option value="-1">Date range</option>
+                          <option value="1">Daily</option>
+                          <option value="2">Weekly </option>
+                          <option value="3">Monthly</option>
+                          <option value="4">Quarterly</option>
+                          <option value="5">Yearly</option>
+                        </select>
+                      </div>
                     </a>
                   </li>
-
                   <li class="nav-item">
-                    <a class="nav-link" value="weekly" onclick="">
+                    <a class="nav-link" onclick="refresh();">
                       Reset Filters
                     </a>
                   </li>
-
                 </ul>
               </div>
             </nav>
-
-            <div class="flex-container" style="margin-top: 10%">
-              <label class="label1">Upload CSV File
-                <input type="file" id="csvFileInput" size="60" onchange="handleFiles(this.files)"
-                    accept=".csv">
-              </label>
-              <button class="label1" onclick="refresh();" style="margin-left: 28%;">Reset Filters</button>
-            </div>
-            <div class="container1">
-              <div class="dropdiv">
-                <h5>Filter by Price:</h5>
-                <div class="filterDropdown">
-                  <select id="prices" onchange="filterPrice()" >
-                    <option value="-1">Select a range</option>
-                    <option value="0"> Income</option>
-                    <option value="1"> Less than $5</option>
-                    <option value="2"> $5 to $10 </option>
-                    <option value="3"> $10 to $20</option>
-                    <option value="4"> $20 to $50</option>
-                    <option value="5"> $50 to $100</option>
-                    <option value="6"> $100+</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="container1">
-              <div class="dropdiv" style="padding-top: 10%;">
-                <h5 style="float:left">Filter by Date:</h5>
-                <br>
-                <div class="filterDropdown">
-                  <select id="dates" onchange="filterDate()" >
-                    <option value="-1">Select a range</option>
-                    <option value="1">Daily</option>
-                    <option value="2">Weekly </option>
-                    <option value="3">Monthly</option>
-                    <option value="4">Quarterly</option>
-                    <option value="5">Yearly</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="container1" >
-              <button class="deleteButton" onclick="deleteTable()">Delete Transactions Table</button>
-            </div>
         </div>
           <div class="twothirds" style="height:70%;overflow:auto;margin-top:10px;margin-left:-6%;">
             {{if transactions:}}

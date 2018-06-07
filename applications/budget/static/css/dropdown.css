@@ -1,11 +1,9 @@
 .filterDropdown select{
   background:transparent;
-   width: 200px;
+   width: 140px;
    padding: 10px;
-   padding-left: 20px;
-   font-family: 'cambria', sans-serif;
-   font-size:1.3em;
-   font-weight:500;
+   font-size:1.1em;
+   font-weight:400;
    color:#fff;
    border: 0;
    border-radius: 0;
@@ -19,13 +17,14 @@
 
 
 .filterDropdown{
-	width: 200px;
+  float:right;
+	width: 140px;
 	overflow: hidden;
-	background: no-repeat right #00D176;;
-  height: 50px;
-  margin-top: 1px;
+	background: no-repeat right #00cca3;;
+  height: 40px;
+  margin-top: -12px;
+  margin-right: 13px;
   position: relative;
-  margin-bottom: 15px;
 	-webkit-border-radius: 4px 4px 4px 4px;
 	 -moz-border-radius: 4px 4px 4px 4px;
 		  border-radius: 4px 4px 4px 4px;
@@ -48,7 +47,7 @@
     content: "";
     position: absolute;
     right: 13px;
-    top: 20px;
+    top: 17px;
   	width: 0;
   	height: 0;
   	border-left: 10px solid transparent;
@@ -60,14 +59,14 @@
     content: "";
     position: absolute;
     right: 13px;
-    top: 15px;
+    top: 13px;
   	width: 0;
   	height: 0;
   	border-left: 10px solid transparent;
   	border-right: 10px solid transparent;
-  	border-top: 10px solid #00D176;
+  	border-top: 10px solid #00cca3;
 }
 
 select > option {
-  background: #4dffb2;
+  background: #80ffe5;
   color: black;
