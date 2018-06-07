@@ -1,5 +1,6 @@
 .filterDropdown select{
-  background:transparent;
+   background:transparent;
+   cursor:pointer;
    width: 110px;
    padding: 10px;
    padding-top: 8px;
@@ -52,6 +53,7 @@
   	border-left: 10px solid transparent;
   	border-right: 10px solid transparent;
   	border-top: 10px solid #DCDCDC;
+    pointer-events: none;
 }
 
 .filterDropdown:after {
@@ -64,6 +66,7 @@
   	border-left: 10px solid transparent;
   	border-right: 10px solid transparent;
   	border-top: 10px solid #fca776;
+    pointer-events: none;
 }
 
 select > option {

@@ -1,7 +1,9 @@
 .filterDropdown select{
-  background:transparent;
-   width: 140px;
-   padding: 10px;
+   background:transparent;
+   cursor:pointer;
+   width: 100%;
+   padding: 8px;
+   padding-top: 9px;
    font-size:1.1em;
    font-weight:400;
    color:#fff;
@@ -18,7 +20,7 @@
 
 .filterDropdown{
   float:right;
-	width: 140px;
+	width: 50%;
 	overflow: hidden;
 	background: no-repeat right #00cca3;;
   height: 40px;
@@ -46,25 +48,28 @@
 .filterDropdown:before {
     content: "";
     position: absolute;
-    right: 13px;
+    right: 7px;
     top: 17px;
   	width: 0;
   	height: 0;
   	border-left: 10px solid transparent;
   	border-right: 10px solid transparent;
   	border-top: 10px solid #DCDCDC;
+    pointer-events: none;
+
 }
 
 .filterDropdown:after {
     content: "";
     position: absolute;
-    right: 13px;
+    right: 7px;
     top: 13px;
   	width: 0;
   	height: 0;
   	border-left: 10px solid transparent;
   	border-right: 10px solid transparent;
   	border-top: 10px solid #00cca3;
+    pointer-events: none;
 }
 
 select > option {
