@@ -21,9 +21,10 @@
 .filterDropdown{
 	width: 200px;
 	overflow: hidden;
-	background: no-repeat right #fca776;
+	background: no-repeat right #00D176;;
   height: 50px;
   margin-top: 1px;
+  position: relative;
   margin-bottom: 15px;
 	-webkit-border-radius: 4px 4px 4px 4px;
 	 -moz-border-radius: 4px 4px 4px 4px;
@@ -37,16 +38,8 @@
 
 }
 
-.filterDropdown {
-    position: relative;
-    /* float: right;
-    margin-right: 50px; */
-    background-color:#00D176;
-}
-
 .dropdiv {
     position: relative;
-    font-family: lobster;
     display:  inline-block;
     padding-top: 50px;
 }
@@ -76,5 +69,5 @@
 }
 
 select > option {
-  background: #00AC61;
+  background: #4dffb2;
   color: black;

@@ -1,9 +1,8 @@
 .filterDropdown select{
   background:transparent;
-   width: 200px;
+   width: 110px;
    padding: 10px;
-   padding-left: 20px;
-   font-family: lobster;
+   padding-left: 15px;
    font-size:1.3em;
    font-weight:500;
    color:#fff;
@@ -19,10 +18,11 @@
 
 
 .filterDropdown{
-	width: 200px;
+	width: 110px;
+  position: relative;
 	overflow: hidden;
 	background: no-repeat right #fca776;
-  height: 50px;
+  height: 45px;
   margin-top: 1px;
   margin-bottom: 15px;
 	-webkit-border-radius: 4px 4px 4px 4px;
@@ -37,17 +37,10 @@
 
 }
 
-.filterDropdown {
-    position: relative;
-    /* float: right;
-    margin-right: 50px; */
-}
-
 .dropdiv {
     position: relative;
-    font-family: lobster;
     display:  inline-block;
-    padding-top: 50px;
+    margin-top: 10px;
 }
 
 .filterDropdown:before {

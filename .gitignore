@@ -43,6 +43,8 @@ applications/*
 !applications/examples/*
 !applications/admin
 !applications/admin/*
+!applications/budget
+!applications/budget/*
 applications/*/databases/*
 applications/*/sessions/*
 applications/*/errors/*

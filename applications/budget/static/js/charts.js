@@ -1,23 +1,3 @@
-function findPercentages(){
-  new Chart(document.getElementById("pieChart"), {
-      type: 'pie',
-      data: {
-        labels: ["Food", "Transportation", "Misc", "Groceries", "Venmo"],
-        datasets: [{
-          label: "Transactions split by category",
-          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-          data: [2450,5267,734,784,433]
-        }]
-      },
-      options: {
-        title: {
-          display: true,
-          text: 'Transactions split by category'
-        }
-      }
-  });
-}
-
 function monthly () {
   var ctx = document.getElementById('monthChart').getContext('2d');
   var myChart = new Chart(ctx, {
@@ -27,6 +7,40 @@ function monthly () {
       datasets: [{
         label: 'Monthly spending',
         data: months,
+        backgroundColor: "rgba(0,130,250,0.4)"
+      }]
+    }
+  });
+}
+
+function day () {
+  var days = getDaily();
+  console.log(days);
+  var ctx = document.getElementById('dayChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      datasets: [{
+        label: 'Monthly spending',
+        data: days,
+        backgroundColor: "rgba(0,130,250,0.4)"
+      }]
+    }
+  });
+}
+
+
+function weekly() {
+  var days = getWeekly();
+  var ctx = document.getElementById('weeklyChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: weeks,
+      datasets: [{
+        label: 'Monthly spending',
+        data: days,
         backgroundColor: "rgba(0,130,250,0.4)"
       }]
     }
@@ -169,11 +183,10 @@ function return5() {
   return x = "5";
 }
 
-function clearCanvas () {
-  canvas = document.getElementById("yearChart");
-  document.getElementById('main').style.display="";
-  ctx = canvas.getContext("2d");
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+function return6() {
+  disableCharts();
+  document.getElementById('searchPie').style.display="";
+  return x = "6";
 }
 
 function disableCharts() {
@@ -190,8 +203,10 @@ function disableCharts() {
   document.getElementById('weekChart').style.display="none";
   document.getElementById('cmpChart').style.display="none";
   document.getElementById('pieChart').style.display="none";
+  document.getElementById('searchPie').style.display="none";
 }
 
+var count = 0;
 function toggler () {
   if(x == "0"){
     console.log("all time was pressed");
@@ -207,15 +222,22 @@ function toggler () {
     monthly();
   }
   else if (x == "4") {
-    console.log("compare was pressed");
+    console.log("4 was pressed");
     compare("2018", "2017");
   }
   else if (x == "5") {
-    console.log("compare was pressed");
-    findPercentages();
+    console.log("5 was pressed");
+    //categories();
+  }
+  else if (x == "6") {
+    console.log("6 was pressed");
+    if(window.searchPie != null && count > 0){
+      window.searchPie.destroy();
+    }
+    itemPercentage();
+    count++;
   }
 }
-
 
 var descriptions = [];
 var prices = [];
@@ -237,7 +259,7 @@ function getData() {
     }
     if(pr) {
       price = pr.innerHTML.substring(1, pr.innerHTML.length);
-      prices.push(price);
+      prices.push(parseFloat(price).toFixed(2));
     }
     if(de) {
       descript = de.innerHTML;
@@ -261,7 +283,32 @@ function dailyTimeLine() {
   return spent;
 }
 
+function getTotal() {
+  getData();
+  var total = 0;
+  for(var i = 0; i < prices.length; i++) {
+    if(prices[i] < 0) {
+      total += Math.abs(prices[i]);
+      //console.log(prices[i]);
+    }
+  }
+  return parseFloat(total).toFixed(2);
+}
 
+function getItemTotal() {
+  getData();
+  var itemTotal = 0;
+  var input = document.getElementById("entry");
+  var filter = input.value.toUpperCase();
+  for(var i = 0; i < descriptions.length; i++) {
+    if(descriptions[i].toUpperCase().includes(filter)){
+      if(prices[i] < 0) {
+        itemTotal += Math.abs(prices[i]);
+      }
+    }
+  }
+  return parseFloat(itemTotal).toFixed(2);
+}
 
 function selectYear() {
   var x = document.getElementById("selectYear").value;
@@ -315,6 +362,95 @@ function getAnnual() {
     annual.push(parseFloat(num).toFixed(2));
   }
 }
+
+
+
+var everyF = [];
+function fridays() {
+  getData();
+  var amt = 0;
+  var f = 0;
+  for (var i = 0; i < dates.length; i++) {
+    var d = new Date(dates[i]);
+    var wd = d.getDay();
+    var day = d.getDate();
+    if(day < 30) {
+      if(!everyF.includes((day + (5 - wd)))){
+        everyF.push((day + (5 - wd)));
+        weeks.push("Week: " +  f++);
+      }
+    }
+  }
+}
+var weeks = [];
+function getWeekly() {
+  fridays();
+  var weekly = [];
+  console.log(everyF);
+  getData();
+  var f = 0;
+  var amt = 0;
+  for(i = 0; i < dates.length; i++) {
+    var d = new Date(dates[i]);
+    var v = d.getDate();
+    if (everyF[f]-4 <= v &&  v <= everyF[f]) {
+      if(prices[i] < 0){
+        amt += Math.abs(parseFloat(prices[i]).toFixed(2));
+      }
+    }
+    else{
+      weekly.push(parseFloat(amt).toFixed(2))
+      f++;
+
+      if(prices[i] < 0){
+        //weeks.push("Week: " +  f);
+        amt = 0;
+        amt += Math.abs(parseFloat(prices[i]).toFixed(2));
+      }
+    }
+  }
+  return weekly;
+}
+
+
+function getDaily() {
+  getData();
+  var m = 0, t = 0, w = 0, th = 0, f = 0;
+  var mc = 0; tc = 0; wc = 0; thc = 0; fc = 0;
+  for(var i = 0; i < dates.length; i++) {
+    var d = new Date(dates[i]);
+    var n = d.getDay();
+    if(prices[i] < 0) {
+      switch(n) {
+        case 1:
+          m += Math.abs(parseFloat(prices[i]).toFixed(2));
+          mc++;
+          break;
+        case 2:
+          t += Math.abs(parseFloat(prices[i]).toFixed(2));
+          tc++;
+          break;
+        case 3:
+          w += Math.abs(parseFloat(prices[i]).toFixed(2));
+          wc++;
+          break;
+        case 4:
+          th += Math.abs(parseFloat(prices[i]).toFixed(2));
+          thc++;
+          break;
+        case 5:
+          f += Math.abs(parseFloat(prices[i]).toFixed(2));
+          fc++;
+          break;
+        default:
+          break;
+      }
+    }
+  }
+  var list = [m/mc, t/tc, w/wc, th/thc, f/fc];
+  return list;
+}
+
 
 function getMonths(year) {
   months = [];

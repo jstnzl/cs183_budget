@@ -167,22 +167,19 @@ function month(value,x){
   var thisMonth = new Date(todaysDate()).getMonth() + 1;
   var yearVal = value.substring(6);
   var monthVal = value.substring(0,2);
-  console.log(monthVal == thisMonth);
-  console.log(thisYear == yearVal);
-  console.log("end");
   return (x === "3" && (monthVal == thisMonth) && (thisYear == yearVal));
 }
 
 function quarter(value,x){
   var thisYear = new Date(todaysDate()).getFullYear();
   var thisQtr = new Date(todaysDate()).getMonth() + 1;
-  if(thisQtr < 3) thisQtr = 1;
-  else if(thisQtr < 6) thisQtr = 3;
-  else if(thisQtr < 9) thisQtr = 6;
-  else thisQtr = 9;
+  if(thisQtr <= 3) thisQtr = 1;
+  else if(thisQtr <= 6) thisQtr = 4;
+  else if(thisQtr <= 9) thisQtr = 7;
+  else thisQtr = 10;
   var yearVal = value.substring(6);
   var qtrVal = value.substring(0,2);
-  return (x === "4" && (qtrVal > thisQtr) && (qtrVal < (thisQtr + 3)) && (thisYear == yearVal));
+  return (x === "4" && (qtrVal >= thisQtr) && (qtrVal <= (thisQtr + 2)) && (thisYear == yearVal));
 }
 
 function year(value,x){
