@@ -73,8 +73,8 @@ input:not([type]):hover, input:not([type=checkbox]):not([type=radio]):not([type=
 input:invalid, input.error, textarea:invalid, textarea.error {background: #ffdfdf}
 
 /*** grid ***/
-.container {}
-.container>.quarter, .container>.half, .container>.third, .container>.twothirds, .container>.threequarters {display:inline-block; padding: 0 20px 0 0; vertical-align:top}
+.container {margin-left: 10%; margin-right: 10%;}
+.container>.quarter, .container>.half, .container>.third, .container>.twothirds, .container>.threequarters {display:inline-block; padding: 0 0 0 0; vertical-align:top}
 .container>.fill{display: inline-block; padding-right: 20px; margin-right:-10px}
 .container img, .container video {max-width:100%}
 .max900 {margin-left:auto; margin-right:auto}
