@@ -12,9 +12,8 @@
   <script type="text/javascript" src="../static/js/delete-table.js"></script>
   <script type="text/javascript" src="../static/js/dropdown.js"></script>
   <link href="../static/css/stupid.css" rel="stylesheet">
-  <link href="../static/css/budget.css" rel="stylesheet">
+  <link href="../static/css/index.css" rel="stylesheet">
   <link href="../static/css/dropdown.css" rel="stylesheet">
-  <!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet"> -->
 </head>
 <title>Home</title>
 <!DOCTYPE html>
@@ -23,22 +22,32 @@
     {{if auth.user is not None:}}
       <body>
         <div class="banner-container">
-          <div class="banner-text" style="font-family: 'cambria', sans-serif;">
             <h1><center>Your Transactions</center></h1>
-          </div>
-        </div>
+         </div>
         <div class="container" style="padding-top: 15px">
           <input type="text" id="entry" onkeyup="searchingWithFilter();" placeholder="Search for names.." title="Search">
-          <div class="third">
-            <nav class="col-md-2 sidenav" style="margin-right:10%">
-              <div class="sidebar-sticky">
-                <ul class="nav flex-column" style="padding: 60px;">
-                  <li class="nav-item">
+          <div class="third" style="padding-top:4%">
+            <nav class="sidenav">
+              <div>
+                <ul style="padding-left:5px; padding-top:30px;">
+                  <li class="nav-item1">
                     <a class="nav-link" value="daily" onclick="" >
                       <span data-feather="calendar"></span>
                       Upload CSV File
                     </a>
                   </li>
+                  <li class="nav-item1">
+                    <a class="nav-link" value="monthly" onclick="">
+                      Delete Transactions Table
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+
+            <nav class="sidenav1">
+              <div>
+                <ul style="padding-left: 7px; padding-top: 20px;">
                   <li class="nav-item">
                     <a class="nav-link"  onclick="">
                       Filter by Price:
@@ -49,21 +58,16 @@
                       Filter by Date:
                     </a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" value="monthly" onclick="">
-                      Delete Transactions Table
-                    </a>
-                  </li>
+
                   <li class="nav-item">
                     <a class="nav-link" value="weekly" onclick="">
                       Reset Filters
                     </a>
                   </li>
+
                 </ul>
               </div>
             </nav>
-
-
 
             <div class="flex-container" style="margin-top: 10%">
               <label class="label1">Upload CSV File
@@ -73,7 +77,7 @@
               <button class="label1" onclick="refresh();" style="margin-left: 28%;">Reset Filters</button>
             </div>
             <div class="container1">
-              <div class="dropdiv" style="font-family: 'cambria', sans-serif;">
+              <div class="dropdiv">
                 <h5>Filter by Price:</h5>
                 <div class="filterDropdown">
                   <select id="prices" onchange="filterPrice()" >
@@ -90,7 +94,7 @@
               </div>
             </div>
 
-            <div class="container1" style ="font-family: 'cambria', sans-serif;">
+            <div class="container1">
               <div class="dropdiv" style="padding-top: 10%;">
                 <h5 style="float:left">Filter by Date:</h5>
                 <br>
@@ -107,13 +111,13 @@
               </div>
             </div>
 
-            <div class="container1" style ="font-family: 'cambria', sans-serif;" >
+            <div class="container1" >
               <button class="deleteButton" onclick="deleteTable()">Delete Transactions Table</button>
             </div>
         </div>
-          <div class="twothirds" style="height:70%;overflow:auto;">
+          <div class="twothirds" style="height:70%;overflow:auto;margin-top:10px;margin-left:-6%;">
             {{if transactions:}}
-              <table id="list" class="table1">
+              <table id="list">
                 <tr>
                   <th>Date</th>
                   <th>Price</th>
@@ -131,7 +135,7 @@
               </table>
             {{else:}}
               <center>
-                <div class="bodytext" style="font-family: 'cambria', sans-serif; font-size: 1em; margin-left: 0%; padding-top: 10%">
+                <div class="bodytext" class= "margin-left: 0%; padding-top: 10%">
                 <h4>
                   You have no transactions! Click the "Upload CSV File" button above to get started.
                 </h4>

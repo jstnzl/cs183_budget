@@ -25,11 +25,6 @@ a:not(.btn):not(.noeffect):after {
   margin-top: -50px;
 }
 
-.banner-text {
-  font-family: 'cambria';
-  color: black;
-}
-
 .label1 {
   background-color: #00D176;
   border: none;
@@ -40,20 +35,6 @@ a:not(.btn):not(.noeffect):after {
   display: inline-block;
   font-size: 16px;
   margin: 4px 2px;
-  cursor: pointer;
-  font-weight:bold;
-}
-
-.deleteButton {
-  margin-top: 15%;
-  background-color:red;
-  border: none;
-  color: white;
-  border-radius: 10px;
-  padding: 15px 15px;
-  text-align: center;
-  display: inline-block;
-  font-size: 16px;
   cursor: pointer;
   font-weight:bold;
 }
@@ -83,103 +64,16 @@ input[type="file"] {
   border: 1px solid #ddd;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 20px;
-  margin-top: 4px;
-  color:black;
-}
-
-#list{
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 18px;
-    border: 1px solid black;
-    table-layout: fixed;
-    background-color: white;
-}
-
-#list th, #list td {
-  text-align: left;
-  padding: 12px;
-  vertical-align: middle;
-}
-
-#list th:first-child {
-  text-align: left;
-  padding: 12px;
-  vertical-align: middle;
-  width: 140px;
-}
-
-#list th:nth-child(2) {
-  text-align: left;
-  padding: 12px;
-  vertical-align: middle;
-  width: 140px;
-}
-
-#list tr {
-  border: 0px;
-  border-top: 1px solid #808080;
-  background-color: #f2f2f2;
-}
-
-#list td:first-child{
-  border-right: 1px solid #808080;
-  text-align: center;
-}
-
-#list td:nth-child(2){
-  border-right: 1px solid #808080;
-  text-align: center;
-}
-
-#list th:first-child{
-  border-top: 1px solid #000;
-  border-right: 1px solid #000;
-  border-bottom: 2px solid #000;
-  text-align: center;
-}
-
-#list th:nth-child(2){
-  border-top: 1px solid #000;
-  border-right: 1px solid #000;
-  border-bottom: 2px solid #000;
-  text-align: center;
-}
-
-#list th:nth-child(3){
-  border-top: 1px solid #000;
-  border-bottom: 2px solid #000;
-}
-
-#list tr.header, #list tr:hover {
-  background-color: #f1f1f1;
-}
-
-#list tr:hover {background-color: #ddd;}
-
-#list th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #ec9586;
-    color: white;
+  border-radius: 0px;
+  height:43px;
+  margin-top:40px;
+  margin-bottom:-2px;
 }
 
 .flex-container {
     display: flex;
     flex-direction: row;
 }
-
-.container1 {
-  width:100%;
-  height: 150px;
-}
-
-.container>.quarter, .container>.half, .container>.third, .container>.twothirds, .container>.threequarters
-{display:inline-block; padding: 0 0 0 0; vertical-align:top}
-
 /*the container must be positioned relative:*/
 .custom-select {
   position: relative;
@@ -273,10 +167,7 @@ input[type="file"] {
   font-size: 25px;
   position: relative;
   font-family: "Helvetica Neue";
-
 }
-
-
 
 .motto {
    margin-left: 8%;
@@ -306,32 +197,15 @@ input[type="file"] {
 }
 
 .nav-item{
-  height: 30%;
-}
-
-.nav-item1{
-  height: 40%;
+  height: 13%;
 }
 
 .sidenav{
   margin-top: 6%;
-  margin-left: 23%;
-  width: 40%;
+  margin-left: 4%;
   background-color: white;
   border-radius: 5px;
-  height:150px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 30px;
-}
-
-.sidenav1{
-  margin-top: 6%;
-  margin-left: 23%;
-  width: 40%;
-  background-color: white;
-  border-radius: 5px;
-  height:200px;
+  height:500px;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 30px;
@@ -341,4 +215,12 @@ input[type="file"] {
   padding-left: 35px;
   padding-right: 15px;
   margin-right: 50px;
+}
+
+canvas{
+  margin-left: 20px;
+  padding: 20px;
+  background-color: white;
+  max-width: 1300px;
+  max-height: 650px;
 }
