@@ -3,7 +3,7 @@ function categories(){
   new Chart(document.getElementById("pieChart"), {
       type: 'pie',
       data: {
-        labels: ["Transportation", "Food", "Groceries", "Housing", "venmo", "Misc"],
+        labels: ["Transportation", "Food", "Groceries", "Housing", "Venmo", "Misc"],
         datasets: [{
           label: "Transactions split by category",
           backgroundColor: ["#e8c3b9", "#0066ff", "#8e5ea2", "#c45850", "#3e95cd", "#3cba9f"],
