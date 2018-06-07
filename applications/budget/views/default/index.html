@@ -23,7 +23,7 @@
     {{if auth.user is not None:}}
       <body>
         <div class="banner-container">
-          <div class="banner-text">
+          <div class="banner-text" style="font-family: 'cambria', sans-serif;">
             <h1><center>Your Transactions</center></h1>
           </div>
         </div>
@@ -38,7 +38,7 @@
               <button class="label1" onclick="refresh();" style="margin-left: 28%">Reset Filters</button>
             </div>
             <div class="container1">
-              <div class="dropdiv">
+              <div class="dropdiv" style="font-family: 'cambria', sans-serif;">
                 <h5>Filter by Price:</h5>
                 <div class="filterDropdown">
                   <select id="prices" onchange="filterPrice()" >
@@ -55,7 +55,7 @@
               </div>
             </div>
 
-            <div class="container1">
+            <div class="container1" style ="font-family: 'cambria', sans-serif;">
               <div class="dropdiv" style="padding-top: 10%;">
                 <h5 style="float:left">Filter by Date:</h5>
                 <br>
@@ -72,7 +72,7 @@
               </div>
             </div>
 
-            <div class="container1">
+            <div class="container1" style ="font-family: 'cambria', sans-serif;" >
               <button class="deleteButton" onclick="deleteTable()">Delete Transactions Table</button>
             </div>
         </div>
