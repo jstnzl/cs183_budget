@@ -77,7 +77,7 @@ input[type="file"] {
   background-repeat: no-repeat;
   background-position: 15px 50%;
   background-size: 15px 15px;
-  width: 80%;
+  width: 100%;
   font-size: 16px;
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
@@ -90,7 +90,7 @@ input[type="file"] {
 #list{
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 95%;
+    width: 100%;
     font-size: 18px;
     border: 1px solid black;
     table-layout: fixed;
