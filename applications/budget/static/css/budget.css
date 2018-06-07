@@ -77,7 +77,7 @@ input[type="file"] {
   background-repeat: no-repeat;
   background-position: 15px 50%;
   background-size: 15px 15px;
-  width: 100%;
+  width: 90%;
   font-size: 16px;
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;
@@ -85,6 +85,7 @@ input[type="file"] {
   margin-right: auto;
   margin-bottom: 20px;
   margin-top: 4px;
+  color:black;
 }
 
 #list{
@@ -178,8 +179,6 @@ input[type="file"] {
 
 .container>.quarter, .container>.half, .container>.third, .container>.twothirds, .container>.threequarters
 {display:inline-block; padding: 0 0 0 0; vertical-align:top}
-
-.container {margin-left: 10%; margin-right: 10%;}
 
 /*the container must be positioned relative:*/
 .custom-select {
@@ -307,12 +306,13 @@ input[type="file"] {
 }
 
 .nav-item{
-  height: 15.5%;
+  height: 13%;
 }
 
 .sidenav{
   margin-top: 6%;
-  margin-right: 6%;
+  margin-left: 3.6%;
+  margin-right: 1%;
   background-color: white;
   border-radius: 5px;
   height:500px;
@@ -328,7 +328,6 @@ input[type="file"] {
 }
 
 canvas{
-  margin-top: 20px;
   margin-left: 20px;
   padding: 20px;
   background-color: white;
