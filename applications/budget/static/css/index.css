@@ -51,6 +51,16 @@ body {
   }
 }
 
+.sidenav{
+  margin-top: 6%;
+  background-color: white;
+  border-radius: 5px;
+  height:500px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+}
+
 /* Sidebar navigation */
 .nav-sidebar {
   margin-right: -21px; /* 20px padding + 1px border */

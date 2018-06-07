@@ -14,7 +14,7 @@
   <link href="../static/css/stupid.css" rel="stylesheet">
   <link href="../static/css/budget.css" rel="stylesheet">
   <link href="../static/css/dropdown.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet"> -->
 </head>
 <title>Home</title>
 <!DOCTYPE html>
@@ -29,7 +29,42 @@
         </div>
         <div class="container" style="padding-top: 15px">
           <input type="text" id="entry" onkeyup="searchingWithFilter();" placeholder="Search for names.." title="Search" style="color:black;">
-          <div class="third" style="padding-left: 5%;">
+          <div class="third">
+            <nav class="col-md-2 sidenav" style="margin-right:10%">
+              <div class="sidebar-sticky">
+                <ul class="nav flex-column" style="padding: 60px;">
+                  <li class="nav-item">
+                    <a class="nav-link" value="daily" onclick="" >
+                      <span data-feather="calendar"></span>
+                      Upload CSV File
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link"  onclick="">
+                      Filter by Price:
+                    </a>
+                  </li>
+                  <li class="nav-item" >
+                    <a class="nav-link" value="yearly" onclick="">
+                      Filter by Date:
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" value="monthly" onclick="">
+                      Delete Transactions Table
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" value="weekly" onclick="">
+                      Reset Filters
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+
+
+
             <div class="flex-container" style="margin-top: 10%">
               <label class="label1">Upload CSV File
                 <input type="file" id="csvFileInput" size="60" onchange="handleFiles(this.files)"
@@ -78,7 +113,7 @@
         </div>
           <div class="twothirds" style="height:70%;overflow:auto;">
             {{if transactions:}}
-              <table id="list">
+              <table id="list" class="table1">
                 <tr>
                   <th>Date</th>
                   <th>Price</th>
