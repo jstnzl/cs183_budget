@@ -14,7 +14,6 @@
   <link href="../static/css/stupid.css" rel="stylesheet">
   <link href="../static/css/budget.css" rel="stylesheet">
   <link href="../static/css/dropdown.css" rel="stylesheet">
-  <!-- <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet"> -->
 </head>
 <title>Home</title>
 <!DOCTYPE html>
@@ -23,7 +22,7 @@
     {{if auth.user is not None:}}
       <body>
         <div class="banner-container">
-          <div class="banner-text" style="font-family: 'cambria', sans-serif;">
+          <div class="banner-text">
             <h1><center>Your Transactions</center></h1>
           </div>
         </div>
@@ -32,13 +31,25 @@
           <div class="third">
             <nav class="col-md-2 sidenav" style="margin-right:10%">
               <div class="sidebar-sticky">
-                <ul class="nav flex-column" style="padding: 60px;">
+                <ul class="nav flex-column" style="padding: 40px; padding-top: 50px;">
                   <li class="nav-item">
                     <a class="nav-link" value="daily" onclick="" >
                       <span data-feather="calendar"></span>
                       Upload CSV File
                     </a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link" value="monthly" onclick="">
+                      Delete Transactions Table
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+
+            <nav class="col-md-2 sidenav" style="margin-right:10%">
+              <div class="sidebar-sticky">
+                <ul class="nav flex-column" style="padding: 20px; padding-left:30px;">
                   <li class="nav-item">
                     <a class="nav-link"  onclick="">
                       Filter by Price:
@@ -49,21 +60,16 @@
                       Filter by Date:
                     </a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" value="monthly" onclick="">
-                      Delete Transactions Table
-                    </a>
-                  </li>
+
                   <li class="nav-item">
                     <a class="nav-link" value="weekly" onclick="">
                       Reset Filters
                     </a>
                   </li>
+
                 </ul>
               </div>
             </nav>
-
-
 
             <div class="flex-container" style="margin-top: 10%">
               <label class="label1">Upload CSV File
@@ -73,7 +79,7 @@
               <button class="label1" onclick="refresh();" style="margin-left: 28%;">Reset Filters</button>
             </div>
             <div class="container1">
-              <div class="dropdiv" style="font-family: 'cambria', sans-serif;">
+              <div class="dropdiv">
                 <h5>Filter by Price:</h5>
                 <div class="filterDropdown">
                   <select id="prices" onchange="filterPrice()" >
@@ -90,7 +96,7 @@
               </div>
             </div>
 
-            <div class="container1" style ="font-family: 'cambria', sans-serif;">
+            <div class="container1">
               <div class="dropdiv" style="padding-top: 10%;">
                 <h5 style="float:left">Filter by Date:</h5>
                 <br>
@@ -107,13 +113,13 @@
               </div>
             </div>
 
-            <div class="container1" style ="font-family: 'cambria', sans-serif;" >
+            <div class="container1" >
               <button class="deleteButton" onclick="deleteTable()">Delete Transactions Table</button>
             </div>
         </div>
           <div class="twothirds" style="height:70%;overflow:auto;">
             {{if transactions:}}
-              <table id="list" class="table1">
+              <table id="list" style="margin-top: 40px;">
                 <tr>
                   <th>Date</th>
                   <th>Price</th>
@@ -131,7 +137,7 @@
               </table>
             {{else:}}
               <center>
-                <div class="bodytext" style="font-family: 'cambria', sans-serif; font-size: 1em; margin-left: 0%; padding-top: 10%">
+                <div class="bodytext" class= "margin-left: 0%; padding-top: 10%">
                 <h4>
                   You have no transactions! Click the "Upload CSV File" button above to get started.
                 </h4>
