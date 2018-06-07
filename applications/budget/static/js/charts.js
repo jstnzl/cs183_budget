@@ -165,7 +165,7 @@ function return2() {
 function return3() {
   disableCharts();
   document.getElementById('weekly').style.display="";
-  document.getElementById('weekChart').style.display="";
+  document.getElementById('weeklyChart').style.display="";
   return x = "3";
 }
 
@@ -189,6 +189,13 @@ function return6() {
   return x = "6";
 }
 
+function return7() {
+  disableCharts();
+  document.getElementById('day').style.display="";
+  document.getElementById('dayChart').style.display="";
+  return x = "7";
+}
+
 function disableCharts() {
   document.getElementById('main').style.display="none";
   document.getElementById('monthlyFilter').style.display="none";
@@ -200,10 +207,12 @@ function disableCharts() {
   document.getElementById('dailyChart').style.display="none";
   document.getElementById('yearChart').style.display="none";
   document.getElementById('monthChart').style.display="none";
-  document.getElementById('weekChart').style.display="none";
+  document.getElementById('weeklyChart').style.display="none";
   document.getElementById('cmpChart').style.display="none";
   document.getElementById('pieChart').style.display="none";
   document.getElementById('searchPie').style.display="none";
+  document.getElementById('day').style.display="none";
+  document.getElementById('dayChart').style.display="none";
 }
 
 var count = 0;
@@ -221,6 +230,10 @@ function toggler () {
     getMonths("2018");
     monthly();
   }
+  else if (x == "3") {
+    console.log("weekly was pressed");
+    weekly();
+  }
   else if (x == "4") {
     console.log("4 was pressed");
     compare("2018", "2017");
@@ -236,6 +249,10 @@ function toggler () {
     }
     itemPercentage();
     count++;
+  }
+  else if (x == "7") {
+    console.log("day was pressed");
+    day();
   }
 }
 
