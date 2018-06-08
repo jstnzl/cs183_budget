@@ -77,7 +77,6 @@ function yearly () {
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',
                   'rgba(54, 162, 235, 0.2)',
-                  'rgba(255, 206, 86, 0.2)',
                   'rgba(75, 192, 192, 0.2)',
                   'rgba(153, 102, 255, 0.2)',
                   'rgba(255, 159, 64, 0.2)',
@@ -91,7 +90,6 @@ function yearly () {
               borderColor: [
                   'rgba(255,99,132,1)',
                   'rgba(54, 162, 235, 1)',
-                  'rgba(255, 206, 86, 1)',
                   'rgba(75, 192, 192, 1)',
                   'rgba(153, 102, 255, 1)',
                   'rgba(255, 159, 64, 1)',
@@ -214,6 +212,7 @@ function return5() {
   disableCharts();
   document.getElementById('pie').style.display="";
   document.getElementById('pieChart').style.display="";
+  document.getElementById('breakdown').style.display="";
   return x = "5";
 }
 
@@ -247,6 +246,7 @@ function disableCharts() {
   document.getElementById('searchPie').style.display="none";
   document.getElementById('day').style.display="none";
   document.getElementById('dayChart').style.display="none";
+  document.getElementById('breakdown').style.display="none";
 }
 
 var count = 0;
@@ -471,30 +471,33 @@ function getDaily() {
   for(var i = 0; i < dates.length; i++) {
     var d = new Date(dates[i]);
     var n = d.getDay();
-    if(prices[i] < 0) {
-      switch(n) {
-        case 1:
-          m += Math.abs(parseFloat(prices[i]).toFixed(2));
-          mc++;
-          break;
-        case 2:
-          t += Math.abs(parseFloat(prices[i]).toFixed(2));
-          tc++;
-          break;
-        case 3:
-          w += Math.abs(parseFloat(prices[i]).toFixed(2));
-          wc++;
-          break;
-        case 4:
-          th += Math.abs(parseFloat(prices[i]).toFixed(2));
-          thc++;
-          break;
-        case 5:
-          f += Math.abs(parseFloat(prices[i]).toFixed(2));
-          fc++;
-          break;
-        default:
-          break;
+    var y = d.getFullYear();
+    if(y == "2018"){
+      if(prices[i] < 0) {
+        switch(n) {
+          case 1:
+            m += Math.abs(parseFloat(prices[i]).toFixed(2));
+            mc++;
+            break;
+          case 2:
+            t += Math.abs(parseFloat(prices[i]).toFixed(2));
+            tc++;
+            break;
+          case 3:
+            w += Math.abs(parseFloat(prices[i]).toFixed(2));
+            wc++;
+            break;
+          case 4:
+            th += Math.abs(parseFloat(prices[i]).toFixed(2));
+            thc++;
+            break;
+          case 5:
+            f += Math.abs(parseFloat(prices[i]).toFixed(2));
+            fc++;
+            break;
+          default:
+            break;
+        }
       }
     }
   }

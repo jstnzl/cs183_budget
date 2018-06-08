@@ -1,3 +1,16 @@
+function displayMoney() {
+  var list = breakdown();
+  document.getElementById("m1").innerHTML = "$ "+list[0];
+  document.getElementById("m2").innerHTML = "$ "+list[1];
+  document.getElementById("m3").innerHTML = "$ "+list[2];
+  document.getElementById("m4").innerHTML = "$ "+list[3];
+  document.getElementById("m5").innerHTML = "$ "+list[4];
+  document.getElementById("m6").innerHTML = "$ "+list[5];
+  document.getElementById("m7").innerHTML = "$ "+list[6];
+}
+
+
+
 function categories(){
   var perc = getPercentages();
   new Chart(document.getElementById("pieChart"), {
@@ -53,31 +66,62 @@ function splitData(input) {
   return createList;
 }
 
+function breakdown() {
+  var total = getTotal();
+  var t = getPrices(transportation);
+  var r = getPrices(foodplaces);
+  var g = getPrices(grocery);
+  var h = housing();
+  var v = venmo();
+  //console.log(total);
+  var m = (total - t - r - g - h - v);
+  //console.log(m);
+  var mi = parseFloat(m).toFixed(2);
+  var prices = [t, r, g, h, v, mi, total];
+  console.log(prices);
+  return prices;
+}
 
 function getPercentages() {
   var total = getTotal();
-  var tram = (getPrices(transportation) / total * 100);
-  var a = parseFloat(tram).toFixed(2)
+
+  var t = getPrices(transportation);
+  var tram = (t / total * 100);
+  var a = parseFloat(tram).toFixed(2);
   console.log(tram);
-  var rest = getPrices(foodplaces)/ total * 100;
+
+  var r = getPrices(foodplaces);
+  var rest = r/ total * 100;
   var b = parseFloat(rest).toFixed(2)
   console.log(rest);
+
+  var g = getPrices(grocery);
   var groc = getPrices(grocery)/ total * 100;
   var c = parseFloat(groc).toFixed(2)
   console.log(groc);
-  var hous = housing() / total * 100;
+
+  var h = housing();
+  var hous = h / total * 100;
   var d = parseFloat(hous).toFixed(2)
   console.log(hous);
-  var venm = venmo()/ total * 100;
+
+  var v = venmo();
+  var venm = v/ total * 100;
   var e = parseFloat(venm).toFixed(2)
   console.log(venm);
+
+  m = total - (t+r+g+h+v);
   var misc = 100 - (tram + rest + groc + hous + venm);
-  var f = parseFloat(misc).toFixed(2)
+  var f = parseFloat(misc).toFixed(2);
+  var mi = parseFloat(m).toFixed(2);
   console.log(misc);
+
   var list = [a, b, c, d, e, f];
   console.log(list);
   return list;
 }
+
+
 
 function getPrices(input) {
   var data = splitData(input);

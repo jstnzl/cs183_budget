@@ -170,7 +170,7 @@ input[type="file"] {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #ec9586;
+    background-color: #00cca3;
     color: white;
 }
 
@@ -178,6 +178,7 @@ input[type="file"] {
     display: flex;
     margin-left: 10%;
     margin-right: 10%;
+    margin-top: 5%;
     flex-direction: row;
 }
 

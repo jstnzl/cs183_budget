@@ -84,7 +84,7 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" value="category" onclick="return5(); toggler(); categories();">
+                    <a class="nav-link" value="category" onclick="return5(); toggler(); categories(); displayMoney();">
                       <span data-feather="calendar"></span>
                       Categories
                     </a>
@@ -135,9 +135,9 @@
                   <div class="dropdiv" style="margin-left:10px">
                         <div class="filterDropdown">
                           <select id="selectCompYear1" onchange="compare()">
+                            <option value="2018"> 2018</option>
                             <option value="2017"> 2017</option>
                             <option value="2016"> 2016</option>
-                            <option value="2015"> 2015</option>
                           </select>
                         </div>
                   </div>
@@ -165,15 +165,74 @@
                 {{pass}}
               </table>
 
-              <div>
+              <div style="width:100%;">
                 <canvas class="my-4 w-100" id="weeklyChart" style="display:none"></canvas>
                 <canvas class="my-4 w-100" id="dayChart" style="display:none"></canvas>
                 <canvas class="my-4 w-100" id="dailyChart" style="display:none"></canvas>
                 <canvas class="my-4 w-100" id="yearChart" style="display:none"></canvas>
                 <canvas class="my-4 w-100" id="monthChart" style="display:none"></canvas>
                 <canvas class="my-4 w-100" id="cmpChart" style="display:none"></canvas>
-                <canvas class="my-4 w-100" id="pieChart" style="display:none"></canvas>
+                <!-- <canvas class="my-4 w-100" id="pieChart" style="display:none"></canvas> -->
                 <canvas class="my-4 w-100" id="searchPie" style="display:none"></canvas>
+
+                <div class="flex-container">
+                  <div class="twothirdscp">
+                    <canvas id="pieChart" style="height:50%; width:100%; display:none"></canvas>
+                  </div>
+                  <div class="third" id="breakdown" style="margin-left: 80px; margin-bottom: 30px;
+                  background-color:white; padding-top:5%; padding-left: 50px; display: none;">
+                    <table id="category" style="width:100%;">
+                      <tr>
+                        <td style="background-color: #e8c3b9; width=10%;"></td>
+                        <td>Transportation</td>
+                        <td id="m1"></td>
+                      </tr>
+                      <tr><td></td></tr>
+                      <tr><td></td></tr>
+                      <tr>
+                        <td style="background-color: #0066ff; width=10%;"></td>
+                        <td>Food</td>
+                        <td id="m2"></td>
+                      </tr>
+                      <tr><td></td></tr>
+                      <tr><td></td></tr>
+                      <tr>
+                        <td style="background-color: #8e5ea2; width=10%;"></td>
+                        <td>Groceries</td>
+                        <td id="m3"></td>
+                      </tr>
+                      <tr><td></td></tr>
+                      <tr><td></td></tr>
+                      <tr>
+                        <td style="background-color: #c45850; width=10%;"></td>
+                        <td>Housing</td>
+                        <td id="m4"></td>
+                      </tr>
+                      <tr><td></td></tr>
+                      <tr><td></td></tr>
+                      <tr>
+                        <td style="background-color: #3e95cd; width=10%;"></td>
+                        <td>Venmo</td>
+                        <td id="m5"></td>
+                      </tr>
+                      <tr><td></td></tr>
+                      <tr><td></td></tr>
+                      <tr>
+                        <td style="background-color: #3cba9f; width=10%;"></td>
+                        <td>Miscellaneous</td>
+                        <td id="m6"></td>
+                      </tr>
+                      <tr><td></td></tr>
+                      <tr><td></td></tr>
+                      <tr>
+                        <td></td>
+                        <td>Total</td>
+                        <td id="m7"></td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+
             </div>
 
             </main>
