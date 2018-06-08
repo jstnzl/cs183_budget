@@ -219,7 +219,8 @@ function return5() {
 function return6() {
   disableCharts();
   document.getElementById('searchPie').style.display="";
-  document.getElementById('percent').style.display="";
+  document.getElementById('searchPrice').style.display="";
+  document.getElementById('searchMsg').style.display="";
   return x = "6";
 }
 
@@ -249,6 +250,8 @@ function disableCharts() {
   document.getElementById('day').style.display="none";
   document.getElementById('dayChart').style.display="none";
   document.getElementById('breakdown').style.display="none";
+  document.getElementById('searchPrice').style.display="none";
+  document.getElementById('searchMsg').style.display="none";
 }
 
 var count = 0;
