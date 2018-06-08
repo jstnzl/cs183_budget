@@ -247,23 +247,27 @@ input[type="file"] {
 .sidenav{
   margin-top: 6%;
   width: 100%;
+  min-width: 280px;
   background-color: white;
   border-radius: 5px;
   height:150px;
   padding-top: 10px;
   padding-bottom: 10px;
-  padding-left: 30px;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .sidenav1{
   margin-top: 6%;
   width: 100%;
+  min-width: 280px;
   background-color: white;
   border-radius: 5px;
   height:200px;
   padding-top: 10px;
   padding-bottom: 10px;
-  padding-left: 30px;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .navrow {

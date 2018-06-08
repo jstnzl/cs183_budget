@@ -20,12 +20,11 @@
 
 .filterDropdown{
   float:right;
-	width: 50%;
+	width: 40%;
 	overflow: hidden;
 	background: no-repeat right #00cca3;;
   height: 40px;
   margin-top: -12px;
-  margin-right: 13px;
   position: relative;
 	-webkit-border-radius: 4px 4px 4px 4px;
 	 -moz-border-radius: 4px 4px 4px 4px;
@@ -48,13 +47,13 @@
 .filterDropdown:before {
     content: "";
     position: absolute;
-    right: 7px;
+    right: 7%;
     top: 17px;
   	width: 0;
   	height: 0;
-  	border-left: 10px solid transparent;
-  	border-right: 10px solid transparent;
-  	border-top: 10px solid #DCDCDC;
+  	border-left: 9px solid transparent;
+  	border-right: 9px solid transparent;
+  	border-top: 9px solid #DCDCDC;
     pointer-events: none;
 
 }
@@ -62,13 +61,13 @@
 .filterDropdown:after {
     content: "";
     position: absolute;
-    right: 7px;
+    right: 7%;
     top: 13px;
   	width: 0;
   	height: 0;
-  	border-left: 10px solid transparent;
-  	border-right: 10px solid transparent;
-  	border-top: 10px solid #00cca3;
+  	border-left: 9px solid transparent;
+  	border-right: 9px solid transparent;
+  	border-top: 9px solid #00cca3;
     pointer-events: none;
 }
 

@@ -26,13 +26,13 @@
          </div>
         <div class="container" style="padding-top: 15px">
           <input type="text" id="entry" onkeyup="searchingWithFilter();" placeholder="Search for names.." title="Search">
-          <div class="third" style="padding-top:4%;padding-left:7%;padding-right:10%;">
+          <div class="third" style="padding-top:4%;padding-left:5%;padding-right:10%;">
             <nav class="sidenav">
               <div>
                 <ul style="padding-left:5px; padding-top:25px;">
                   <li class="nav-item1">
                     <a class="nav-link">
-                      <label style="font-weight:400">Upload CSV File
+                      <label style="font-weight:400;cursor:pointer">Upload CSV File
                         <input type="file" id="csvFileInput" size="60" onchange="handleFiles(this.files)"
                             accept=".csv">
                       </label>
@@ -40,7 +40,7 @@
                   </li>
                   <li class="nav-item1">
                     <a class="nav-link" onclick="deleteTable()" style="color:red">
-                      Delete Transactions Table
+                      Delete Table
                     </a>
                   </li>
                 </ul>
@@ -55,7 +55,7 @@
                         Filter by Price:
                         <div class="filterDropdown">
                           <select id="prices" onchange="filterPrice()" >
-                            <option value="-1">Price range</option>
+                            <option value="-1">Range</option>
                             <option value="0"> Income</option>
                             <option value="1"> < $5</option>
                             <option value="2"> $5 to $10 </option>
@@ -72,7 +72,7 @@
                       Filter by Date:
                       <div class="filterDropdown">
                         <select id="dates" onchange="filterDate()" >
-                          <option value="-1">Date range</option>
+                          <option value="-1">Range</option>
                           <option value="1">Daily</option>
                           <option value="2">Weekly </option>
                           <option value="3">Monthly</option>
