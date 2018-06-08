@@ -120,23 +120,57 @@ function yearly () {
 
 function compare (year1, year2) {
   var ctx = document.getElementById('cmpChart').getContext('2d');
-    var y1 = getMonths(year1);
-    var y2 = getMonths(year2);
+  var x = document.getElementById("selectCompYear").value;
+  var y = document.getElementById("selectCompYear1").value;
+    var y1 = getMonths(x);
+    var y2 = getMonths(y);
     var myChart = new Chart(ctx, {
       type: 'line',
       data: {
         labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
         datasets: [{
-          label: year1,
+          label: x,
           data: y1,
           backgroundColor: "rgba(0,130,250,0.4)"
         }, {
-          label: year2,
+          label: y,
           data: y2,
           backgroundColor: "rgba(250,0,100,0.4)"
         }]
       }
     });
+}
+
+function selectCompYear1() {
+  var x = document.getElementById("selectCompYear").value;
+  if(x == "2018"){
+    getMonths("2018");
+    compare();
+  }
+  else if(x == "2017"){
+    getMonths("2017");
+    compare();
+  }
+  else if(x == "2016"){
+    getMonths("2016");
+    compare();
+  }
+}
+
+function selectCompYear1() {
+  var x = document.getElementById("selectCompYear1").value;
+  if(x == "2018"){
+    getMonths("2018");
+    compare();
+  }
+  else if(x == "2017"){
+    getMonths("2017");
+    compare();
+  }
+  else if(x == "2016"){
+    getMonths("2016");
+    compare();
+  }
 }
 
 var x = "";
@@ -343,21 +377,6 @@ function selectYear() {
   }
 }
 
-function selectCompYear() {
-  var x = document.getElementById("selectCompYear").value;
-  if(x == "2018"){
-    getMonths("2018");
-    compare();
-  }
-  else if(x == "2017"){
-    getMonths("2017");
-    compare();
-  }
-  else if(x == "2016"){
-    getMonths("2016");
-    compare();
-  }
-}
 var years = [];
 function getYears() {
   var table = document.getElementById("list");
