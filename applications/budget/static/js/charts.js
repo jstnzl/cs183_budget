@@ -220,7 +220,7 @@ function return6() {
   disableCharts();
   document.getElementById('searchPie').style.display="";
   document.getElementById('searchPrice').style.display="";
-  document.getElementById('searchMsg').style.display="";
+  document.getElementById('percent').style.display="";
   return x = "6";
 }
 
@@ -251,10 +251,8 @@ function disableCharts() {
   document.getElementById('dayChart').style.display="none";
   document.getElementById('breakdown').style.display="none";
   document.getElementById('searchPrice').style.display="none";
-  document.getElementById('searchMsg').style.display="none";
 }
 
-var count = 0;
 function toggler () {
   if(x == "0"){
     console.log("all time was pressed");
@@ -283,12 +281,8 @@ function toggler () {
   }
   else if (x == "6") {
     console.log("6 was pressed");
-    if(window.searchPie != null && count > 0){
-      window.searchPie.destroy();
-    }
     itemPercentage();
     itemPrice();
-    count++;
   }
   else if (x == "7") {
     console.log("day was pressed");
