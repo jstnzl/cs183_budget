@@ -343,6 +343,21 @@ function selectYear() {
   }
 }
 
+function selectCompYear() {
+  var x = document.getElementById("selectCompYear").value;
+  if(x == "2018"){
+    getMonths("2018");
+    compare();
+  }
+  else if(x == "2017"){
+    getMonths("2017");
+    compare();
+  }
+  else if(x == "2016"){
+    getMonths("2016");
+    compare();
+  }
+}
 var years = [];
 function getYears() {
   var table = document.getElementById("list");
