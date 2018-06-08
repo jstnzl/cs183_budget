@@ -284,18 +284,18 @@ input[type="file"] {
 
 .landinglogo{
   position: absolute;
-  margin-left: 10%;
+  margin-left: 12%;
   margin-top: 5%;
 }
 
 .landinginfo {
   position: absolute;
   line-height: 2.4;
-  font-size: 30px;
+  font-size: 40px;
   font-family:  AvantGardeBook,Helvetica;
   font-weight: 100;
-  margin-left: 15%;
-  margin-top: 5%;
+  margin-left: 13%;
+  margin-top: 4%;
 }
 
 .signuphere {
