@@ -177,26 +177,25 @@ canvas{
   margin-left: 35%;
 }
 
-.landinglogo{
-  position: absolute;
-  margin-left: 12%;
-  margin-top: 5%;
-}
-
 .landinginfo {
-  position: absolute;
   line-height: 2.4;
   font-size: 40px;
-  font-family:  AvantGardeBook,Helvetica;
-  font-weight: 100;
-  margin-left: 13%;
-  margin-top: 4%;
+  font-weight: 450;
+  margin-left: 16%;
+  margin-top: 8.5%;
+}
+
+.landinglogo {
+  margin-left:20%;
+  height: auto;
+  width: auto;
+  margin-top: 8.5%;
 }
 
 .signuphere {
   font-weight: normal;
   font-size: 20px;
-  margin-left: 12%;
+  margin-left: 1%;
 }
 
 .landingquote {
@@ -208,8 +207,8 @@ canvas{
   font-size: 25px;
   position: relative;
   font-family: "Helvetica Neue";
-}
 
+}
 .smallCategory {
   margin-left:6%;
   margin-top: 5%;
