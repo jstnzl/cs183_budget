@@ -219,6 +219,7 @@ function return5() {
 function return6() {
   disableCharts();
   document.getElementById('searchPie').style.display="";
+  document.getElementById('percent').style.display="";
   return x = "6";
 }
 
@@ -244,6 +245,7 @@ function disableCharts() {
   document.getElementById('cmpChart').style.display="none";
   document.getElementById('pieChart').style.display="none";
   document.getElementById('searchPie').style.display="none";
+  document.getElementById('percent').style.display="none";
   document.getElementById('day').style.display="none";
   document.getElementById('dayChart').style.display="none";
   document.getElementById('breakdown').style.display="none";
@@ -282,6 +284,7 @@ function toggler () {
       window.searchPie.destroy();
     }
     itemPercentage();
+    itemPrice();
     count++;
   }
   else if (x == "7") {
@@ -423,16 +426,23 @@ function fridays() {
   var f = 0;
   for (var i = 0; i < dates.length; i++) {
     var d = new Date(dates[i]);
+    var m = d.getMonth() + 1;
+    var y = d.getFullYear();
     var wd = d.getDay();
     var day = d.getDate();
-    if(day < 30) {
-      if(!everyF.includes((day + (5 - wd)))){
-        everyF.push((day + (5 - wd)));
-        weeks.push("Week: " +  f++);
+    if(day) {
+      var s = (day + (5 - wd));
+      if(!everyF.includes(s)){
+        everyF.push(s);
+        weeks.push("Week: " +  m + "/" + s + "/" + y);
       }
     }
   }
+  console.log(everyF);
+  console.log(weeks);
 }
+
+// weeks.push("Week: " +  mo + "/" + wd + "/" + y);
 var weeks = [];
 function getWeekly() {
   fridays();
@@ -450,16 +460,16 @@ function getWeekly() {
       }
     }
     else{
-      weekly.push(parseFloat(amt).toFixed(2))
-      f++;
-
       if(prices[i] < 0){
+        weekly.push(parseFloat(amt).toFixed(2))
+        f++;
         //weeks.push("Week: " +  f);
         amt = 0;
         amt += Math.abs(parseFloat(prices[i]).toFixed(2));
       }
     }
   }
+  console.log(weekly);
   return weekly;
 }
 

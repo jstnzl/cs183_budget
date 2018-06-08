@@ -39,7 +39,7 @@
             <h1><center>Statistics</center></h1>
           </div>
         </div>
-        <input id="entry" title="Search" onkeyup="return6(); toggler();" class="form-control form-control-dark w-100"
+        <input id="entry" title="Search" onkeyup="return6(); toggler(); itemPrice();" class="form-control form-control-dark w-100"
         type="text" placeholder="Search data.." aria-label="Search" onblur="this.value=''">
 
         <div class="container-fluid">
@@ -173,7 +173,19 @@
                 <canvas class="my-4 w-100" id="monthChart" style="display:none"></canvas>
                 <canvas class="my-4 w-100" id="cmpChart" style="display:none"></canvas>
                 <!--<canvas class="my-4 w-100" id="pieChart" style="display:none"></canvas> -->
-                <canvas class="my-4 w-100" id="searchPie" style="display:none"></canvas>
+                <!-- style="display:none" -->
+
+                <div class="flex-container">
+                  <div class="twothirdscp">
+                    <h1 id="percent"class="h2" style="margin-left: 20px; display: none;">Percentage Spent on Searched Item</h1>
+                    <canvas id="searchPie" style="height:100%; weight: 100%; display:none"></canvas>
+                  </div>
+                  <div style="background-color: white;" class="third">
+                    <font size="7" id="item"></font>
+                  </div>
+
+                </div>
+
 
                 <div class="flex-container">
                   <div class="twothirdscp">

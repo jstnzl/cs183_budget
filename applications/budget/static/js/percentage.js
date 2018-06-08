@@ -1,3 +1,10 @@
+function itemPrice() {
+  var itemSelect= getItemTotal();
+  console.log(itemSelect);
+  document.getElementById("item").innerHTML = "$ "+ itemSelect;
+
+}
+
 function itemPercentage() {
   var item = findPercent();
   var input = document.getElementById("entry");
@@ -76,7 +83,6 @@ function getItemTotal() {
       }
     }
   }
-  console.log(itemTotal.toFixed(2));
   return parseFloat(itemTotal).toFixed(2);
 }
 
