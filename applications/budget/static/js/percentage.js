@@ -6,14 +6,16 @@ function itemPrice() {
 }
 
 var count = 0;
+var searchChart;
 function itemPercentage() {
   var item = findPercent();
   var input = document.getElementById("entry");
   var filter = input.value.toUpperCase();
-  if(window.searchPie != null && count > 0){
-    window.searchPie.destroy();
+  if(searchChart){
+    searchChart.labels = [filter, 'Everything Else'];
+    searchChart.data = [item, 100-item];
   }
-  window.searchPie = new Chart(document.getElementById("searchPie"), {
+  searchChart = new Chart(document.getElementById("searchPie"), {
       type: 'pie',
       data: {
         labels: [filter, 'Everything Else'],

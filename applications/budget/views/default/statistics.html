@@ -39,7 +39,7 @@
             <h1><center>Statistics</center></h1>
           </div>
         </div>
-        <input id="entry" title="Search" onkeyup="return6(); toggler(); itemPrice();" class="form-control form-control-dark w-100"
+        <input id="entry" title="Search" onkeyup="return6(); toggler();" class="form-control form-control-dark w-100"
         type="text" placeholder="Search data.." aria-label="Search" onblur="this.value=''">
 
         <div class="container-fluid">
@@ -179,7 +179,7 @@
                 <!-- style="display:none" -->
 
                 <div class="flex-container">
-                  <div class="twothirdscp">
+                  <div class="twothirdscp" id="searchContainer">
                     <h1 id="percent"class="h2" style="margin-left: 20px; display: none;">Percentage Spent on Searched Item</h1>
                     <canvas id="searchPie" style="height:100%; width: 100%; display:none"></canvas>
                   </div>
