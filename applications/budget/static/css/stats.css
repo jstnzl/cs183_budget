@@ -175,54 +175,21 @@ canvas{
   font-family: Georgia, serif;
   font-size: 50px;
   margin-left: 35%;
-  
-}
 
-/* .landinglogo{
-  position: absolute;
-  margin-left: 12%;
-  margin-top: 5%;
-} */
+}
 
 .landinginfo {
   line-height: 2.4;
   font-size: 40px;
   font-weight: 450;
-  margin-left: 20%;
-}
-
-.landinglogo {
-  margin-left:5%;
-  height: auto;
-  width: auto;
-  margin-top: 4%;
-  margin:auto;
+  margin-left: 2%;
 }
 
 .signuphere {
   font-weight: normal;
   font-size: 20px;
   margin-left: 2%;
-}
-
-.landingquote {
-  text-align: center;
-  line-height: 2.2;
-  width: 100%;
-  padding-bottom: 35%;
-  height: 10%;
-  font-size: 25px;
-  position: relative;
-  font-family: "Helvetica Neue";
-
-}
-
-.landing-container {
-    display: flex;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 5%;
-    flex-direction: row;
+  margin-top:7%;
 }
 
 .smallCategory {
@@ -256,4 +223,12 @@ canvas{
   padding-top: 5%;
   text-align:center;
   border-radius: 5px;
+}
+
+.flex-container1 {
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+    flex-direction: row;
 }
