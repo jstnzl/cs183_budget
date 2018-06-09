@@ -24,7 +24,6 @@ def index():
         return dict(transactions=transactions)
     else:
         transactions = db().select(db.transactions.ALL, orderby=~db.transactions.date_made)
-        print transactions
         return dict(transactions=transactions)
 
 def statistics():
