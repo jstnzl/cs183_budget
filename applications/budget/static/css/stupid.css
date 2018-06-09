@@ -382,6 +382,7 @@ a:not(.btn):not(.noeffect):after {
 }
 
 .main_content{
-  background-image: linear-gradient(to right top, #e1fffa, #b8f2e7, #8ee4d3, #5fd6be, #09c8a7);
+  /* background-image: linear-gradient(to right top, #e1fffa, #b8f2e7, #8ee4d3, #5fd6be, #09c8a7); */
+  background-color: light-gray;
   min-height: 100%;
 }

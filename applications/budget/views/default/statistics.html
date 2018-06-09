@@ -36,15 +36,15 @@
       <body>
         <div class="banner-container">
           <div>
-            <h1><center>Statistics</center></h1>
+            <h1 style="font-family: Geneva; letter-spacing: 3px; color: black;"><center>Statistics</center></h1>
           </div>
         </div>
         <input id="entry" title="Search" onkeyup="return6(); toggler(); itemPrice();" class="form-control form-control-dark w-100"
-        type="text" placeholder="Search data.." aria-label="Search" onblur="this.value=''">
+        type="text" placeholder="Search data.." aria-label="Search" onblur="this.value=''"style="border: 1px solid black;">
 
         <div class="container-fluid">
           <div class="navrow">
-            <nav class="col-md-2 sidenav">
+            <nav class="col-md-2 sidenav" style="border: 1px solid black;">
               <div class="sidebar-sticky">
                 <ul class="nav flex-column">
                   <li class="nav-item">
@@ -95,7 +95,7 @@
 
             <main role="main" class="col-md-9" style="margin-left:1.5%">
               <div id="main">
-                <h2 style="margin-top: 20%;margin-left:10%"><center>
+                <h2 style="margin-top: 20%;margin-left:10%; color: #126e7a;"><center>
                   Click an item in the sidebar to view a graph!
                 </center></h2>
               </div>
@@ -169,22 +169,22 @@
               </table>
 
               <div style="width:100%;">
-                <canvas class="my-4 w-100" id="weeklyChart" style="display:none"></canvas>
-                <canvas class="my-4 w-100" id="dayChart" style="display:none"></canvas>
-                <canvas class="my-4 w-100" id="dailyChart" style="display:none"></canvas>
-                <canvas class="my-4 w-100" id="yearChart" style="display:none"></canvas>
-                <canvas class="my-4 w-100" id="monthChart" style="display:none"></canvas>
-                <canvas class="my-4 w-100" id="cmpChart" style="display:none"></canvas>
+                <canvas class="my-4 w-100" id="weeklyChart" style="display:none; border: 1px solid black;"></canvas>
+                <canvas class="my-4 w-100" id="dayChart" style="display:none; border: 1px solid black;"></canvas>
+                <canvas class="my-4 w-100" id="dailyChart" style="display:none; border: 1px solid black;"></canvas>
+                <canvas class="my-4 w-100" id="yearChart" style="display:none;border: 1px solid black;"></canvas>
+                <canvas class="my-4 w-100" id="monthChart" style="display:none;border: 1px solid black;"></canvas>
+                <canvas class="my-4 w-100" id="cmpChart" style="display:none;border: 1px solid black;"></canvas>
                 <!--<canvas class="my-4 w-100" id="pieChart" style="display:none"></canvas> -->
                 <!-- style="display:none" -->
 
                 <div class="flex-container">
                   <div class="twothirdscp">
                     <h1 id="percent"class="h2" style="margin-left: 20px; display: none;">Percentage Spent on Searched Item</h1>
-                    <canvas id="searchPie" style="height:100%; width: 100%; display:none"></canvas>
+                    <canvas id="searchPie" style="border: 1px solid black; height:100%; width: 100%; display:none"></canvas>
                   </div>
                   <div class="third">
-                    <div class="searchThird" id="searchPrice" style="display:none">
+                    <div class="searchThird" id="searchPrice" style="border: 1px solid black; display:none">
                       <h4>Amount Spent:</h4><br>
                       <font size="7" id="item"></font>
                     </div>
@@ -194,10 +194,10 @@
 
                 <div class="flex-container">
                   <div class="twothirdscp">
-                    <canvas id="pieChart" style="height:100%; width:100%; display:none"></canvas>
+                    <canvas id="pieChart" style="height:100%; width:100%; display:none; border: 1px solid black;"></canvas>
                   </div>
                   <div class="third">
-                    <div class="categoryThird" id="breakdown" style="display:none">
+                    <div class="categoryThird" id="breakdown" style="border: 1px solid black; display:none;">
                     <table id="category" style="width:100%;">
                       <tr>
                         <td style="background-color: #e8c3b9; width=10%;"></td>

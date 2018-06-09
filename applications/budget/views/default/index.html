@@ -18,16 +18,16 @@
 <title>Home</title>
 <!DOCTYPE html>
 <html>
-  <div class="main_content">
+  <div class="main_content" style="color: white;">
     {{if auth.user is not None:}}
       <body>
         <div class="banner-container">
-            <h1><center>Your Transactions</center></h1>
+            <h1 style="font-family: Geneva; letter-spacing: 3px; color: black;"><center>Posted Transactions</center></h1>
          </div>
         <div class="container" style="padding-top: 15px">
           <input type="text" id="entry" onkeyup="searchingWithFilter();" placeholder="Search for names.." title="Search">
           <div class="third" style="padding-top:4%;padding-left:5%;padding-right:10%;">
-            <nav class="sidenav">
+            <nav class="sidenav" style="border: 1px solid black;">
               <div>
                 <ul style="padding-left:5px; padding-top:25px;">
                   <li class="nav-item1">
@@ -47,13 +47,13 @@
               </div>
             </nav>
 
-            <nav class="sidenav1">
+            <nav class="sidenav1" style="border: 1px solid black;">
               <div>
                 <ul style="padding-left: 7px; padding-top: 20px;">
                   <li class="nav-item">
                     <a class="nav-link">
                         Filter by Price:
-                        <div class="filterDropdown">
+                        <div class="filterDropdown" style="background-color: #41CDCA">
                           <select id="prices" onchange="filterPrice()" >
                             <option value="-1">Range</option>
                             <option value="0"> Income</option>
@@ -112,7 +112,7 @@
             {{else:}}
               <center>
                 <div class="bodytext" class= "margin-left: 0%; padding-top: 10%">
-                <h4>
+                <h4 style="color: #126e7a;">
                   You have no transactions! Click the "Upload CSV File" button above to get started.
                 </h4>
               </div>
@@ -121,7 +121,7 @@
           </div>
         </div>
           {{else:}}
-          <h1><center>Welcome to Budget Tracker!</center></h1>
+          <h1 style="color:black"><center>Welcome to Budget Tracker!</center></h1>
           <div class="flex-container">
             <div class="half">
               <div class="landinglogo">
@@ -129,7 +129,7 @@
               </div>
             </div>
             <div class="half" style="margin:auto; display:block;">
-              <div class="landinginfo">
+              <div class="landinginfo" style="color:black">
                 <i>Manage your Expenses</i>
                 <br>
                 <i>View your Purchase History</i>
