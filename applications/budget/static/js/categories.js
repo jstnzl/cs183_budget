@@ -78,7 +78,7 @@ function breakdown() {
   //console.log(m);
   var mi = parseFloat(m).toFixed(2);
   var prices = [t, r, g, h, v, mi, total];
-  console.log(prices);
+  //console.log(prices);
   return prices;
 }
 
@@ -88,36 +88,36 @@ function getPercentages() {
   var t = getPrices(transportation);
   var tram = (t / total * 100);
   var a = parseFloat(tram).toFixed(2);
-  console.log(tram);
+  //console.log(tram);
 
   var r = getPrices(foodplaces);
   var rest = r/ total * 100;
   var b = parseFloat(rest).toFixed(2)
-  console.log(rest);
+  //console.log(rest);
 
   var g = getPrices(grocery);
   var groc = getPrices(grocery)/ total * 100;
   var c = parseFloat(groc).toFixed(2)
-  console.log(groc);
+  //console.log(groc);
 
   var h = housing();
   var hous = h / total * 100;
   var d = parseFloat(hous).toFixed(2)
-  console.log(hous);
+  //console.log(hous);
 
   var v = venmo();
   var venm = v/ total * 100;
   var e = parseFloat(venm).toFixed(2)
-  console.log(venm);
+  //console.log(venm);
 
   m = total - (t+r+g+h+v);
   var misc = 100 - (tram + rest + groc + hous + venm);
   var f = parseFloat(misc).toFixed(2);
   var mi = parseFloat(m).toFixed(2);
-  console.log(misc);
+  //console.log(misc);
 
   var list = [a, b, c, d, e, f];
-  console.log(list);
+  //console.log(list);
   return list;
 }
 
