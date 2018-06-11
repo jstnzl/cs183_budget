@@ -71,7 +71,7 @@ function yearly () {
       data: {
           labels: years,
           datasets: [{
-              label: 'Amount of money spent per month',
+              label: 'Amount of money spent per year',
               data: annual,
 
               backgroundColor: [
@@ -508,7 +508,7 @@ function getDaily() {
       }
     }
   }
-  var list = [m/mc, t/tc, w/wc, th/thc, f/fc];
+  var list = [(m/mc).toFixed(2), (t/tc).toFixed(2), (w/wc).toFixed(2), (th/thc).toFixed(2), (f/fc).toFixed(2)];
   return list;
 }
 
